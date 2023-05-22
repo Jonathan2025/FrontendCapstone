@@ -3,6 +3,7 @@ import {Routes, Route} from 'react-router-dom'
 
 import IndexPost from '../pages/PostPages/IndexPost'
 import ShowPost from '../pages/PostPages/ShowPost'
+import EditPost from '../pages/PostPages/EditPost'
 const Main = (props) => {
 
     const [posts, setPosts] = useState([])
@@ -14,8 +15,21 @@ const Main = (props) => {
         const data = await response.json()
         console.log(data)
         setPosts(data)
-      
     }
+
+    // UPDATE POST - request to edit a post 
+    const updatePost = async (post, id) => {
+        await fetch(URL + id + '/update', {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(post),
+        });
+        //update list of posts
+        getPosts();
+    }
+
 
 
 
@@ -28,17 +42,10 @@ const Main = (props) => {
     return (
         <main>
             <Routes>
-                {/* {posts.length > 0 && (
-                    <>
-                        <Route path="/api/posts" element={<IndexPost posts={posts} />} />
-                        <Route path="/api/posts/:id" element={<ShowPost posts={posts} />} />
-                    </>
-                )} */}
-
-             
                     <Route path="/api/posts" element={<IndexPost posts={posts} />} />
                     <Route path="/api/posts/:id" element={<ShowPost posts={posts} />} />
-          
+                    <Route path="/api/posts/:id/update" element={<EditPost posts={posts} updatePost={updatePost} />} />
+
             </Routes>
         </main>
     )
