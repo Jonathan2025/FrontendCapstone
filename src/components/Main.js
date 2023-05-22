@@ -30,6 +30,15 @@ const Main = (props) => {
         getPosts();
     }
 
+    // DELETE POST - request to delete a post 
+    const deletePost = async (id) => {
+        await fetch(URL + id + '/delete', {
+            method: 'DELETE',
+        });
+        //update list of posts
+        getPosts();
+    };
+
 
 
 
@@ -43,9 +52,10 @@ const Main = (props) => {
         <main>
             <Routes>
                     <Route path="/api/posts" element={<IndexPost posts={posts} />} />
-                    <Route path="/api/posts/:id" element={<ShowPost posts={posts} />} />
+                    <Route path="/api/posts/:id" element={<ShowPost posts={posts} deletePost={deletePost}/>} />
                     <Route path="/api/posts/:id/update" element={<EditPost posts={posts} updatePost={updatePost} />} />
-
+                   
+                    
             </Routes>
         </main>
     )

@@ -18,6 +18,15 @@ const ShowPost = (props) => {
         navigate(`/api/posts/${post.id}/update`, {state:{post}}) // now when we access the edit form we want to pass the specific post that is being edited
     }
 
+    //handling for delete
+    const removePost = (e) => {
+        e.preventDefault()
+        props.deletePost(post.id);
+        navigate("/api/posts");
+    }
+
+
+
     return (
         <div>
             <h1>{post.title}</h1>
@@ -27,7 +36,7 @@ const ShowPost = (props) => {
 
             <div className="editDltButtons">
               <button className='editBtn' onClick={editForm}>Edit Post</button>
-              {/* <button className='deleteBtn' onClick = {removeFund}>Delete Fund</button> */}
+              <button className='deleteBtn' onClick = {removePost}>Delete Post</button>
             </div>
 
 

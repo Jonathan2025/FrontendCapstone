@@ -6,7 +6,6 @@ const EditPost = (props) => {
     const post = location.state.post //in showPost.js we passed in the state:post so we can get the specific post being edited in less code
     const navigate = useNavigate()
 
-    // state for the edit form 
     const [editForm, setEditForm] = useState(post)
 
     const handleChange = (event) => {
