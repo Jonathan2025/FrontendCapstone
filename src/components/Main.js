@@ -1,5 +1,10 @@
 import React, {useState, useEffect} from 'react'
 import {Routes, Route} from 'react-router-dom'
+ 
+import HomePage from '../pages/HomePage'
+import LoginPage from '../pages/Authentication/LoginPage'
+
+
 
 import IndexPost from '../pages/PostPages/IndexPost'
 import ShowPost from '../pages/PostPages/ShowPost'
@@ -126,6 +131,9 @@ const Main = (props) => {
     return (
         <main>
             <Routes>
+
+                    <Route path="/api/home" element={<HomePage/>} />
+                    <Route path="/api/login" element={<LoginPage/>} />
                     <Route path="/api/posts" element={<IndexPost posts={posts} />} />
                     <Route path="/api/posts/:id" element={<ShowPost posts={posts} deletePost={deletePost}/>} />
                     <Route path="/api/posts/:id/update" element={<EditPost posts={posts} updatePost={updatePost} />} />
