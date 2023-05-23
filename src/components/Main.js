@@ -9,6 +9,7 @@ import CreatePost from '../pages/PostPages/CreatePost'
 import IndexUserProfile from '../pages/UserProfilePages/IndexUser'
 import ShowUserProfile from '../pages/UserProfilePages/ShowUser'
 import CreateUserProfile from '../pages/UserProfilePages/CreateUser'
+import EditUserProfile from '../pages/UserProfilePages/EditUser'
 
 const Main = (props) => {
 
@@ -126,7 +127,7 @@ const Main = (props) => {
                     <Route path="/api/userProfiles" element={<IndexUserProfile userProfiles={userProfiles} />} />
                     <Route path="/api/userProfiles/:id" element={<ShowUserProfile userProfiles={userProfiles} />} />
                     <Route path="/api/userProfiles/create" element={<CreateUserProfile userProfiles={userProfiles} createUserProfile={createUserProfile}/>} />
-                    <Route path="/api/userProfiles/:id/update" element={<EditUserProfile userProfiles={userProfiles} updatePost={updatePost} />} />
+                    <Route path="/api/userProfiles/:id/update" element={<EditUserProfile userProfiles={userProfiles} updateUserProfile={updateUserProfile} />} />
             </Routes>
         </main>
     )

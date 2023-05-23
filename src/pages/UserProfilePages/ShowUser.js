@@ -11,7 +11,10 @@ const ShowUserProfile = (props) => {
     console.log("this is the userprofile", userProfile)
 
 
-
+    //linking edit btn to edit route
+    const editForm = (e) => {
+        navigate(`/api/userProfiles/${userProfile.id}/update`, {state:{userProfile}}) // now when we access the edit form we want to pass the specific userprofile that is being edited
+    }
 
     return (
         <div>
@@ -26,7 +29,10 @@ const ShowUserProfile = (props) => {
             <p>{userProfile.username}</p>
 
 
-  
+            <div className="editDltButtons">
+              <button className='editBtn' onClick={editForm}>Edit Post</button>
+              {/* <button className='deleteBtn' onClick = {removePost}>Delete Post</button> */}
+            </div>
 
 
         </div>
