@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from 'react'
 import {Routes, Route} from 'react-router-dom'
- 
+
 import HomePage from '../pages/HomePage'
 import LoginPage from '../pages/Authentication/LoginPage'
-
+import RequireAuth from '../utils/RequireAuth'
 
 
 import IndexPost from '../pages/PostPages/IndexPost'
@@ -132,7 +132,7 @@ const Main = (props) => {
         <main>
             <Routes>
 
-                    <Route path="/api/home" element={<HomePage/>} />
+                    <Route path="/api/home" element={<RequireAuth><HomePage/></RequireAuth>} />
                     <Route path="/api/login" element={<LoginPage/>} />
                     <Route path="/api/posts" element={<IndexPost posts={posts} />} />
                     <Route path="/api/posts/:id" element={<ShowPost posts={posts} deletePost={deletePost}/>} />
