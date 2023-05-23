@@ -16,7 +16,6 @@ const ShowUserProfile = (props) => {
     return (
         <div>
             <h1>{userProfile.first_name + ' ' + userProfile.last_name}</h1>
-            <p>{userProfile.__str__}</p>
             <p>{userProfile.beltLevel}</p>
             <p>{userProfile.userDesc}</p>
             <p>{userProfile.martialArt}</p>

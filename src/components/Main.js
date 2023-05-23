@@ -8,6 +8,7 @@ import CreatePost from '../pages/PostPages/CreatePost'
 
 import IndexUserProfile from '../pages/UserProfilePages/IndexUser'
 import ShowUserProfile from '../pages/UserProfilePages/ShowUser'
+import CreateUserProfile from '../pages/UserProfilePages/CreateUser'
 
 const Main = (props) => {
 
@@ -22,7 +23,7 @@ const Main = (props) => {
         setPosts(data)
     }
 
-    // UPDATE POST - request to edit a post 
+    // Create POST - request to create a post 
     const createPost = async (post) => {
         await fetch(POST_URL + 'create', {
             method: 'POST',
@@ -68,14 +69,44 @@ const Main = (props) => {
     const [userProfiles, setUserprofiles] = useState([])
     const userProfileURL = process.env.REACT_APP_USERPROFILES_BACKEND_URL
 
-    console.log(userProfileURL)
      //Making an api call to the POSTs backend URL
      const getUserProfiles = async () =>{
         const response = await fetch(userProfileURL)
         const data = await response.json()
-        console.log("These are the userprofiles", data)
         setUserprofiles(data)
     }
+
+
+    // Create POST - request to create a user profile 
+    const createUserProfile = async (userProfile) => {
+        await fetch(userProfileURL + 'create', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(userProfile),
+        })
+        //update list of profiles
+        getUserProfiles()
+    }
+
+
+
+    //Update Profiles - request to update a user profile
+    const updateUserProfile = async (userProfile, id) => {
+        await fetch(userProfileURL + id + '/update', {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(userProfile),
+        })
+        getUserProfiles()
+    }
+
+
+
+
 
     useEffect(() => {
         getUserProfiles()
@@ -94,7 +125,8 @@ const Main = (props) => {
 
                     <Route path="/api/userProfiles" element={<IndexUserProfile userProfiles={userProfiles} />} />
                     <Route path="/api/userProfiles/:id" element={<ShowUserProfile userProfiles={userProfiles} />} />
-
+                    <Route path="/api/userProfiles/create" element={<CreateUserProfile userProfiles={userProfiles} createUserProfile={createUserProfile}/>} />
+                    <Route path="/api/userProfiles/:id/update" element={<EditUserProfile userProfiles={userProfiles} updatePost={updatePost} />} />
             </Routes>
         </main>
     )

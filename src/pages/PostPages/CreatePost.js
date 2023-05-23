@@ -80,7 +80,7 @@ const CreatePost = (props) => {
                 required
                 /><br/>
              
-            <input className="createFundBtn" type="submit" value="Create Fund" />
+            <input className="createBtn" type="submit" value="Create Fund" />
           </form>
         </div>
  
@@ -88,3 +88,4 @@ const CreatePost = (props) => {
 }
 
 export default CreatePost
+
