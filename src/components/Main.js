@@ -105,7 +105,14 @@ const Main = (props) => {
         getUserProfiles()
     }
 
-
+    // DELETE user profile - request to delete a user profile
+    const deleteUserprofile = async (id) => {
+        await fetch(userProfileURL + id + '/delete', {
+            method: 'DELETE',
+        })
+        //update list of posts
+        getUserProfiles()
+    }
 
 
 
@@ -125,7 +132,7 @@ const Main = (props) => {
                     <Route path="/api/posts/create" element={<CreatePost posts={posts} createPost={createPost}/>} />
 
                     <Route path="/api/userProfiles" element={<IndexUserProfile userProfiles={userProfiles} />} />
-                    <Route path="/api/userProfiles/:id" element={<ShowUserProfile userProfiles={userProfiles} />} />
+                    <Route path="/api/userProfiles/:id" element={<ShowUserProfile userProfiles={userProfiles} deleteUserProfile={deleteUserprofile}/>} />
                     <Route path="/api/userProfiles/create" element={<CreateUserProfile userProfiles={userProfiles} createUserProfile={createUserProfile}/>} />
                     <Route path="/api/userProfiles/:id/update" element={<EditUserProfile userProfiles={userProfiles} updateUserProfile={updateUserProfile} />} />
             </Routes>
