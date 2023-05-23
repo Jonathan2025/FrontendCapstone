@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-const IndexUser = (props) => {
+const IndexUserProfile = (props) => {
 
     //loaded function
     const loaded = () => {
@@ -25,4 +25,4 @@ const IndexUser = (props) => {
     return (props.userProfiles ? loaded() : loading())
 }
 
-export default IndexUser
+export default IndexUserProfile

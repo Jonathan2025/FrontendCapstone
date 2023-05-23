@@ -6,7 +6,8 @@ import ShowPost from '../pages/PostPages/ShowPost'
 import EditPost from '../pages/PostPages/EditPost'
 import CreatePost from '../pages/PostPages/CreatePost'
 
-import IndexUser from '../pages/UserProfilePages/IndexUser'
+import IndexUserProfile from '../pages/UserProfilePages/IndexUser'
+import ShowUserProfile from '../pages/UserProfilePages/ShowUser'
 
 const Main = (props) => {
 
@@ -91,7 +92,8 @@ const Main = (props) => {
                     <Route path="/api/posts/:id/update" element={<EditPost posts={posts} updatePost={updatePost} />} />
                     <Route path="/api/posts/create" element={<CreatePost posts={posts} createPost={createPost}/>} />
 
-                    <Route path="/api/userProfiles" element={<IndexUser userProfiles={userProfiles} />} />
+                    <Route path="/api/userProfiles" element={<IndexUserProfile userProfiles={userProfiles} />} />
+                    <Route path="/api/userProfiles/:id" element={<ShowUserProfile userProfiles={userProfiles} />} />
 
             </Routes>
         </main>
