@@ -15,6 +15,8 @@ export const AuthProvider = ({children}) => {
     // NOW the other thing we did was use a callback function - this is so that the value is set on the initial load and wont call it every time  
     let[authTokens, setAuthTokens] = useState(()=> localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : null) 
     let[user, setUser] = useState(() => localStorage.getItem('authTokens') ? jwt_decode(localStorage.getItem('authTokens')) : null) 
+    let [loading, setLoading] = useState(true) // state for if the page is loading 
+    
     const URL = process.env.REACT_APP_API_TOKEN_URL
     
     const navigate = useNavigate()
@@ -48,15 +50,79 @@ export const AuthProvider = ({children}) => {
             localStorage.setItem('authTokens', JSON.stringify(data))
             navigate('api/home')
         } else {
-            alert('Something went wrong with you login')
+            alert('Something went wrong with your login')
             console.error('Login failed, its Possible that you dont have an account registered');
         }
     }
 
 
+
+    // Now lets build a logout function
+    let logoutUser = () => {
+        // set the states back to null and then remove from localstorage the authtokens
+        setAuthTokens(null)
+        setUser(null) 
+        localStorage.removeItem('authTokens')
+        navigate('api/login')
+    }
+
+
+
+    // Update Token 
+    let updateToken = async () => {
+        try {
+            console.log('token was updated')
+            let response = await fetch(URL + 'refresh/', {
+                method:'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                // we need to send the refresh token and th
+                body: JSON.stringify({
+                    'refresh':authTokens.refresh, 
+                })
+            })
+
+            // if the response is good then we will update the AuthTokens, setUser and the localstorage
+            if(response.ok){
+                let data = await response.json()
+                setAuthTokens(data)
+                setUser(jwt_decode(data.access))
+                localStorage.setItem('authTokens', JSON.stringify(data))
+            // else if there is a problem we want to see the error and then log the user out
+            } else {
+                console.error('Error the', response.status)
+                logoutUser()
+            }
+        } catch (error){
+            console.log("The error is: ", error)
+        }
+    }
+
+            
+
+    // we want to pass in the authtokens dependencies and the 
+    // we want to update the tokens every 2 seconds
+    useEffect(()=> {
+        let interval = setInterval(()=>{
+            let fourMinutes = 1000 * 60 * 4
+            if(authTokens){
+                // update token needs to be called on the first load OR however many minutes
+                updateToken()
+            }
+        }, fourMinutes)
+        // similar in what we did in unit one, we need to clear the interval else it will keep running infinitely
+        return ()=> clearInterval(interval)
+    }, [authTokens, loading])
+    
+
+    
+
+
     const contextData = {
         user:user,
         loginUser:loginUser,
+        logoutUser:logoutUser
     }
 
 
