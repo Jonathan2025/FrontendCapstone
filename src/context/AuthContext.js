@@ -10,11 +10,11 @@ export default AuthContext
 // The AuthProvider is a wrapper component that provides authentication context to its child components
 export const AuthProvider = ({children}) => {
 
-    localStorage.getItem('authTokens')
-    
-    let[authTokens, setAuthTokens] = useState(null)
-    let[user, setUser]=useState(null)
-
+    // first we want to check in localstorage for the authentication token. If there is then we want to parse the token and set the state
+    // if we dont have anything then we set it to null
+    // NOW the other thing we did was use a callback function - this is so that the value is set on the initial load and wont call it every time  
+    let[authTokens, setAuthTokens] = useState(()=> localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : null) 
+    let[user, setUser] = useState(() => localStorage.getItem('authTokens') ? jwt_decode(localStorage.getItem('authTokens')) : null) 
     const URL = process.env.REACT_APP_API_TOKEN_URL
     
     const navigate = useNavigate()
