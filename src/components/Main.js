@@ -3,8 +3,9 @@ import {Routes, Route} from 'react-router-dom'
 
 import HomePage from '../pages/HomePage'
 import LoginPage from '../pages/Authentication/LoginPage'
-import RequireAuth from '../utils/RequireAuth'
+import RequireAuth from '../utilities/RequireAuth'
 
+import { AuthProvider } from '../context/AuthContext' 
 
 import IndexPost from '../pages/PostPages/IndexPost'
 import ShowPost from '../pages/PostPages/ShowPost'
@@ -130,10 +131,14 @@ const Main = (props) => {
 
     return (
         <main>
-            <Routes>
-
+            {/* Wrap the components that will use the Authprovider */}
+            
+                <Routes>
+                
+                
                     <Route path="/api/home" element={<RequireAuth><HomePage/></RequireAuth>} />
                     <Route path="/api/login" element={<LoginPage/>} />
+                
                     <Route path="/api/posts" element={<IndexPost posts={posts} />} />
                     <Route path="/api/posts/:id" element={<ShowPost posts={posts} deletePost={deletePost}/>} />
                     <Route path="/api/posts/:id/update" element={<EditPost posts={posts} updatePost={updatePost} />} />
@@ -143,7 +148,8 @@ const Main = (props) => {
                     <Route path="/api/userProfiles/:id" element={<ShowUserProfile userProfiles={userProfiles} deleteUserProfile={deleteUserprofile}/>} />
                     <Route path="/api/userProfiles/create" element={<CreateUserProfile userProfiles={userProfiles} createUserProfile={createUserProfile}/>} />
                     <Route path="/api/userProfiles/:id/update" element={<EditUserProfile userProfiles={userProfiles} updateUserProfile={updateUserProfile} />} />
-            </Routes>
+                </Routes>
+        
         </main>
     )
 }
