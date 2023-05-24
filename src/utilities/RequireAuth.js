@@ -1,4 +1,7 @@
 import {Route, useNavigate, useLocation} from 'react-router-dom'
+import { useContext } from 'react'
+import AuthContext from '../context/AuthContext'
+
 
 // Here we created a privateroute component which will allow someone to 
 // Children will be the element that is passed --> which are the routes that are passed.
@@ -6,10 +9,10 @@ import {Route, useNavigate, useLocation} from 'react-router-dom'
 const RequireAuth =({ children }:{children: Element}) =>{
   const navigate = useNavigate()
   const location = useLocation()
-  const authenticated = false // for now we jsut set authenticated to false 
+  let {user} = useContext(AuthContext)
 
-  // if the user isnt authenticated then return them to the login page
-  if (!authenticated) {
+  // if there is no user then bring them back to the login page 
+  if (!user) {
     navigate('/api/login')
     return null
   }
