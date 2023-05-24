@@ -9,16 +9,21 @@ const Header = () => {
 
   return (
     <div>
-      <Link to='/' >Home</Link>
-      {/* if we have a user then we need to have a logout link */}
-      {user ? (
-        <p onClick={logoutUser}>Logout</p>
-      ): (
-          <Link to='/api/login' >Login</Link>
+      {!user ? (
+        // If we don't have a user, then they need to login or register
+        <>
+          <Link to="/api/register">Register</Link>
+          <Link to="/api/login">Login</Link>
+        </>
+      ) : (
+        // If we have a user, show logout link and other links
+        <>
+          <p onClick={logoutUser}>Logout</p>
+          <Link to="/api/posts">Posts</Link>
+          <Link to="/">Home</Link>
+          <p>Hello {user.username}</p>
+        </>
       )}
-
-
-      {user && <p>Hello {user.username}</p>}
     </div>
   )
 }

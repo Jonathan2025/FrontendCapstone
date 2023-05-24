@@ -1,11 +1,12 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import {Routes, Route} from 'react-router-dom'
 
 import HomePage from '../pages/HomePage'
 import LoginPage from '../pages/Authentication/LoginPage'
+import RegisterPage from '../pages/Authentication/RegisterPage'
 import RequireAuth from '../utilities/RequireAuth'
 
-import { AuthProvider } from '../context/AuthContext' 
+import AuthContext, { AuthProvider } from '../context/AuthContext' 
 
 import IndexPost from '../pages/PostPages/IndexPost'
 import ShowPost from '../pages/PostPages/ShowPost'
@@ -20,6 +21,7 @@ import EditUserProfile from '../pages/UserProfilePages/EditUser'
 const Main = (props) => {
 
     const [posts, setPosts] = useState([])
+    let {authTokens} = useContext(AuthContext)
     const POST_URL = process.env.REACT_APP_POSTS_BACKEND_URL
     
     //Making an api call to the POSTs backend URL
@@ -122,6 +124,37 @@ const Main = (props) => {
 
 
 
+    // Register a User
+    const REGISTER_URL = process.env.REACT_APP_REGISTER_URL
+     let registerUser = async (registeredUser) => {
+        try {
+            let response = await fetch(REGISTER_URL, {
+                method:'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(registeredUser)
+            })
+            // if the response is good then we will get the data
+            if(response.ok){
+                let data = await response.json()
+                console.log("You have been registered!")
+            // else if there is a problem we want to see the error
+            } else {
+                console.error('Error', response.status)
+                console.log(response)
+            }
+        } catch (error){
+            console.log("The error is: ", error)
+        }
+    }
+
+
+
+
+
+
+
     useEffect(() => {
         getUserProfiles()
     }, [])
@@ -138,6 +171,8 @@ const Main = (props) => {
                 
                     <Route path="/api/home" element={<RequireAuth><HomePage/></RequireAuth>} />
                     <Route path="/api/login" element={<LoginPage/>} />
+                    <Route path="/api/register" element={<RegisterPage registerUser={registerUser} />} />
+                    
                 
                     <Route path="/api/posts" element={<IndexPost posts={posts} />} />
                     <Route path="/api/posts/:id" element={<ShowPost posts={posts} deletePost={deletePost}/>} />

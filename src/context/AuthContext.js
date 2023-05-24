@@ -18,10 +18,7 @@ export const AuthProvider = ({children}) => {
     let [loading, setLoading] = useState(true) // state for if the page is loading 
     
     const URL = process.env.REACT_APP_API_TOKEN_URL
-    
     const navigate = useNavigate()
-
-
 
     // lets build out a login function
     const loginUser = async(event) =>{
@@ -91,7 +88,7 @@ export const AuthProvider = ({children}) => {
                 localStorage.setItem('authTokens', JSON.stringify(data))
             // else if there is a problem we want to see the error and then log the user out
             } else {
-                console.error('Error the', response.status)
+                console.error('Error', response.status)
                 logoutUser()
             }
         } catch (error){
@@ -99,13 +96,17 @@ export const AuthProvider = ({children}) => {
         }
     }
 
-            
+
+
+   
+
+
 
     // we want to pass in the authtokens dependencies and the 
     // we want to update the tokens every 2 seconds
     useEffect(()=> {
+        let fourMinutes = 1000 * 60 * 4
         let interval = setInterval(()=>{
-            let fourMinutes = 1000 * 60 * 4
             if(authTokens){
                 // update token needs to be called on the first load OR however many minutes
                 updateToken()
@@ -122,7 +123,9 @@ export const AuthProvider = ({children}) => {
     const contextData = {
         user:user,
         loginUser:loginUser,
-        logoutUser:logoutUser
+        logoutUser:logoutUser,
+        authTokens: authTokens,
+
     }
 
 
