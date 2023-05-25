@@ -15,7 +15,7 @@ const RegisterPage = (props) => {
 
     // handleChange function for form
     const handleChange = (event) => {
-        setNewForm({ ...newForm, [event.target.name]: event.target.value });
+        setNewForm({ ...newForm, [event.target.name]: event.target.value })
     }
  
     const handleSubmit = (event) => {
@@ -29,7 +29,7 @@ const RegisterPage = (props) => {
                 first_name: '',
                 last_name: ''
             })
-            navigate("/api/login");
+            navigate("/api/login")
           }
     
 
@@ -82,7 +82,7 @@ const RegisterPage = (props) => {
                 <input type="submit" value="Register" />
               </form>
             </div>
-          );
+          )
         }
 
 export default RegisterPage

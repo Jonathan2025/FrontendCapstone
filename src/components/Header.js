@@ -5,8 +5,6 @@ import { Link } from 'react-router-dom'
 const Header = () => {
   // here we can use the user and logoutuser from AuthContext
   let {user, logoutUser} = useContext(AuthContext)
-  
-
   return (
     <div>
       {!user ? (
@@ -18,9 +16,9 @@ const Header = () => {
       ) : (
         // If we have a user, show logout link and other links
         <>
-          <p onClick={logoutUser}>Logout</p>
+          <Link to="/api/login" onClick={logoutUser}>Logout</Link>
           <Link to="/api/posts">Posts</Link>
-          <Link to="/">Home</Link>
+          <Link to="/api/home">Home</Link>
           <p>Hello {user.username}</p>
         </>
       )}

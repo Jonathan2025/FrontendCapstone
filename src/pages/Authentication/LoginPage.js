@@ -6,9 +6,9 @@ const LoginPage = () => {
 
   const handleSubmit = (event) => {
      {/* When the form is submitted we want to fire off the loginuser function */}
-    event.preventDefault();
+    event.preventDefault()
     loginUser(event)
-  };
+  }
 
   return (
     <div>
@@ -18,7 +18,7 @@ const LoginPage = () => {
         <input type="submit" />
       </form>
     </div>
-  );
-};
+  )
+}
 
 export default LoginPage
