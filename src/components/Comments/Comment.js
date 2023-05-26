@@ -7,14 +7,12 @@ import CommentForm from "./CommentForm"
 const Comment = ({comment, userId, username, affectedComment, setAffectedComment, addComment, parentId = null, updateComment, deleteComment, replies}) => {
     const isUserLoggedIn = Boolean(username) // username refers to the user that is loggedin. We need to check to see if the user is logged in 
     const commentBelongsToUser = username === comment.username // the logged-in user MUST have the same username as the user who made the comment
-    console.log(comment)
    
 
     return(
         <div className="">
             <div className="">
                 {/* Now this is where the comment will be displayed and we pass in the user who made the comment */}
-                {/* here i will add a person icon */}
                 <img
                     src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png"
                     alt="user profile" 
@@ -36,7 +34,25 @@ const Comment = ({comment, userId, username, affectedComment, setAffectedComment
                         <p className="">{comment.commentDesc}</p>
                     
                     </span>
-                     {/* If not editing then can render the comment description */}
+                    {/* user must be the same user as the one who made the comment to be able to edit and delete it */}
+                    {commentBelongsToUser && (
+                            <>
+                            {/* <button 
+                                className="btn btn-outline-secondary"
+                                type="button"
+                                onClick={() => setAffectedComment({type: 'editing', _id:comment._id})}>
+                                <FiEdit2 />
+                                <span>Edit</span>
+                            </button> */}
+                            <button 
+                                className=""
+                                type="button"
+                                onClick={() => deleteComment(comment.id)}>
+                                <FiTrash />
+                                <span>Delete</span>
+                            </button>
+                            </>
+                        )}
             </div>
         </div>
                   
