@@ -7,7 +7,12 @@ import CommentForm from "./CommentForm"
 const Comment = ({comment, userId, username, affectedComment, setAffectedComment, addComment, parentId = null, updateComment, deleteComment, replies}) => {
     const isUserLoggedIn = Boolean(username) // username refers to the user that is loggedin. We need to check to see if the user is logged in 
     const commentBelongsToUser = username === comment.username // the logged-in user MUST have the same username as the user who made the comment
-   
+    
+    // create an isEditing 
+    const isEditing = 
+        affectedComment && 
+        affectedComment.type === 'editing' && 
+        affectedComment.id === comment.id
 
     return(
         <div className="">
@@ -31,19 +36,35 @@ const Comment = ({comment, userId, username, affectedComment, setAffectedComment
                             hour: "2-digit",
                             minute:"2-digit"
                         })}
-                        <p className="">{comment.commentDesc}</p>
-                    
                     </span>
+                    {/* If not editing then can render the comment description */}
+                    {!isEditing && (
+                        <p className="">{comment.commentDesc}</p>
+                    )}
+                    {/* If we are editing the comment, then render the comment form and we want to show the initial text  */}
+                    {isEditing && (
+                        <CommentForm btnLabel="Update" formSubmitHandler={(value) => updateComment(value, comment.id)}
+                        formCancelHandler={() => setAffectedComment(null)}
+                        initialText ={comment.commentDesc}
+                        />
+                    )}
+
+                  
+
+
+
+
+
                     {/* user must be the same user as the one who made the comment to be able to edit and delete it */}
                     {commentBelongsToUser && (
                             <>
-                            {/* <button 
+                            <button 
                                 className="btn btn-outline-secondary"
                                 type="button"
-                                onClick={() => setAffectedComment({type: 'editing', _id:comment._id})}>
+                                onClick={() => setAffectedComment({type: 'editing', id:comment.id})}>
                                 <FiEdit2 />
                                 <span>Edit</span>
-                            </button> */}
+                            </button>
                             <button 
                                 className=""
                                 type="button"
@@ -53,6 +74,7 @@ const Comment = ({comment, userId, username, affectedComment, setAffectedComment
                             </button>
                             </>
                         )}
+                
             </div>
         </div>
                   

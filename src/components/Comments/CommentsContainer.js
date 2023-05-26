@@ -37,8 +37,27 @@ const CommentsContainer = ({userId, username, comments, postId}) => {
     }
 
     // create an empty function for now for update comment 
-    const updateCommentHandler = () =>{
-
+    const updateCommentHandler = async(value, commentId) =>{
+        try{
+            const updatedComment ={
+                id: commentId,  // commentId needs to be passed else, the handler wont know which comment to update
+                commentDesc: value,
+            }
+            const URL = process.env.REACT_APP_POST_COMMENTS_URL + `${postId}/updateComment`
+            
+            const response = await fetch(URL, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${accessToken}`
+                },
+                body: JSON.stringify(updatedComment)
+            })
+            const newUpdatedComment = await response.json()
+        } catch (error) {
+            console.log("Error with updating the comment", error)
+        }
+        
     }
 
     // create an empty function for now for delete comment
