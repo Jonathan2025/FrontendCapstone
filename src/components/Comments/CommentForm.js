@@ -8,7 +8,6 @@ const CommentForm = ({
     formSubmitHandler, 
     formCancelHandler = null,
     initialText = "",
-
     }) => {
 
     const [value, setValue] = useState(initialText)
@@ -16,14 +15,13 @@ const CommentForm = ({
         e.preventDefault()
         formSubmitHandler(value)
         setValue("")
-        window.location.reload()
     }
 
     return(
         <form onSubmit={submitHandler}>
-            <div class="rounded-lg p-4 d-flex flex-column align-items-end bg-white border rounded border-primary">
+            <div className="">
                 <textarea 
-                    className="bg-transparent w-100"
+                    className=""
                     rows="4" 
                     placeholder="Leave Your Comments here..." 
                     value = {value}
@@ -32,13 +30,13 @@ const CommentForm = ({
             <div className="commentSubmitBtnDiv">
                 {formCancelHandler && (
                     <button onClick={formCancelHandler}
-                        className="btn btn-outline-danger"
+                        className=""
                         > 
                         Cancel
                     </button>
                 )}
                     <button type="submit" 
-                        className="btn btn-outline-primary"
+                        className=""
                         >
                         {btnLabel}
                     </button>
