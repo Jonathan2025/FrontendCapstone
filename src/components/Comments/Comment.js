@@ -8,11 +8,18 @@ const Comment = ({comment, userId, username, affectedComment, setAffectedComment
     const isUserLoggedIn = Boolean(username) // username refers to the user that is loggedin. We need to check to see if the user is logged in 
     const commentBelongsToUser = username === comment.username // the logged-in user MUST have the same username as the user who made the comment
     
-    // create an isEditing 
+    // isEditing will be a set of conditions used below to determine if a comment is being edited
     const isEditing = 
         affectedComment && 
         affectedComment.type === 'editing' && 
         affectedComment.id === comment.id
+
+    // isReplying will be a set of conditions used to determine if a comment is being replied on
+    const isReplying = 
+        affectedComment && 
+        affectedComment.type === 'replying' && 
+        affectedComment.id === comment.id 
+    const replyOnUserID = comment.username // user of the replied comment will be the username of the comment  
 
     return(
         <div className="">
@@ -49,11 +56,17 @@ const Comment = ({comment, userId, username, affectedComment, setAffectedComment
                         />
                     )}
 
-                  
-
-
-
-
+                    {/* User should be logged in before we allow them to reply to a comment */}
+                    <div class="">
+                        {isUserLoggedIn && (
+                            <button
+                                className="btn btn-outline-primary"
+                                type="button" 
+                                onClick={() => setAffectedComment({type: 'replying', id:comment.id})}>
+                                <FiMessageSquare />
+                                <span>Reply</span>
+                            </button>
+                        )}
 
                     {/* user must be the same user as the one who made the comment to be able to edit and delete it */}
                     {commentBelongsToUser && (
@@ -74,12 +87,44 @@ const Comment = ({comment, userId, username, affectedComment, setAffectedComment
                             </button>
                             </>
                         )}
-                
+                    </div>
+
+                           {/* If the user is replying then render the comment form and then pass in the addComment function*/}
+                           {isReplying && (
+                            <CommentForm
+                            btnLabel="Reply" 
+                            formSubmitHandler={(value) => {
+                                addComment(value, comment.id, replyOnUserID)
+                            }}
+                        
+                        //add in the formCancelHandler 
+                        formCancelHandler={() => setAffectedComment(null)}
+                        />
+                        )}
+                        {replies.length > 0 && 
+                        (
+                        <div className="replyComment">
+                        {replies.slice(0).reverse().map((reply)=> (
+                            <Comment
+                            key={reply.id} 
+                            addComment={addComment} 
+                            affectedComment = {affectedComment} 
+                            setAffectedComment={setAffectedComment} 
+                            comment = {reply}
+                            deleteComment={deleteComment}
+                            username={username}
+                            replies={[]} // to avoid too many nested comments we just want one level. So one parent level and then the rest of the replies are on one level
+                            updateComment={updateComment}
+                            parentId={comment.id}
+                            />
+                        )
+                        
+                        )}
+
+                    </div>
+                )}
             </div>
         </div>
-                  
-
-    
     )
 }
 

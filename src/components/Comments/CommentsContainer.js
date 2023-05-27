@@ -5,10 +5,9 @@ import AuthContext from "../../context/AuthContext"
 
 // Comments container will have the functions responsible for communicating with the backend
 const CommentsContainer = ({userId, username, comments, postId}) => {
-    
+    console.log("lets see the comments", comments)
     let {authTokens} = useContext(AuthContext) // we want to get the authTokens so then we can use it in the headers of the request
     let accessToken = authTokens.access 
-
     const [affectedComment, setAffectedComment] = useState(null) // want to select the affected comment
 
     // Take the information that is submitted and then make a request to the backend to add it
@@ -77,13 +76,10 @@ const CommentsContainer = ({userId, username, comments, postId}) => {
                 body: JSON.stringify(deleteComment)
             })
             const deletedComment = await response.json()
-        
         } catch (error) {
             console.log("Error with deleting the comment", error)
         }
-
     }
-
 
         return(
             <div className = "commentsContainer">
@@ -103,8 +99,7 @@ const CommentsContainer = ({userId, username, comments, postId}) => {
                         addComment= {addCommentHandler}
                         updateComment = {updateCommentHandler}
                         deleteComment = {deleteCommentHandler}
-                        
-                    
+                        replies={comment.replies}
                         />
                     ))}
                     </div>

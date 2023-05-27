@@ -1,7 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 
-
 // Here is the commentForm that takes parameters btnLabel and the handlers
 const CommentForm = ({
     btnLabel, 
