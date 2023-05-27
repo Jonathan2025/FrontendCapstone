@@ -87,8 +87,9 @@ const CommentsContainer = ({userId, username, comments, postId}) => {
                 {/* The commentForm is called --> The formSubmitHandler points to a function addCommentHandler */}
                 <CommentForm btnLabel="Submit" formSubmitHandler={(value) => addCommentHandler(value)}/>
                 <div>
-                    {/* Map the comments from props and reverse order to get by most recent */}
+                    {/* Map the comments from props and reverse order to get by most recent. IF the comment is a reply, it will be mapped in Comment.js instead */}
                     {comments.slice(0).reverse().map((comment) => (
+                        !comment.parent &&  (
                         <Comment
                         key = {comment.id}
                         comment = {comment}
@@ -101,6 +102,7 @@ const CommentsContainer = ({userId, username, comments, postId}) => {
                         deleteComment = {deleteCommentHandler}
                         replies={comment.replies}
                         />
+                        )
                     ))}
                     </div>
                 </div>
