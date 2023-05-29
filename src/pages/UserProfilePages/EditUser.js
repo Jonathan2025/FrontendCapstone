@@ -49,6 +49,18 @@ const EditUserProfile = (props) => {
                 required
                 /><br/>
 
+            <label className="createFormlabel">Username</label> <br />
+                <input
+                className="createFormlabel"
+                type="text"
+                value={editForm.username}
+                name="username"
+                placeholder="Username"
+                readOnly
+                required
+                />
+                <br />
+
             <label className="editFormlabel"> Belt Level </label>  <br/>
                 <input
                 className="editFormlabel"

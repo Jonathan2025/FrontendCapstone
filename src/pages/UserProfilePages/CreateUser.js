@@ -1,11 +1,18 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import {useContext} from 'react'
+import AuthContext from "../../context/AuthContext"
+
+
 
 const CreateUserProfile = (props) => {
     const navigate = useNavigate()
-
+    let {user} = useContext(AuthContext) // lets get the user who is logged in 
+    // when a user is logged in, obviously it will be the one creating a profile
+    
     // state to hold formData
     const [newForm, setNewForm] = useState({
+        username: user.username,
         first_name: "",
         last_name: "",
         beltLevel: "",
@@ -27,6 +34,7 @@ const CreateUserProfile = (props) => {
         event.preventDefault();
         props.createUserProfile(newForm);
         setNewForm({
+            username: user.username,
             first_name: "",
             last_name: "",
             beltLevel: "",
@@ -66,6 +74,18 @@ const CreateUserProfile = (props) => {
                 onChange={handleChange}
                 required
                 /><br/>
+            
+            <label className="createFormlabel">Username</label> <br />
+                <input
+                className="createFormlabel"
+                type="text"
+                value={user.username}
+                name="username"
+                placeholder="Username"
+                readOnly
+                required
+                />
+                <br />
 
             <label className="createFormlabel"> Belt Level </label>  <br/>
                 <input
@@ -209,9 +229,6 @@ const CreateUserProfile = (props) => {
                 onChange={handleChange}
                 required
                 /><br/>
-
-    
-
 
             <input className="createBtn" type="submit" value="Create your User Profile" />
           </form>

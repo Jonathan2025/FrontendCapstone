@@ -21,15 +21,25 @@ import EditUserProfile from '../pages/UserProfilePages/EditUser'
 const Main = (props) => {
 
     const [posts, setPosts] = useState([])
-    let {authTokens} = useContext(AuthContext)
+    let {authTokens} = useContext(AuthContext) // we want to get the authTokens so then we can use it in the headers of the request
+    let accessToken = authTokens.access 
     const POST_URL = process.env.REACT_APP_POSTS_BACKEND_URL
     
     //Making an api call to the POSTs backend URL
     const getPosts = async () =>{
-        const response = await fetch(POST_URL)
-        const data = await response.json()
-        console.log(data)
-        setPosts(data)
+        try{
+            const response = await fetch(POST_URL, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            })
+            const data = await response.json()
+            setPosts(data)
+        } catch (error){
+            console.log("There was an error getting the post data", error)
+        }
+       
     }
 
     // Create POST - request to create a post 
@@ -84,20 +94,52 @@ const Main = (props) => {
         const data = await response.json()
         setUserprofiles(data)
     }
-
+    const createUserProfile = async (userProfile) =>{
+        try{
+            const response = await fetch(userProfileURL + 'create', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${accessToken}`
+                },
+                body: JSON.stringify(userProfile),
+            })
+            
+            getUserProfiles()
+        } catch (error){
+            console.log("There was an error creating the user profile", error)
+        }
+       
+    }
 
     // Create POST - request to create a user profile 
-    const createUserProfile = async (userProfile) => {
-        await fetch(userProfileURL + 'create', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(userProfile),
-        })
-        //update list of profiles
-        getUserProfiles()
-    }
+    // const createUserProfile = async (userProfile) => {
+    //     try{
+    //         const response = await fetch(userProfileURL, {
+    //             method: 'POST',
+    //             headers: {
+    //                 'Content-Type': 'application/json',
+    //             },
+    //         })
+    //         const data = await response.json()
+    //         setPosts(data)
+    //     } catch (error){
+    //         console.log("There was an error getting the post data", error)
+    //     }
+
+
+
+
+    //     await fetch(userProfileURL + 'create', {
+    //         method: 'POST',
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //         },
+    //         body: JSON.stringify(userProfile),
+    //     })
+    //     //update list of profiles
+    //     getUserProfiles()
+    // }
 
 
 
@@ -148,12 +190,6 @@ const Main = (props) => {
             console.log("The error is: ", error)
         }
     }
-
-
-
-
-
-
 
     useEffect(() => {
         getUserProfiles()

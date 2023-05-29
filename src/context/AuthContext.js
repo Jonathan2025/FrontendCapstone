@@ -2,12 +2,12 @@ import { createContext, useState, useEffect } from "react"
 import jwt_decode from "jwt-decode"
 import { useNavigate } from "react-router"
 
-// The AuthContext will be used to provide access authentication related data throughout the component
+//AuthContext will be used to provide access authentication related data throughout the component
 const AuthContext = createContext()
 
 export default AuthContext
 
-// The AuthProvider is a wrapper component that provides authentication context to its child components
+//AuthProvider is a wrapper component that provides authentication context to its child components
 export const AuthProvider = ({children}) => {
 
     // first we want to check in localstorage for the authentication token. If there is then we want to parse the token and set the state
@@ -38,12 +38,9 @@ export const AuthProvider = ({children}) => {
         // if the response has an ok status, then we will get back the data. The data will be the access and refresh token
         if (response.ok) {
             let data = await response.json()
-            // we then want to set the tokens 
-            setAuthTokens(data)
-            // then we want to set the user using the DECODED data from the jwt token (like username)
-            setUser(jwt_decode(data.access))
-            // set the local storage to be the authtokens AND the data stringifyed
-            // that way even if we refresh the page, the user can still be logged in 
+            setAuthTokens(data) // we then want to set the tokens 
+            setUser(jwt_decode(data.access)) // then we want to set the user using the DECODED data from the jwt token (like username)
+            // set the local storage to be the authtokens AND the data stringifyed that way even if we refresh the page, the user can still be logged in 
             localStorage.setItem('authTokens', JSON.stringify(data))
             navigate('api/home')
         } else {
@@ -56,8 +53,7 @@ export const AuthProvider = ({children}) => {
 
     // Now lets build a logout function
     let logoutUser = () => {
-        // set the states back to null and then remove from localstorage the authtokens
-        setAuthTokens(null)
+        setAuthTokens(null) // set the states back to null and then remove from localstorage the authtokens
         setUser(null) 
         localStorage.removeItem('authTokens')
         navigate('api/login')
@@ -96,24 +92,15 @@ export const AuthProvider = ({children}) => {
         }
     }
 
-
-
-   
-
-
-
-    // we want to pass in the authtokens dependencies and the 
-    // we want to update the tokens every 2 seconds
+    // we want to pass in the authtokens dependencies and the  want to update the tokens every 2 seconds
     useEffect(()=> {
         let fourMinutes = 1000 * 60 * 4
         let interval = setInterval(()=>{
             if(authTokens){
-                // update token needs to be called on the first load OR however many minutes
-                updateToken()
+                updateToken() // update token needs to be called on the first load OR however many minutes (in our case its 4 min)
             }
         }, fourMinutes)
-        // similar in what we did in unit one, we need to clear the interval else it will keep running infinitely
-        return ()=> clearInterval(interval)
+        return ()=> clearInterval(interval) // similar in what we did in unit one, we need to clear the interval else it will keep running infinitely
     }, [authTokens, loading])
     
 
@@ -127,11 +114,6 @@ export const AuthProvider = ({children}) => {
         authTokens: authTokens,
 
     }
-
-
-
-     // then redirect them to the home page 
-
 
     return (
         // Authentication context is then provided to the component's children

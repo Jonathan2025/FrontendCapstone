@@ -5,7 +5,6 @@ import AuthContext from "../../context/AuthContext"
 
 // Comments container will have the functions responsible for communicating with the backend
 const CommentsContainer = ({userId, username, comments, postId}) => {
-    console.log("lets see the comments", comments)
     let {authTokens} = useContext(AuthContext) // we want to get the authTokens so then we can use it in the headers of the request
     let accessToken = authTokens.access 
     const [affectedComment, setAffectedComment] = useState(null) // want to select the affected comment

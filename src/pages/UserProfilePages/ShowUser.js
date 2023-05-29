@@ -1,14 +1,14 @@
 import { useParams, useNavigate } from "react-router-dom"
-
+import React, {useContext} from 'react'
+import AuthContext from "../../context/AuthContext"
 const ShowUserProfile = (props) => {
-
+    let {user} = useContext(AuthContext)
+    console.log(user)
     const params = useParams()
     const navigate = useNavigate()
     const id = params.id
     const userProfiles = props.userProfiles
     const userProfile = userProfiles.find((u) => u.id == id)
-
-    console.log("this is the userprofile", userProfile)
 
 
     //linking edit btn to edit route
@@ -38,7 +38,7 @@ const ShowUserProfile = (props) => {
 
 
             <div className="editDltButtons">
-              <button className='editBtn' onClick={editForm}>Edit Post</button>
+              <button className='editBtn' onClick={editForm}>Edit UserProfile</button>
               <button className='deleteBtn' onClick = {removeUserProfile}>Delete User Profile</button>
             </div>
 
