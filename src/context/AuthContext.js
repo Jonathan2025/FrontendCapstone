@@ -64,15 +64,15 @@ export const AuthProvider = ({children}) => {
     // Update Token 
     let updateToken = async () => {
         try {
-            console.log('token was updated')
             let response = await fetch(URL + 'refresh/', {
                 method:'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                // we need to send the refresh token and th
+                // we need to send the refresh token
                 body: JSON.stringify({
-                    'refresh':authTokens.refresh, 
+                    // IF authTokens is not there we dont want to get a refresh token we want to just want to log the user out 
+                    'refresh':authTokens?.refresh, 
                 })
             })
 
@@ -90,10 +90,20 @@ export const AuthProvider = ({children}) => {
         } catch (error){
             console.log("The error is: ", error)
         }
+
+        // once things have been loaded, we want to set loading to false 
+        if(loading){
+            setLoading(false)
+        }
     }
 
-    // we want to pass in the authtokens dependencies and the  want to update the tokens every 2 seconds
+    // we want to pass in the authtokens dependencies and we want to update the tokens every 4 minutes
     useEffect(()=> {
+        // we want to make sure that everything is loaded before we get the new token
+        if (loading){
+            updateToken()
+        }
+
         let fourMinutes = 1000 * 60 * 4
         let interval = setInterval(()=>{
             if(authTokens){
@@ -118,7 +128,8 @@ export const AuthProvider = ({children}) => {
     return (
         // Authentication context is then provided to the component's children
         <AuthContext.Provider value={contextData}>
-            {children}
+            {/* here we make sure none of the components are rendered until authprovider is complete */}
+            {loading ? null : children} 
         </AuthContext.Provider>
     )
 }
