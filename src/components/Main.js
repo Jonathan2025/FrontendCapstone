@@ -22,7 +22,7 @@ const Main = (props) => {
 
     const [posts, setPosts] = useState([])
     let {authTokens} = useContext(AuthContext) // we want to get the authTokens so then we can use it in the headers of the request
-    let accessToken = authTokens.access 
+    let accessToken = authTokens?.access // use optional chaining so that if the authToken expired we can just logback in
     const POST_URL = process.env.REACT_APP_POSTS_BACKEND_URL
     
     //Making an api call to the POSTs backend URL
@@ -36,6 +36,7 @@ const Main = (props) => {
             })
             const data = await response.json()
             setPosts(data)
+           
         } catch (error){
             console.log("There was an error getting the post data", error)
         }
@@ -43,13 +44,36 @@ const Main = (props) => {
     }
 
     // Create POST - request to create a post 
+    // const createPost = async (post) => {
+    //     const formData = new FormData() //added this 
+    //     await fetch(POST_URL + 'create', {
+    //         method: 'POST',
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //         },
+    //         // body: JSON.stringify(post),
+    //         body: formData // added this 
+    //     })
+    //     //update list of posts
+    //     getPosts()
+    // }
     const createPost = async (post) => {
+        console.log(post)
+        const formData = new FormData()
+            formData.append('title', post.title);
+            formData.append('category', post.category);
+            formData.append('postDesc', post.postDesc);
+            formData.append('upload', post.upload)
+            console.log('Data sent to the backend:');
+            for (let [key, value] of formData.entries()) {
+                console.log(`${key}: ${value}`);
+            }
         await fetch(POST_URL + 'create', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(post),
+                "Content-Type": "multipart/form-data" // Add the Content-Type header
+              },
+            body: formData,
         })
         //update list of posts
         getPosts()
@@ -112,34 +136,7 @@ const Main = (props) => {
        
     }
 
-    // Create POST - request to create a user profile 
-    // const createUserProfile = async (userProfile) => {
-    //     try{
-    //         const response = await fetch(userProfileURL, {
-    //             method: 'POST',
-    //             headers: {
-    //                 'Content-Type': 'application/json',
-    //             },
-    //         })
-    //         const data = await response.json()
-    //         setPosts(data)
-    //     } catch (error){
-    //         console.log("There was an error getting the post data", error)
-    //     }
-
-
-
-
-    //     await fetch(userProfileURL + 'create', {
-    //         method: 'POST',
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //         },
-    //         body: JSON.stringify(userProfile),
-    //     })
-    //     //update list of profiles
-    //     getUserProfiles()
-    // }
+   
 
 
 

@@ -10,6 +10,7 @@ const ShowPost = (props) => {
     const id = params.id
     const posts = props.posts
     const post = posts.find((p) => p.id == id)
+    
 
     //linking edit btn to edit route
     const editForm = (e) => {
@@ -33,6 +34,7 @@ const ShowPost = (props) => {
                 <h1>{post.title}</h1>
                 <h2>{post.category}</h2>
                 <p>{post.postDesc}</p>
+                <img src={post.upload}/>
 
                 <div className="editDltButtons">
                 <button className='editBtn' onClick={editForm}>Edit Post</button>

@@ -19,15 +19,10 @@ const CreatePost = (props) => {
 
     // handle submit function for form
     const handleSubmit = (event) => {
-        event.preventDefault();
+        event.preventDefault()
+        const file = event.target.upload.files[0]
+        console.log("this is the file we get", file)
         props.createPost(newForm);
-        setNewForm({
-            title: "",
-            category: "",
-            postDesc: "",
-            upload: "",
-
-        })
         navigate("/api/posts")
     }
 
@@ -35,7 +30,7 @@ const CreatePost = (props) => {
     return (
         <div className="createForm">
           <h1 className="createFormTitle">Create a Post! </h1>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} encType="multipart/form-data"> 
             <label className="createFormlabel"> Title: </label>  <br/>
                 <input
                 className="createFormlabel"
@@ -72,7 +67,7 @@ const CreatePost = (props) => {
             <label className="createFormlabel"> Upload: </label>  <br/>
                 <input
                 className="createFormlabel"
-                type="text"
+                type="file"
                 value={newForm.upload}
                 name="upload"
                 placeholder="File Upload"
