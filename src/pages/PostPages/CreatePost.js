@@ -12,16 +12,24 @@ const CreatePost = (props) => {
         upload: "",
     })
 
+    // // handleChange function for form
+    // const handleChange = (event) => {
+    //     setNewForm({ ...newForm, [event.target.name]: event.target.value });
+    // }
+
+
     // handleChange function for form
-    const handleChange = (event) => {
-        setNewForm({ ...newForm, [event.target.name]: event.target.value });
+const handleChange = (event) => {
+    if (event.target.name === 'upload') {
+      setNewForm({ ...newForm, [event.target.name]: event.target.files[0] });
+    } else {
+      setNewForm({ ...newForm, [event.target.name]: event.target.value });
     }
+  }
 
     // handle submit function for form
     const handleSubmit = (event) => {
         event.preventDefault()
-        const file = event.target.upload.files[0]
-        console.log("this is the file we get", file)
         props.createPost(newForm);
         navigate("/api/posts")
     }
@@ -68,7 +76,7 @@ const CreatePost = (props) => {
                 <input
                 className="createFormlabel"
                 type="file"
-                value={newForm.upload}
+                // value={newForm.upload}
                 name="upload"
                 placeholder="File Upload"
                 onChange={handleChange}

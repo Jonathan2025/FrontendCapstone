@@ -12,7 +12,7 @@ const ShowPost = (props) => {
     const id = params.id
     const posts = props.posts
     const post = posts.find((p) => p.id == id)
-    
+    console.log("here is the post", post)
 
     //linking edit btn to edit route
     const editForm = (e) => {
@@ -35,12 +35,7 @@ const ShowPost = (props) => {
                 <h1>{post.title}</h1>
                 <h2>{post.category}</h2>
                 <p>{post.postDesc}</p>
-               
-
-                {/* <video controls>
-                    <source src={correctedUrl} type="video/mp4" />
-                </video> */}
-
+                <p>{post.created}</p>
 
                 {/* Render the media upload component based on the file extension, pass in the upload */}
                 <MediaContainer uploadFile={post.upload} />

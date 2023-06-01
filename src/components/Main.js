@@ -57,27 +57,61 @@ const Main = (props) => {
     //     //update list of posts
     //     getPosts()
     // }
+    // const createPost = async (post) => {
+    //     console.log(post)
+    //     const formData = new FormData()
+    //         formData.append('title', post.title);
+    //         formData.append('category', post.category);
+    //         formData.append('postDesc', post.postDesc);
+    //         // formData.append('upload', post.upload)
+    //         // Extract only the file name from the upload path
+    //         // C:\fakepath\access.png
+    //         const uploadFileName = post.upload.split('\\').pop()
+    //         formData.append('upload', post.upload, uploadFileName);
+
+     
+
+            
+
+
+    //     await fetch(POST_URL + 'create', {
+    //         method: 'POST',
+    //         // headers: {
+    //         //     "Content-Type": "multipart/form-data" // Add the Content-Type header
+    //         //   },
+    //         body: formData,
+    //     })
+    //     //update list of posts
+    //     getPosts()
+    // }
+
     const createPost = async (post) => {
-        console.log(post)
-        const formData = new FormData()
-            formData.append('title', post.title);
-            formData.append('category', post.category);
-            formData.append('postDesc', post.postDesc);
-            formData.append('upload', post.upload)
-            console.log('Data sent to the backend:');
-            for (let [key, value] of formData.entries()) {
-                console.log(`${key}: ${value}`);
-            }
+        console.log(post);
+      
+        const requestData = {
+          title: post.title,
+          category: post.category,
+          postDesc: post.postDesc,
+        };
+      
+        const formData = new FormData();
+        formData.append('data', JSON.stringify(requestData))
+        console.log("we appended the first 3 fields")
+        formData.append('upload', post.upload);
+      
         await fetch(POST_URL + 'create', {
-            method: 'POST',
-            headers: {
-                "Content-Type": "multipart/form-data" // Add the Content-Type header
-              },
-            body: formData,
+          method: 'POST',
+          body: formData,
         })
-        //update list of posts
-        getPosts()
-    }
+          .then((response) => response.json())
+          .then((data) => {
+            // Update list of posts
+            getPosts()
+          })
+          .catch((error) => {
+            console.error('Error:', error)
+          })
+      }
 
     // UPDATE POST - request to edit a post 
     const updatePost = async (post, id) => {
