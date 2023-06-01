@@ -2,6 +2,8 @@ import { useParams, useNavigate } from "react-router-dom"
 import React, {useContext} from 'react'
 import AuthContext from "../../context/AuthContext"
 import CommentsContainer from "../../components/Comments/CommentsContainer"
+import MediaContainer from "../../components/Media/MediaContainer"
+
 
 const ShowPost = (props) => {
     let {user} = useContext(AuthContext) // lets get the user who is logged in 
@@ -24,9 +26,7 @@ const ShowPost = (props) => {
         navigate("/api/posts");
     }
 
-    console.log("here is the post details", post)
-    const decodedUrl = decodeURIComponent(post.upload) // we need to fix the url a bit and do some cleaning
-    const correctedUrl = decodedUrl.substring(1)
+
     return (
         <div>
             {/* we need to make sure the post is loaded first before we can access its properties */}
@@ -35,13 +35,15 @@ const ShowPost = (props) => {
                 <h1>{post.title}</h1>
                 <h2>{post.category}</h2>
                 <p>{post.postDesc}</p>
-                {/* <img src={post.upload}/> */}
+               
 
-                <video controls>
+                {/* <video controls>
                     <source src={correctedUrl} type="video/mp4" />
-                    
-                </video>
+                </video> */}
 
+
+                {/* Render the media upload component based on the file extension, pass in the upload */}
+                <MediaContainer uploadFile={post.upload} />
 
                 <div className="editDltButtons">
                 <button className='editBtn' onClick={editForm}>Edit Post</button>

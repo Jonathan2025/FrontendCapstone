@@ -19,6 +19,7 @@ const Header = () => {
           <Link to="/api/login" onClick={logoutUser}>Logout</Link>
           <Link to="/api/posts">Posts</Link>
           <Link to="/api/home">Home</Link>
+          <Link to="/api/posts/create">Create</Link>
           <p>Hello {user.username}</p>
         </>
       )}
