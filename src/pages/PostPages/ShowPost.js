@@ -24,8 +24,9 @@ const ShowPost = (props) => {
         navigate("/api/posts");
     }
 
-
-
+    console.log("here is the post details", post)
+    const decodedUrl = decodeURIComponent(post.upload) // we need to fix the url a bit and do some cleaning
+    const correctedUrl = decodedUrl.substring(1)
     return (
         <div>
             {/* we need to make sure the post is loaded first before we can access its properties */}
@@ -34,7 +35,13 @@ const ShowPost = (props) => {
                 <h1>{post.title}</h1>
                 <h2>{post.category}</h2>
                 <p>{post.postDesc}</p>
-                <img src={post.upload}/>
+                {/* <img src={post.upload}/> */}
+
+                <video controls>
+                    <source src={correctedUrl} type="video/mp4" />
+                    
+                </video>
+
 
                 <div className="editDltButtons">
                 <button className='editBtn' onClick={editForm}>Edit Post</button>
