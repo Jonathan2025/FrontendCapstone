@@ -7,7 +7,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    
 }
+
+/* Media Query for mobile devices */
+@media (max-width: 600px) {
+    .registerPage {
+      flex-direction: column;
+    }
+  }
 
 .shadingOverImage {
     position: absolute;
@@ -49,6 +57,8 @@
     font-weight: bold;
     position: relative;
     z-index: 2;
+    padding: 20px;
+    
 }
 
 /* getting the netflix sans font */
