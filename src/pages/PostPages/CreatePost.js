@@ -12,20 +12,14 @@ const CreatePost = (props) => {
         upload: "",
     })
 
-    // // handleChange function for form
-    // const handleChange = (event) => {
-    //     setNewForm({ ...newForm, [event.target.name]: event.target.value });
-    // }
-
-
     // handleChange function for form
-const handleChange = (event) => {
-    if (event.target.name === 'upload') {
-      setNewForm({ ...newForm, [event.target.name]: event.target.files[0] });
-    } else {
-      setNewForm({ ...newForm, [event.target.name]: event.target.value });
-    }
-  }
+    const handleChange = (event) => {
+        if (event.target.name === 'upload') {
+          setNewForm({ ...newForm, [event.target.name]: event.target.files[0] });
+        } else {
+          setNewForm({ ...newForm, [event.target.name]: event.target.value });
+        }
+      }
 
     // handle submit function for form
     const handleSubmit = (event) => {
@@ -36,56 +30,79 @@ const handleChange = (event) => {
 
 
     return (
-        <div className="createForm">
-          <h1 className="createFormTitle">Create a Post! </h1>
-          <form onSubmit={handleSubmit} encType="multipart/form-data"> 
-            <label className="createFormlabel"> Title: </label>  <br/>
-                <input
-                className="createFormlabel"
-                type="text"
-                value={newForm.title}
-                name="title"
-                placeholder="Title"
-                onChange={handleChange}
-                required
-                /><br/>
+        <div class="createPostPage row"> 
+           {/* <div className="shadingOverImage"></div> */}
+              <div className="centerCreatePost col s12 m6 l4">
+                
+                <form class="createPostForm col s12 " onSubmit={handleSubmit}>
+                  <h3 class="createPostHeader">Create a Post</h3>
+                    
+                    <div class="row">
+                    <div class="createPostInputDiv input-field col s12">
+                        <input
+                          className="createFormlabel"
+                          type="text"
+                          value={newForm.title}
+                          name="title"
+                          placeholder="Title"
+                          onChange={handleChange}
+                          required
+                          />
+                      </div>
+                    </div>
 
-            <label className="createFormlabel"> Category: </label>  <br/>
-                <input
-                className="createFormlabel"
-                type="text"
-                value={newForm.category}
-                name="category"
-                placeholder="Category"
-                onChange={handleChange}
-                required
-                /><br/>
+                    <div class="row">
+                    <div class="createPostInputDiv input-field col s12">
+                        <input
+                          className="createFormlabel"
+                          type="text"
+                          value={newForm.category}
+                          name="category"
+                          placeholder="Category"
+                          onChange={handleChange}
+                          required
+                        />
+                      </div>
+                    </div>
 
-            <label className="createFormlabel"> Post Description: </label>  <br/>
-                <input
-                className="createFormlabel"
-                type="text"
-                value={newForm.postDesc}
-                name="postDesc"
-                placeholder="PostDesc"
-                onChange={handleChange}
-                required
-                /><br/>
+                    <div class="row">
+                    <div class="createPostInputDiv input-field col s12">
+                      <textarea
+                          className="createFormlabel materialize-textarea"
+                          type="text"
+                          value={newForm.postDesc}
+                          name="postDesc"
+                          placeholder="PostDesc"
+                          onChange={handleChange}
+                          required
+                        ></textarea>
+                      </div>
+                    </div>
 
-            <label className="createFormlabel"> Upload: </label>  <br/>
-                <input
-                className="createFormlabel"
-                type="file"
-                // value={newForm.upload}
-                name="upload"
-                placeholder="File Upload"
-                onChange={handleChange}
-                required
-                /><br/>
-             
-            <input className="createBtn" type="submit" value="Create Fund" />
-          </form>
+                    <div class="row">
+                    <div class="createPostInputDiv input-field col s12">
+                        <input
+                          className="createFormlabel"
+                          type="file"
+                          name="upload"
+                          placeholder="File Upload"
+                          accept=".jpg, .jpeg, .png, .mov, .mp4"
+                          onChange={handleChange}
+                          required
+                          />
+                      </div>
+                    </div>
+                    <button class="createPostBtn btn red waves-effect waves-light btn-large" type="submit" name="action">Create Post </button>
+                
+                </form>
+            </div>
         </div>
+
+
+
+
+        
+       
  
     )
 }

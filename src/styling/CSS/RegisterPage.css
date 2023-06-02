@@ -7,7 +7,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    
+    border-radius: 15px;
 }
 
 /* Media Query for mobile devices */
@@ -40,21 +40,20 @@
 .registerHeader{
     color: white;
     position: relative;
-    font-weight: bold;
-    font-family: 'Netflix Sans';
+    font-family: 'Netflix Sans Bold';
 }
 
 .registerBtn{
-    font-weight: bold;
-    font-family: 'Netflix Sans';
+    font-family: 'Netflix Sans Bold';
     padding: 0 40% 0 40%;
+    background-color: #D2122E !important;
+    border-radius: 5px;
     
 }
 
 .registerText{
     color: white;
-    font-family: 'Netflix Sans';
-    font-weight: bold;
+    font-family: 'Netflix Sans Bold';
     position: relative;
     z-index: 2;
     padding: 20px;
@@ -63,6 +62,6 @@
 
 /* getting the netflix sans font */
 @font-face {
-    font-family: 'Netflix Sans';
-    src: url('../netflix-sans-font/NetflixSans-Regular.otf') format('truetype');
+    font-family: 'Netflix Sans Bold';
+    src: url('../netflix-sans-font/NetflixSans-Bold.woff2') format('truetype');
   }

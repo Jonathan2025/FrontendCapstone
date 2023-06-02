@@ -18,30 +18,26 @@ const RegisterPage = (props) => {
         setNewForm({ ...newForm, [event.target.name]: event.target.value })
     }
  
-    // const handleSubmit = (event) => {
-    //         event.preventDefault();
-    //         props.registerUser(newForm)
-    //         setNewForm({
-    //             username: '',
-    //             password: '',
-    //             password2: '',
-    //             email: '',
-    //             first_name: '',
-    //             last_name: ''
-    //         })
-    //         navigate("/api/login")
-    //       }
+    const handleSubmit = (event) => {
+            event.preventDefault();
+            props.registerUser(newForm)
+            setNewForm({
+                username: '',
+                password: '',
+                password2: '',
+                email: '',
+                first_name: '',
+                last_name: ''
+            })
+            navigate("/api/login")
+          }
     
-
           return (
             <div className="registerPage row">
-
-
               <div className="col s12 m6 l6 center-align">
-              {/* <div className="col s12 center-align"> */}
                 <div className="registerText left-align">
-                  <h2>Unlimited tutorials, clips, and more</h2>
-                  <h4>Watch Anywhere. Upload Anytime</h4>
+                  <h2>Unlimited tutorials, clips, greatness and more</h2>
+                  <h4>Watch Anywhere. Upload Anytime.</h4>
                   <h5>Ready to get started?</h5>
                 </div>
               </div>
@@ -50,8 +46,7 @@ const RegisterPage = (props) => {
               <div className="col s12 m6 l6">
                 <div className="shadingOverImage"></div>
                 
-                  {/* <form className="registerForm col s12" onSubmit={handleSubmit}> */}
-                  <form className="registerForm">
+                  <form className="registerForm" onSubmit={handleSubmit}>
                   <h3 className='registerHeader'>Create an Account</h3>
                     
                     <div class="row">
@@ -129,12 +124,7 @@ const RegisterPage = (props) => {
                     <button class="registerBtn btn red waves-effect waves-light btn-large" type="submit" name="action">Register </button>
                   </form>
 
-
-
-
-
                 </div>
-             
               </div>
       
 
