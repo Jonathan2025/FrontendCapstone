@@ -2,6 +2,8 @@
     background-color: green;
 }
 
+
+/* login page styling */
 .signInPage{
     background-image: url('./Images/NewDesign.png');
     background-size: cover;
@@ -17,7 +19,6 @@
     margin: 0 auto;
     
 }
-
 
 .shadingOverImage {
     position: absolute;
@@ -44,5 +45,11 @@
     color: white;
     position: relative;
     font-weight: bold;
+    font-family: 'Netflix Sans';
 }
 
+/* getting the netflix sans font */
+@font-face {
+    font-family: 'Netflix Sans';
+    src: url('./netflix-sans-font/NetflixSans-Regular.otf') format('truetype');
+  }
