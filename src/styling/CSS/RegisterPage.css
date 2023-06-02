@@ -1,0 +1,58 @@
+.registerPage{
+    background-image: url('../Images/NewDesign.png');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.shadingOverImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); 
+  }
+
+.registerForm{
+    background-color: rgba(0, 0, 0, 0.7);
+    text-align: center;
+    padding: 50px 40px 50px 40px !important;
+}
+
+.registerInputDiv{
+    background-color: white;
+    border-radius: 10px; 
+}
+
+.registerHeader{
+    color: white;
+    position: relative;
+    font-weight: bold;
+    font-family: 'Netflix Sans';
+}
+
+.registerBtn{
+    font-weight: bold;
+    font-family: 'Netflix Sans';
+    padding: 0 40% 0 40%;
+    
+}
+
+.registerText{
+    color: white;
+    font-family: 'Netflix Sans';
+    font-weight: bold;
+    position: relative;
+    z-index: 2;
+}
+
+/* getting the netflix sans font */
+@font-face {
+    font-family: 'Netflix Sans';
+    src: url('../netflix-sans-font/NetflixSans-Regular.otf') format('truetype');
+  }

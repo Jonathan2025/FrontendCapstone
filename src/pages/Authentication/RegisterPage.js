@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router'
-
+import "../../styling/CSS/RegisterPage.css"
 const RegisterPage = (props) => {
     const navigate = useNavigate()
     const [newForm, setNewForm] = useState({
@@ -18,28 +18,43 @@ const RegisterPage = (props) => {
         setNewForm({ ...newForm, [event.target.name]: event.target.value })
     }
  
-    const handleSubmit = (event) => {
-            event.preventDefault();
-            props.registerUser(newForm)
-            setNewForm({
-                username: '',
-                password: '',
-                password2: '',
-                email: '',
-                first_name: '',
-                last_name: ''
-            })
-            navigate("/api/login")
-          }
+    // const handleSubmit = (event) => {
+    //         event.preventDefault();
+    //         props.registerUser(newForm)
+    //         setNewForm({
+    //             username: '',
+    //             password: '',
+    //             password2: '',
+    //             email: '',
+    //             first_name: '',
+    //             last_name: ''
+    //         })
+    //         navigate("/api/login")
+    //       }
     
 
           return (
             <div className="registerPage row">
-              <div className="shadingOverImage">
-                <div className="centerRegister col 212 m6 l4">
+
+
+              <div className="registerTextDiv col s12 m6 l6 center-align">
+                <div className="registerText left-align">
+                  <h2>Unlimited tutorials, clips, and more</h2>
+                  <h4>Watch Anywhere. Upload Anytime</h4>
+                  <h4>Ready to get started?</h4>
+                </div>
+              </div>
+
+
+              <div className="col s12 m6 l4">
+                <div className="shadingOverImage"></div>
+                
                   
-                  <form className="registerForm col s12" onSubmit={handleSubmit}>
-                  <h3 className='registerHeader'>Register Here!</h3>
+
+
+                  {/* <form className="registerForm col s12" onSubmit={handleSubmit}> */}
+                  <form className="registerForm col s12">
+                  <h3 className='registerHeader'>Create an Account!</h3>
                     
                     <div class="row">
                       <div class="registerInputDiv input-field col s12">
@@ -113,12 +128,17 @@ const RegisterPage = (props) => {
                       </div> 
                     </div>
 
-                    <button class="signInBtn btn red waves-effect waves-light btn-large" type="submit" name="action">Register </button>
+                    <button class="registerBtn btn red waves-effect waves-light btn-large" type="submit" name="action">Register </button>
                   </form>
+
+
+
+
+
                 </div>
              
               </div>
-            </div>
+      
 
             
             
