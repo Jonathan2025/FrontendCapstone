@@ -37,59 +37,7 @@ main{
 
 
 
-/* Create Post Page Styling */
-.createPostPage{
-    background-image: url('../src/styling/Images/createPostImg.jpeg');
-    background-size: cover;
-    background-position: center;
-    min-height: 100vh;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 15px;
-}
 
-.centerCreatePost{
-    margin: 0 auto;
-}
-
-.shadingOverImage {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7); 
-  }
-
-.createPostForm{
-    background-color: rgba(0, 0, 0, 0.7);
-    text-align: center;
-    padding: 50px 40px 50px 40px !important;
-    border-radius: 5px;
-}
-
-.createPostInputDiv{
-    background-color: white;
-    border-radius: 10px; 
-}
-
-.createPostHeader{
-    color: white;
-    position: relative;
-    font-weight: bold;
-    font-family: 'Netflix Sans';
-}
-
-.createPostBtn{
-    font-weight: bold;
-    font-family: 'Netflix Sans';
-    padding: 0 40% 0 40%;
-    background-color: #D2122E !important;
-    border-radius: 5px;
-    
-}
 
 
 

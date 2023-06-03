@@ -1,5 +1,8 @@
 import { useState } from "react"
 import { useParams, useNavigate, useLocation } from "react-router-dom"
+import '../../styling/CSS/EditPost.css'
+
+
 
 const EditPost = (props) => {
     const location = useLocation()
@@ -23,12 +26,15 @@ const EditPost = (props) => {
     }
 
     return (
-        <div className="editPost">
-            <div className="editPostForm">
-                <h1>Edit {post.title}?</h1>
+        <div className="editPostPage row">
+            <div className="centerEditPost col s12 m6 l4">
+                
 
-                <form onSubmit={handleSubmit}>
-                    <label>Title: </label><br/>
+                <form className="editPostForm col s12 "onSubmit={handleSubmit}>
+                    <h3 className="editPostHeader">Edit {post.title}?</h3>
+                    
+                    <div class="row">
+                    <div class="editPostInputDiv input-field col s12">
                         <input
                             type="text"
                             value={editForm.title}
@@ -36,9 +42,12 @@ const EditPost = (props) => {
                             placeholder="Post Title"
                             onChange={handleChange}
                             required
-                        /><br/>
+                        />
+                      </div>
+                    </div>
 
-                    <label>Category: </label><br/>
+                    <div class="row">
+                    <div class="editPostInputDiv input-field col s12">
                         <input
                             type="text"
                             value={editForm.category}
@@ -46,31 +55,43 @@ const EditPost = (props) => {
                             placeholder="Post Category"
                             onChange={handleChange}
                             required
-                        /><br/>
+                        />
+                      </div>
+                    </div>
 
-                    <label>Post Description: </label><br/>
+                    <div class="row">
+                    <div class="editPostInputDiv input-field col s12">
+                      <textarea
+                          className="editFormlabel materialize-textarea"
+                          type="text"
+                          value={editForm.postDesc}
+                          name="postDesc"
+                          placeholder="PostDesc"
+                          onChange={handleChange}
+                          required
+                        ></textarea>
+                      </div>
+                    </div>
+
+                    {/* So user cant change the file because since the file is the vital part, it would be better that they just delete the post and make a new onChange */}
+                    
+                    {/* <div class="row">
+                    <div class="editPostInputDiv input-field col s12">
                         <input
-                            type="text"
-                            value={editForm.postDesc}
-                            name="postDesc"
-                            placeholder="Post description"
-                            onChange={handleChange}
-                            required
-                        /><br/>
+                          className="editFormlabel"
+                          type="file"
+                        //   value={editForm.upload}
+                          name="upload"
+                          placeholder="File Upload"
+                          accept=".jpg, .jpeg, .png, .mov, .mp4"
+                          onChange={handleChange}
+                          required
+                          />
+                      </div>
+                    </div> */}
 
-                    <label>Upload: </label><br/>
-                        <input
-                            type="text"
-                            value={editForm.upload}
-                            name="upload"
-                            placeholder="Post Upload File"
-                            onChange={handleChange}
-                            required
-                        /><br/>
-
-            
-            
-                    <input type="submit" value="Update Post" className="editPostBtn"/>
+             
+                    <button class="editPostBtn btn red waves-effect waves-light btn-large" type="submit" name="action">Edit Post </button>
                 </form>
 
 

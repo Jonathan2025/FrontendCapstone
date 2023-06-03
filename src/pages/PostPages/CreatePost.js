@@ -1,5 +1,7 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import '../../styling/CSS/CreatePost.css'
+
 
 const CreatePost = (props) => {
     const navigate = useNavigate()
@@ -31,7 +33,6 @@ const CreatePost = (props) => {
 
     return (
         <div class="createPostPage row"> 
-           {/* <div className="shadingOverImage"></div> */}
               <div className="centerCreatePost col s12 m6 l4">
                 
                 <form class="createPostForm col s12 " onSubmit={handleSubmit}>
