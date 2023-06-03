@@ -35,11 +35,11 @@ const CreatePost = (props) => {
         <div class="createPostPage row"> 
               <div className="centerCreatePost col s12 m6 l4">
                 
-                <form class="createPostForm col s12 " onSubmit={handleSubmit}>
-                  <h3 class="createPostHeader">Create a Post</h3>
+                <form className="createPostForm col s12 " onSubmit={handleSubmit}>
+                  <h3 className="createPostHeader">Create a Post</h3>
                     
-                    <div class="row">
-                    <div class="createPostInputDiv input-field col s12">
+                    <div className="row">
+                    <div className="createPostInputDiv input-field col s12">
                         <input
                           className="createFormlabel"
                           type="text"
@@ -52,8 +52,8 @@ const CreatePost = (props) => {
                       </div>
                     </div>
 
-                    <div class="row">
-                    <div class="createPostInputDiv input-field col s12">
+                    <div className="row">
+                    <div className="createPostInputDiv input-field col s12">
                         <input
                           className="createFormlabel"
                           type="text"
@@ -66,8 +66,8 @@ const CreatePost = (props) => {
                       </div>
                     </div>
 
-                    <div class="row">
-                    <div class="createPostInputDiv input-field col s12">
+                    <div className="row">
+                    <div className="createPostInputDiv input-field col s12">
                       <textarea
                           className="createFormlabel materialize-textarea"
                           type="text"
@@ -80,8 +80,8 @@ const CreatePost = (props) => {
                       </div>
                     </div>
 
-                    <div class="row">
-                    <div class="createPostInputDiv input-field col s12">
+                    <div className="row">
+                    <div className="createPostInputDiv input-field col s12">
                         <input
                           className="createFormlabel"
                           type="file"
@@ -93,7 +93,7 @@ const CreatePost = (props) => {
                           />
                       </div>
                     </div>
-                    <button class="createPostBtn btn red waves-effect waves-light btn-large" type="submit" name="action">Create Post </button>
+                    <button className="createPostBtn btn red waves-effect waves-light btn-large" type="submit" name="action">Create Post </button>
                 
                 </form>
             </div>

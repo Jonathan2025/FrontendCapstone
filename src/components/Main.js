@@ -43,51 +43,10 @@ const Main = (props) => {
        
     }
 
-    // Create POST - request to create a post 
-    // const createPost = async (post) => {
-    //     const formData = new FormData() //added this 
-    //     await fetch(POST_URL + 'create', {
-    //         method: 'POST',
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //         },
-    //         // body: JSON.stringify(post),
-    //         body: formData // added this 
-    //     })
-    //     //update list of posts
-    //     getPosts()
-    // }
-    // const createPost = async (post) => {
-    //     console.log(post)
-    //     const formData = new FormData()
-    //         formData.append('title', post.title);
-    //         formData.append('category', post.category);
-    //         formData.append('postDesc', post.postDesc);
-    //         // formData.append('upload', post.upload)
-    //         // Extract only the file name from the upload path
-    //         // C:\fakepath\access.png
-    //         const uploadFileName = post.upload.split('\\').pop()
-    //         formData.append('upload', post.upload, uploadFileName);
-
-     
-
-            
-
-
-    //     await fetch(POST_URL + 'create', {
-    //         method: 'POST',
-    //         // headers: {
-    //         //     "Content-Type": "multipart/form-data" // Add the Content-Type header
-    //         //   },
-    //         body: formData,
-    //     })
-    //     //update list of posts
-    //     getPosts()
-    // }
 
     const createPost = async (post) => {
         console.log(post);
-      
+        // essentially here we need to separate the file and the rest of data when uploading
         const requestData = {
           title: post.title,
           category: post.category,
@@ -96,11 +55,13 @@ const Main = (props) => {
       
         const formData = new FormData();
         formData.append('data', JSON.stringify(requestData))
-        console.log("we appended the first 3 fields")
         formData.append('upload', post.upload);
-      
+        
         await fetch(POST_URL + 'create', {
           method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${accessToken}` // pass in the access token since we need to be authenticated for this route
+            },
           body: formData,
         })
           .then((response) => response.json())
@@ -114,17 +75,52 @@ const Main = (props) => {
       }
 
     // UPDATE POST - request to edit a post 
+    //Following the similar approach as Create Post we need to separate the other fields and file and upload separately
+    
+    // const updatePost = async (post, id) => {
+    //     await fetch(POST_URL + id + '/update', {
+    //         method: 'PUT',
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //             'Authorization': `Bearer ${accessToken}`
+    //         },
+    //         body: JSON.stringify(post),
+    //     })
+    //     //update list of posts
+    //     getPosts()
+    // }
+
+
     const updatePost = async (post, id) => {
+        const requestData = {
+          title: post.title,
+          category: post.category,
+          postDesc: post.postDesc,
+        }
+      
+        const formData = new FormData()
+        formData.append('data', JSON.stringify(requestData))
+        formData.append('upload', post.upload)
+      
         await fetch(POST_URL + id + '/update', {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(post),
+          method: 'PUT',
+          headers: {
+            'Authorization': `Bearer ${accessToken}`,
+          },
+          body: formData,
         })
-        //update list of posts
-        getPosts()
-    }
+          .then((response) => response.json())
+          .then((data) => {
+            // Update list of posts
+            getPosts()
+          })
+          .catch((error) => {
+            console.error('Error:', error)
+          })
+      }
+
+
+
 
     // DELETE POST - request to delete a post 
     const deletePost = async (id) => {
@@ -243,8 +239,8 @@ const Main = (props) => {
                 
                     <Route path="/api/posts" element={<IndexPost posts={posts} />} />
                     <Route path="/api/posts/:id" element={<ShowPost posts={posts} deletePost={deletePost}/>} />
-                    <Route path="/api/posts/:id/update" element={<EditPost posts={posts} updatePost={updatePost} />} />
-                    <Route path="/api/posts/create" element={<CreatePost posts={posts} createPost={createPost}/>} />
+                    <Route path="/api/posts/:id/update" element={<RequireAuth><EditPost posts={posts} updatePost={updatePost} /></RequireAuth>} />
+                    <Route path="/api/posts/create" element={<RequireAuth><CreatePost posts={posts} createPost={createPost}/></RequireAuth>} />
 
                     <Route path="/api/userProfiles" element={<IndexUserProfile userProfiles={userProfiles} />} />
                     <Route path="/api/userProfiles/:id" element={<ShowUserProfile userProfiles={userProfiles} deleteUserProfile={deleteUserprofile}/>} />

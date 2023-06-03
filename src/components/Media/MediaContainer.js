@@ -3,8 +3,9 @@ import React from 'react'
 const MediaContainer = (props) => {
     const uploadFile =  props.uploadFile
     const decodedMediaUrl = decodeURIComponent(uploadFile) // we need to fix the url a bit and do some cleaning
-    const correctedMediaUrl = decodedMediaUrl.substring(1) // get rid of the shash / in the beginning
-    
+    const correctedMediaUrl = decodedMediaUrl.replace(/^\/[^/]+/, 'https:/') // we will use regex to fix the url
+
+
     return (
         <div>
             {uploadFile && (

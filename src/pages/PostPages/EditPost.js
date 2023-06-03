@@ -33,8 +33,8 @@ const EditPost = (props) => {
                 <form className="editPostForm col s12 "onSubmit={handleSubmit}>
                     <h3 className="editPostHeader">Edit {post.title}?</h3>
                     
-                    <div class="row">
-                    <div class="editPostInputDiv input-field col s12">
+                    <div className="row">
+                    <div className="editPostInputDiv input-field col s12">
                         <input
                             type="text"
                             value={editForm.title}
@@ -46,8 +46,8 @@ const EditPost = (props) => {
                       </div>
                     </div>
 
-                    <div class="row">
-                    <div class="editPostInputDiv input-field col s12">
+                    <div className="row">
+                    <div className="editPostInputDiv input-field col s12">
                         <input
                             type="text"
                             value={editForm.category}
@@ -59,8 +59,8 @@ const EditPost = (props) => {
                       </div>
                     </div>
 
-                    <div class="row">
-                    <div class="editPostInputDiv input-field col s12">
+                    <div className="row">
+                    <div className="editPostInputDiv input-field col s12">
                       <textarea
                           className="editFormlabel materialize-textarea"
                           type="text"
@@ -73,25 +73,11 @@ const EditPost = (props) => {
                       </div>
                     </div>
 
-                    {/* So user cant change the file because since the file is the vital part, it would be better that they just delete the post and make a new onChange */}
-                    
-                    {/* <div class="row">
-                    <div class="editPostInputDiv input-field col s12">
-                        <input
-                          className="editFormlabel"
-                          type="file"
-                        //   value={editForm.upload}
-                          name="upload"
-                          placeholder="File Upload"
-                          accept=".jpg, .jpeg, .png, .mov, .mp4"
-                          onChange={handleChange}
-                          required
-                          />
-                      </div>
-                    </div> */}
+                    {/* Hidden input field for editForm.upload */}
+                    <input type="hidden" name="upload" value={editForm.upload} />
 
              
-                    <button class="editPostBtn btn red waves-effect waves-light btn-large" type="submit" name="action">Edit Post </button>
+                    <button className="editPostBtn btn red waves-effect waves-light btn-large" type="submit" name="action">Edit Post </button>
                 </form>
 
 
