@@ -51,6 +51,7 @@ const Main = (props) => {
           title: post.title,
           category: post.category,
           postDesc: post.postDesc,
+          username: post.username,
         };
       
         const formData = new FormData();
@@ -96,6 +97,7 @@ const Main = (props) => {
           title: post.title,
           category: post.category,
           postDesc: post.postDesc,
+          username: post.username,
         }
       
         const formData = new FormData()

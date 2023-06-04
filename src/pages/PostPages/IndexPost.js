@@ -12,7 +12,6 @@ const IndexPost = (props) => {
                 <Link to={`/api/posts/${post.id}`}>
                   <h2>{post.title}</h2>
                 </Link>
-                <p>{post.postDesc}</p>
               </div>
             ))}
           </div>

@@ -12,10 +12,11 @@ const ShowPost = (props) => {
     const id = params.id
     const posts = props.posts
     const post = posts.find((p) => p.id == id)
-    console.log("here is the post userId", post.userId)
-    console.log("this is the user", user)
+    
+    console.log(post)
+    console.log(user)
 
-    //linking edit btn to edit route
+
     const editForm = (e) => {
         navigate(`/api/posts/${post.id}/update`, {state:{post}}) // now when we access the edit form we want to pass the specific post that is being edited
     }
@@ -32,7 +33,6 @@ const ShowPost = (props) => {
         <div>
             {/* we need to make sure the post is loaded first before we can access its properties */}
             {post ? (
-
             <div className = "showPostPage row ">
                 <div className="showPostMedia row">
                     {/* Render the media upload component based on the file extension, pass in the upload */}
@@ -41,7 +41,6 @@ const ShowPost = (props) => {
 
                <div className = "showPostHeader row">
                 <h3 className = "showPostTitle">{post.title}</h3>
-                {/* <h3 className = "showPostCategory">{post.category}</h3> */}
                </div>
 
             <div className ="showPostInformation">
@@ -51,7 +50,7 @@ const ShowPost = (props) => {
                     alt="user profile" 
                     className="postUserImg"
                     />
-                <h4 className="postUser">{post.user} FAKE USER</h4>
+                <h4 className="postUser">{post.username}</h4>
                </div>
 
                 
@@ -61,8 +60,13 @@ const ShowPost = (props) => {
                 </div>
 
                 <div className="editDltButtons">
-                    <button className='editBtn' onClick={editForm}>Edit Post</button>
-                    <button className='deleteBtn' onClick={removePost}>Delete Post</button>
+                   
+                    {post.username === user.username ? (
+                        <>
+                            <button className='btn waves-effect waves-light blue editBtn' onClick={editForm}>Edit Post</button>
+                            <button className='btn waves-effect waves-light red deleteBtn' onClick={removePost}>Delete Post</button>
+                        </>
+                    ): null}
                 </div>
 
                 <div>

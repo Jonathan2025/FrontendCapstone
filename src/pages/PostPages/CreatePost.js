@@ -1,9 +1,13 @@
-import { useState } from "react"
+
 import { useNavigate } from "react-router-dom"
 import '../../styling/CSS/CreatePost.css'
+import {useContext, useState} from 'react'
+import AuthContext from "../../context/AuthContext"
 
 
 const CreatePost = (props) => {
+    let {user} = useContext(AuthContext) // lets get the user who is logged in 
+    console.log("heres our user", user)
     let nameOfFilesUploaded = []
     // get the names of all the files already uploaded - want to make sure we dont have any duplicates
     props.posts.forEach((post, index)=> {
@@ -13,14 +17,18 @@ const CreatePost = (props) => {
 
     const navigate = useNavigate()
     // state to hold formData
+    console.log("this is the user we will put in", user.username)
     const [newForm, setNewForm] = useState({
         title: "",
         category: "",
         postDesc: "",
         upload: "",
+        username: user.username
     })
+    
 
     const handleChange = (event) => {
+      console.log("this is what we get in our form", newForm)
       if (event.target.name === 'upload') {
         const selectedFile = event.target.files[0]
         const fileSizeLimit = 100 * 1024 * 1024; // 100 MB in bytes
@@ -46,11 +54,12 @@ const CreatePost = (props) => {
       }
     }
 
-    // handle submit function for form
-    const handleSubmit = (event) => {
+  
+
+    const handleSubmit = async(event) => {
         event.preventDefault()
-        alert("Please allow between 1-2 minutes for larger files")
-        props.createPost(newForm);
+        alert("Please wait for the file to upload. May take 1-2 minutes for larger files")
+        await props.createPost(newForm);
         navigate("/api/posts")
     }
 
