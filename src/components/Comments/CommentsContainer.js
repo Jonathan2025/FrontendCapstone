@@ -82,10 +82,10 @@ const CommentsContainer = ({userId, username, comments, postId}) => {
 
         return(
             <div className = "commentsContainer">
-                <h1> Comment Section </h1>
+                <h3 className = "commentHeader"> Comments </h3>
                 {/* The commentForm is called --> The formSubmitHandler points to a function addCommentHandler */}
                 <CommentForm btnLabel="Submit" formSubmitHandler={(value) => addCommentHandler(value)}/>
-                <div>
+                <div className="" style={{ maxHeight: "350px", overflow: "auto" }}>
                     {/* Map the comments from props and reverse order to get by most recent. IF the comment is a reply, it will be mapped in Comment.js instead */}
                     {comments.slice(0).reverse().map((comment) => (
                         !comment.parent &&  (

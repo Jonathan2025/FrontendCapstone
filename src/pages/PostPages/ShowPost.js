@@ -40,7 +40,7 @@ const ShowPost = (props) => {
 
                <div className = "showPostHeader row">
                 <h3 className = "showPostTitle">{post.title}</h3>
-                <h3 className = "showPostCategory">{post.category}</h3>
+                {/* <h3 className = "showPostCategory">{post.category}</h3> */}
                </div>
 
             <div className ="showPostInformation">
@@ -54,9 +54,9 @@ const ShowPost = (props) => {
                </div>
 
                 
-                
+                <p>Category: {post.category}</p>
                 <p>{post.postDesc}</p>
-                <p>Posted on {post.created}</p>
+                <p>Posted: {new Date(post.created).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</p>
                 </div>
 
                 <div className="editDltButtons">

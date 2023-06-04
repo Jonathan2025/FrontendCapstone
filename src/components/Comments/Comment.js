@@ -22,19 +22,21 @@ const Comment = ({comment, userId, username, affectedComment, setAffectedComment
     const replyOnUserID = comment.username // user of the replied comment will be the username of the comment  
 
     return(
-        <div className="">
-            <div className="">
-                {/* Now this is where the comment will be displayed and we pass in the user who made the comment */}
-                <img
-                    src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png"
-                    alt="user profile" 
-                    className="rounded-circle"
-                    style={{ width: '4rem', height: 'auto' }}
-                    />
-                </div>
-                <div className="">
+        <div className="commentBox">
+          
+                <div className="commentContainer">
+                    <div className="commentImageAndUser">
+                    {/* Now this is where the comment will be displayed and we pass in the user who made the comment */}
+                    <img
+                        src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png"
+                        alt="user profile" 
+                        className="commentUserImg"
+                        style={{ width: '4rem', height: 'auto' }}
+                        />
+                    <h5 className="commentUserName">{comment.username}</h5>
+                    </div>
                     {/* here will be comment information such as the date the comment was made*/}
-                    <h5 className="text-primary">{comment.username}</h5>
+                    
                     <span className="commentDate">
                         {new Date(comment.created).toLocaleDateString("en-US", {
                             day:"numeric",
@@ -57,10 +59,10 @@ const Comment = ({comment, userId, username, affectedComment, setAffectedComment
                     )}
 
                     {/* User should be logged in before we allow them to reply to a comment */}
-                    <div class="">
+                    <div class="commentBtns">
                         {isUserLoggedIn && (
                             <button
-                                className="btn btn-outline-primary"
+                                className="btn"
                                 type="button" 
                                 onClick={() => setAffectedComment({type: 'replying', id:comment.id})}>
                                 <FiMessageSquare />
@@ -72,14 +74,14 @@ const Comment = ({comment, userId, username, affectedComment, setAffectedComment
                     {commentBelongsToUser && (
                             <>
                             <button 
-                                className="btn btn-outline-secondary"
+                                className="btn blue"
                                 type="button"
                                 onClick={() => setAffectedComment({type: 'editing', id:comment.id})}>
                                 <FiEdit2 />
                                 <span>Edit</span>
                             </button>
                             <button 
-                                className=""
+                                className="btn red"
                                 type="button"
                                 onClick={() => deleteComment(comment.id)}>
                                 <FiTrash />

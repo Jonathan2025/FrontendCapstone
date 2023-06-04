@@ -13,8 +13,7 @@
 }
 
 .showPostHeader{
-    text-align: left;
-
+    /* text-align: left; */
     padding: 25px;
     margin: 0px 0px 0px 25px;
 }
@@ -26,11 +25,11 @@
 }
 
 .showPostInformation{
-    border: 3px solid black;
     padding: 25px;
-    margin: 25px 50px 25px 50px;
+    margin: 0px 0.5rem 25px 0.5rem;
     border-radius: 20px;
     text-align: left;
+    background-color: 	#E5E4E2;
 }
 
 .mediaSource{
@@ -49,18 +48,69 @@
 }
 
 .showPostPage{
-    background-color: lightgray;
-   
+    background-color: white;
     border-radius: 3%;
     text-align: center;
     width: 75%;
 }
 
 .showPostMedia{
-    background-image: url("https://c4.wallpaperflare.com/wallpaper/595/474/332/lines-vertical-multi-colored-background-wallpaper-thumb.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
     border-top-left-radius: 3%;
     border-top-right-radius: 3%;
 }
+
+.commentHeader{
+    text-align: left;
+    padding-left:1rem;
+}
+
+
+.comments{
+    margin: 0px 1rem 0px;
+}
+
+.commentTextArea{
+    border: 2px solid #007FFF;
+    border-radius: 5px;
+    background-color: white;
+    padding: 5px;
+}
+
+.commentSubmitBtnDiv{
+    text-align: right;
+    border-radius: 20px;
+    margin: 0px 25px 0px 25px;
+    padding-bottom: 5px;
+}
+
+.commentSubmitBtnDiv button {
+    margin-right: 10px; 
+  }
+
+
+  .commentContainer{
+    text-align: left;
+    padding-left: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border: 1px solid #007FFF;
+    margin: 1em;
+    border-radius: 20px;
+  }
+
+
+  .commentImageAndUser {
+    display: flex; 
+  }
+
+  .commentUserName{
+    margin-left: 10px;
+  }
+
+  .commentUserImg{
+    border-radius: 50%;
+  }
+
+  .commentBtns > * {
+    margin-left: 0.3rem;
+  }

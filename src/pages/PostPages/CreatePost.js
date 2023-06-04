@@ -5,7 +5,6 @@ import '../../styling/CSS/CreatePost.css'
 
 const CreatePost = (props) => {
     const navigate = useNavigate()
-    const [file, setFile] = useState(null)
     // state to hold formData
     const [newForm, setNewForm] = useState({
         title: "",
