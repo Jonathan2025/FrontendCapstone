@@ -4,6 +4,13 @@ import '../../styling/CSS/CreatePost.css'
 
 
 const CreatePost = (props) => {
+    let nameOfFilesUploaded = []
+    // get the names of all the files already uploaded - want to make sure we dont have any duplicates
+    props.posts.forEach((post, index)=> {
+      const fileName = post.upload.split('/').pop()
+      nameOfFilesUploaded.push(fileName)
+    })
+
     const navigate = useNavigate()
     // state to hold formData
     const [newForm, setNewForm] = useState({
@@ -15,27 +22,24 @@ const CreatePost = (props) => {
 
     const handleChange = (event) => {
       if (event.target.name === 'upload') {
-        const selectedFile = event.target.files[0];
-        console.log(selectedFile.name);
-    
+        const selectedFile = event.target.files[0]
         const fileSizeLimit = 100 * 1024 * 1024; // 100 MB in bytes
-    
-        if (selectedFile.size > fileSizeLimit) {
-          console.log('File size exceeds the limit.');
-          alert('Please select a file smaller than 100 MB.')
-          event.target.value = null // Reset the file upload input
-        } else if (selectedFile.name && selectedFile.name.includes(' ')) {
-          console.log('File name contains spaces.');
-          alert('Please make sure the file name has no spaces.')
-          event.target.value = null // Reset the file upload input
-        
-        } else if (selectedFile.name && selectedFile.name.includes(' ') && (selectedFile.size > fileSizeLimit)) {
-          alert('Please make sure the file name has no spaces AND that its smaller than 100 MB')
+       
+        // File shouldnt be named as a file already uploaded, cant be more than 100 mb and shouldnt have any spaces
+        // This is to avoid problems uploading files to azure in the backend
+        if ((selectedFile.size > fileSizeLimit) || (selectedFile.name && selectedFile.name.includes(' ')) || (nameOfFilesUploaded.includes(selectedFile.name))){
+          if (selectedFile.size > fileSizeLimit) {
+            console.log('File size exceeds the limit.')
+          } else if (selectedFile.name && selectedFile.name.includes(' ')) {
+            alert('Please make sure the file name has no spaces.')
+          } else if (nameOfFilesUploaded.includes(selectedFile.name)) {
+            alert('Please rename the file as it matches a file already uploaded')
+          }
           event.target.value = null // Reset the file upload input
         } else {
           // File meets the requirements
-          console.log('File meets the requirements.');
-          setNewForm({ ...newForm, [event.target.name]: selectedFile });
+          console.log('File meets the requirements.')
+          setNewForm({ ...newForm, [event.target.name]: selectedFile })
         }
       } else {
         setNewForm({ ...newForm, [event.target.name]: event.target.value });

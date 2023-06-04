@@ -12,7 +12,8 @@ const ShowPost = (props) => {
     const id = params.id
     const posts = props.posts
     const post = posts.find((p) => p.id == id)
-    console.log("here is the post", post)
+    console.log("here is the post userId", post.userId)
+    console.log("this is the user", user)
 
     //linking edit btn to edit route
     const editForm = (e) => {
@@ -60,8 +61,8 @@ const ShowPost = (props) => {
                 </div>
 
                 <div className="editDltButtons">
-                <button className='editBtn' onClick={editForm}>Edit Post</button>
-                <button className='deleteBtn' onClick={removePost}>Delete Post</button>
+                    <button className='editBtn' onClick={editForm}>Edit Post</button>
+                    <button className='deleteBtn' onClick={removePost}>Delete Post</button>
                 </div>
 
                 <div>
