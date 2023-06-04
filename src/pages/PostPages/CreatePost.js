@@ -5,7 +5,7 @@ import '../../styling/CSS/CreatePost.css'
 
 const CreatePost = (props) => {
     const navigate = useNavigate()
-
+    const [file, setFile] = useState(null)
     // state to hold formData
     const [newForm, setNewForm] = useState({
         title: "",
@@ -14,18 +14,39 @@ const CreatePost = (props) => {
         upload: "",
     })
 
-    // handleChange function for form
     const handleChange = (event) => {
-        if (event.target.name === 'upload') {
-          setNewForm({ ...newForm, [event.target.name]: event.target.files[0] });
+      if (event.target.name === 'upload') {
+        const selectedFile = event.target.files[0];
+        console.log(selectedFile.name);
+    
+        const fileSizeLimit = 100 * 1024 * 1024; // 100 MB in bytes
+    
+        if (selectedFile.size > fileSizeLimit) {
+          console.log('File size exceeds the limit.');
+          alert('Please select a file smaller than 100 MB.')
+          event.target.value = null // Reset the file upload input
+        } else if (selectedFile.name && selectedFile.name.includes(' ')) {
+          console.log('File name contains spaces.');
+          alert('Please make sure the file name has no spaces.')
+          event.target.value = null // Reset the file upload input
+        
+        } else if (selectedFile.name && selectedFile.name.includes(' ') && (selectedFile.size > fileSizeLimit)) {
+          alert('Please make sure the file name has no spaces AND that its smaller than 100 MB')
+          event.target.value = null // Reset the file upload input
         } else {
-          setNewForm({ ...newForm, [event.target.name]: event.target.value });
+          // File meets the requirements
+          console.log('File meets the requirements.');
+          setNewForm({ ...newForm, [event.target.name]: selectedFile });
         }
+      } else {
+        setNewForm({ ...newForm, [event.target.name]: event.target.value });
       }
+    }
 
     // handle submit function for form
     const handleSubmit = (event) => {
         event.preventDefault()
+        alert("Please allow between 1-2 minutes for larger files")
         props.createPost(newForm);
         navigate("/api/posts")
     }

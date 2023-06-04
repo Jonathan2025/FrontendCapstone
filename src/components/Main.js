@@ -126,6 +126,9 @@ const Main = (props) => {
     const deletePost = async (id) => {
         await fetch(POST_URL + id + '/delete', {
             method: 'DELETE',
+            headers: {
+                'Authorization': `Bearer ${accessToken}`,
+              },
         })
         //update list of posts
         getPosts()

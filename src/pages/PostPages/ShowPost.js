@@ -39,7 +39,7 @@ const ShowPost = (props) => {
                 </div>
 
                <div className = "showPostHeader row">
-                <h2 className = "showPostTitle">{post.title}</h2>
+                <h3 className = "showPostTitle">{post.title}</h3>
                 <h3 className = "showPostCategory">{post.category}</h3>
                </div>
 
@@ -50,7 +50,7 @@ const ShowPost = (props) => {
                     alt="user profile" 
                     className="postUserImg"
                     />
-                <h3 className="postUser">{post.user} FAKE USER</h3>
+                <h4 className="postUser">{post.user} FAKE USER</h4>
                </div>
 
                 
