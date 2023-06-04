@@ -3,7 +3,7 @@ import React, {useContext} from 'react'
 import AuthContext from "../../context/AuthContext"
 import CommentsContainer from "../../components/Comments/CommentsContainer"
 import MediaContainer from "../../components/Media/MediaContainer"
-
+import"../../styling/CSS/ShowPost.css"
 
 const ShowPost = (props) => {
     let {user} = useContext(AuthContext) // lets get the user who is logged in 
@@ -31,14 +31,33 @@ const ShowPost = (props) => {
         <div>
             {/* we need to make sure the post is loaded first before we can access its properties */}
             {post ? (
-            <div>
-                <h1>{post.title}</h1>
-                <h2>{post.category}</h2>
-                <p>{post.postDesc}</p>
-                <p>{post.created}</p>
 
-                {/* Render the media upload component based on the file extension, pass in the upload */}
-                <MediaContainer uploadFile={post.upload} />
+            <div className = "showPostPage row ">
+                <div className="showPostMedia row">
+                    {/* Render the media upload component based on the file extension, pass in the upload */}
+                    <MediaContainer className="mediaContainer" uploadFile={post.upload} />
+                </div>
+
+               <div className = "showPostHeader row">
+                <h2 className = "showPostTitle">{post.title}</h2>
+                <h3 className = "showPostCategory">{post.category}</h3>
+               </div>
+
+            <div className ="showPostInformation">
+               <div className = "showPostUser row">
+                <img
+                    src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png"
+                    alt="user profile" 
+                    className="postUserImg"
+                    />
+                <h3 className="postUser">{post.user} FAKE USER</h3>
+               </div>
+
+                
+                
+                <p>{post.postDesc}</p>
+                <p>Posted on {post.created}</p>
+                </div>
 
                 <div className="editDltButtons">
                 <button className='editBtn' onClick={editForm}>Edit Post</button>
@@ -49,6 +68,9 @@ const ShowPost = (props) => {
                  <CommentsContainer userId={user.user_id} username={user.username} comments={post.comments} postId={post.id}/>
                 </div>
             </div>
+
+
+
             ) : (
             // otherwise show a loading screen
             <p>Loading...</p>

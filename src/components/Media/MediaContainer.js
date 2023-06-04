@@ -1,4 +1,5 @@
 import React from 'react'
+import"../../styling/CSS/ShowPost.css"
 
 const MediaContainer = (props) => {
     const uploadFile =  props.uploadFile
@@ -11,13 +12,13 @@ const MediaContainer = (props) => {
             {uploadFile && (
                 // Check the file extension and render the appropriate media tag
                 (correctedMediaUrl.endsWith('.png') || correctedMediaUrl.endsWith('.jpg') || correctedMediaUrl.endsWith('.jpeg')) ? (
-                    <img src={correctedMediaUrl} alt="Post Image" />
+                    <img className ="mediaSource" src={correctedMediaUrl} alt="Post Image" />
                 ) : correctedMediaUrl.endsWith('.mov') ? (
-                    <video controls>
+                    <video className ="mediaSource" controls>
                         <source src={correctedMediaUrl} type="video/quicktime" />
                     </video>
                 ) : correctedMediaUrl.endsWith('.mp4') ? (
-                    <video controls>
+                    <video  className ="mediaSource" controls>
                         <source src={correctedMediaUrl} type="video/mp4" />
                     </video>
                 ) : (

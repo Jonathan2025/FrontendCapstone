@@ -1,0 +1,57 @@
+.showPostTitle, .showPostCategory{
+    display: inline-block;
+}
+
+.showPostTitle{
+    margin-right: 50px; 
+}
+
+.showPostUser > * {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.showPostHeader{
+    text-align: left;
+}
+
+.postUserImg{
+    height: auto;
+    width: 4rem;
+    border-radius: 50%;
+}
+
+.showPostInformation{
+    border: 3px solid black;
+}
+
+.mediaSource{
+    width: 700px;
+    height: 550px;
+    object-fit: fill;
+    padding: 5px;
+    border-radius: 3%;
+}
+
+@media (max-width: 767px) {
+    .mediaSource {
+        width: 270px;
+        height: 300px;
+    }
+}
+
+.showPostPage{
+    background-color: lightblue;
+   
+    border-radius: 3%;
+    text-align: center;
+    width: 75%;
+}
+
+.showPostMedia{
+    background-image: url("https://c4.wallpaperflare.com/wallpaper/595/474/332/lines-vertical-multi-colored-background-wallpaper-thumb.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-top-left-radius: 5%;
+}
