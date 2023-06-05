@@ -6,7 +6,9 @@ const IndexPost = (props) => {
     //loaded function
     const loaded = () => {
         return (
+          
           <div className="containerIndex">
+            <Link to="/api/posts/create">Create</Link>
             {props.posts.map((post) => (
               <div key={post.id}>
                 <Link to={`/api/posts/${post.id}`}>

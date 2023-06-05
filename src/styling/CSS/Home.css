@@ -1,0 +1,29 @@
+.welcomeSection{
+    text-align: center;
+    background-image: url('../../styling/Images/NewDesign.png');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+}
+
+.welcomeSectionText{
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    padding: 50px 40px 50px 40px !important;
+    border-radius: 5px;
+    font-weight: bold;
+    font-family: 'Netflix Sans';
+    position: relative;
+}
+
+/* getting the netflix sans font */
+@font-face {
+    font-family: 'Netflix Sans';
+    src: url('../netflix-sans-font/NetflixSans-Bold.otf') format('truetype');
+  }

@@ -1,13 +1,12 @@
 
 import { useNavigate } from "react-router-dom"
 import '../../styling/CSS/CreatePost.css'
-import {useContext, useState} from 'react'
+import {useContext, useState, useEffect} from 'react'
 import AuthContext from "../../context/AuthContext"
-
+import Multiselect from "multiselect-react-dropdown"
 
 const CreatePost = (props) => {
     let {user} = useContext(AuthContext) // lets get the user who is logged in 
-    console.log("heres our user", user)
     let nameOfFilesUploaded = []
     // get the names of all the files already uploaded - want to make sure we dont have any duplicates
     props.posts.forEach((post, index)=> {
@@ -17,18 +16,29 @@ const CreatePost = (props) => {
 
     const navigate = useNavigate()
     // state to hold formData
-    console.log("this is the user we will put in", user.username)
     const [newForm, setNewForm] = useState({
         title: "",
-        category: "",
+        category: [],
         postDesc: "",
         upload: "",
         username: user.username
     })
-    
 
+    const [category, setCategory] = useState(["Self Defense", "Basics", "Training", "Tutorial", "Beginner", "Intermediate","Advanced", "Jonathan's Originals", "Sparring", "Competition", "Comedy", "Blockbuster", "Thriller" ])
+    
+    const handleCategorySelect = (selectedCategory) => {
+      setNewForm({ ...newForm, category: selectedCategory });
+    };
+    
+    const handleCategoryRemove = (removedCategory) => {
+      const updatedCategory = newForm.category.filter(
+        (category) => category !== removedCategory
+      );
+      setNewForm({ ...newForm, category: updatedCategory });
+    }
+    
     const handleChange = (event) => {
-      console.log("this is what we get in our form", newForm)
+      console.log("hey there", newForm)
       if (event.target.name === 'upload') {
         const selectedFile = event.target.files[0]
         const fileSizeLimit = 100 * 1024 * 1024; // 100 MB in bytes
@@ -64,6 +74,9 @@ const CreatePost = (props) => {
     }
 
 
+
+    
+    
     return (
         <div class="createPostPage row"> 
               <div className="centerCreatePost col s12 m6 l4">
@@ -85,19 +98,54 @@ const CreatePost = (props) => {
                       </div>
                     </div>
 
-                    <div className="row">
-                    <div className="createPostInputDiv input-field col s12">
-                        <input
-                          className="createFormlabel"
-                          type="text"
+                    {/* <div className="row">
+                    <div className="input-field col s12 createPostInputDiv">
+                        <select
+                          // className="createFormlabel"
+                          // type="text"
                           value={newForm.category}
                           name="category"
                           placeholder="Category"
                           onChange={handleChange}
+                          multiple
                           required
+                        >
+                          <option value="" disabled selected>Select a category</option>
+                          <option value="Self Defense">Self Defense</option>
+                          <option value="Basics">Basics</option>
+                          <option value="Training">Training</option>
+                          <option value="Tutorial">Tutorial</option>
+                          <option value="Beginner">Beginner</option>
+                          <option value="Intermediate">Intermediate</option>
+                          <option value="Advanced">Advanced</option>
+                          <option value="Jonathan's Originals">Jonathan's Originals</option>
+                          <option value="Sparring">Sparring</option>
+                          <option value="Competition">Competition</option>
+                          <option value="Comedy">Comedy</option>
+                          <option value="Blockbuster">Blockbuster</option>
+                          <option value="Thriller">Thriller</option>
+                        </select>
+                      </div>
+                    </div> */}
+                   
+                    <div className="row">
+                      <div className="createPostInputDiv">
+                      <Multiselect
+                          isObject={false}
+                          // onRemove={(event) => {console.log(event)}}
+                          // onSelect={(event) => {console.log(event)}}
+                          onRemove={handleCategoryRemove}
+                          onSelect={handleCategorySelect}
+                          options={category}
+                          onChange={handleChange}
+                          placeholder="Select a category"
                         />
                       </div>
                     </div>
+
+
+
+            
 
                     <div className="row">
                     <div className="createPostInputDiv input-field col s12">

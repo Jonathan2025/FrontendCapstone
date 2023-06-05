@@ -114,3 +114,13 @@
   .commentBtns > * {
     margin-left: 0.3rem;
   }
+
+
+  .icon_cancel{
+    height: 25px !important;
+    width: 25px !important;
+    margin-left: 3px !important;
+  }
+
+  
+ 
