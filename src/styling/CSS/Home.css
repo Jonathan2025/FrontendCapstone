@@ -36,7 +36,25 @@
     color:white;
     font-family: 'Netflix Sans';
     font-weight: bold;
+
+    display: flex;
+    align-items: center;
 }
+
+@media (max-width: 600px) {
+    .homeSectionPage {
+      display:block;
+      padding:10px;
+    }
+    .homeSectionsPhotos{
+        width: 50vh;
+        height: 40vh;
+    }
+
+  }
+
+
+
 
  /* webkit mask image is for safari and older versions of chrome, mask-image is for modern browsers */
 /* Apply a fade out */
