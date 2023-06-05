@@ -3,7 +3,7 @@
     background-image: url('../../styling/Images/NewDesign.png');
     background-size: cover;
     background-position: center;
-    min-height: 100vh;
+    min-height: 75vh;
     position: relative;
     display: flex;
     align-items: center;
@@ -27,3 +27,35 @@
     font-family: 'Netflix Sans';
     src: url('../netflix-sans-font/NetflixSans-Bold.otf') format('truetype');
   }
+
+
+.homeSectionPage{
+    border-bottom: 8px solid #36454F;
+    padding:50px;
+    text-align: center;
+    color:white;
+    font-family: 'Netflix Sans';
+    font-weight: bold;
+}
+
+ /* webkit mask image is for safari and older versions of chrome, mask-image is for modern browsers */
+/* Apply a fade out */
+
+  .homeSectionsPhotos {
+    position: relative;
+    -webkit-mask-image: linear-gradient(
+      to top,
+      transparent,
+      rgba(0, 0, 0, 0.9),
+      transparent
+    );
+    mask-image: linear-gradient(
+      to top,
+      transparent,
+      rgba(0, 0, 0, 0.9),
+      transparent
+    );
+  }
+
+
+
