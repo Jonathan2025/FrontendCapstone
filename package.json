@@ -9,6 +9,7 @@
     "dotenv": "^16.0.3",
     "dotenv-webpack": "^8.0.1",
     "jwt-decode": "^3.1.2",
+    "materialize-css": "^1.0.0",
     "multiselect-react-dropdown": "^2.0.25",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

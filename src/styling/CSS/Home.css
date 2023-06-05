@@ -17,7 +17,7 @@
     text-align: center;
     padding: 50px 40px 50px 40px !important;
     border-radius: 5px;
-    font-weight: bold;
+    font-weight: bold ;
     font-family: 'Netflix Sans';
     position: relative;
 }
@@ -34,9 +34,8 @@
     padding:50px;
     text-align: center;
     color:white;
-    font-family: 'Netflix Sans';
+    font-family: 'Netflix Sans' !important;
     font-weight: bold;
-
     display: flex;
     align-items: center;
 }
@@ -54,6 +53,10 @@
   }
 
 
+  .homeSectionParagraph{
+    font-weight: bold;
+    font-family: 'Netflix Sans';
+  }
 
 
  /* webkit mask image is for safari and older versions of chrome, mask-image is for modern browsers */

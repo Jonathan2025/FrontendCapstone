@@ -4,8 +4,8 @@ const Section4 = () => {
   return (
     <div className="homeSectionPage row">
     <div className="col s12 m6 l6 center-align">
-      <div className="homeSectionsTexts">
-        <h2>View instructors' bios and nearby martial arts schools</h2>
+      <div className="homeSectionTexts">
+        <h2 className="homeSectionParagraph"> View instructor bios and nearby martial arts schools</h2>
       </div>
     </div>
 

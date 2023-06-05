@@ -5,8 +5,8 @@ const Section1 = () => {
   
     <div className="homeSectionPage row">
     <div className="col s12 m6 l6 center-align">
-      <div className="homeSectionsTexts">
-        <h2>Learn from World Class Instructors</h2>
+      <div className="homeSectionTexts">
+        <h2 className="homeSectionParagraph">Learn from world-class instructors, exclusively on KickFlix </h2>
       </div>
     </div>
 

@@ -6,10 +6,10 @@ const WelcomeSection = () => {
         <div className="shadingOverImage"></div>
         <div className="welcomeSectionText">
         <div className="row">
-            <h2>Welcome to KickFlix!</h2>
+            <h2 className="homeSectionParagraph">Welcome to KickFlix!</h2>
         </div>
         <div className="row">
-            <h4>The Martial Arts hub for beginners and advanced practicioners!</h4>
+            <h4 className="homeSectionParagraph">The Martial Arts hub for beginners and advanced practicioners!</h4>
         </div>
         </div>
     </div>

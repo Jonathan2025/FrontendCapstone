@@ -4,8 +4,8 @@ const Section2 = () => {
   return (
     <div className="homeSectionPage row">
     <div className="col s12 m6 l6 center-align">
-      <div className="homeSectionsTexts">
-        <h2>Enjoy tutorials, clips, and more on online devices</h2>
+      <div className="homeSectionTexts">
+        <h2 className="homeSectionParagraph">Enjoy tutorials, clips, and more on online devices</h2>
       </div>
     </div>
 

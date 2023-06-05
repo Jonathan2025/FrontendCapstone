@@ -19,12 +19,31 @@ main{
     background-color: black;
 }
 
+
+
+
 .navBarSignInBtn{
     font-family: 'Netflix Sans';
     font-weight: bold;
     border-radius: 5px;
     background-color: #D2122E !important;
+
 }
+
+
+/* main nav bar is for the nav bar when the user signs in their account */
+.mainNavBar{
+    background-color: black;
+    font-family: 'Netflix Sans';
+}
+
+.navBarDropdown{
+    padding: 20px;
+}
+
+
+
+
 
 /* getting the netflix sans font */
 @font-face {
