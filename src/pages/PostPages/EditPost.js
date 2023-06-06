@@ -1,6 +1,6 @@
 import { useState} from "react"
 import { useNavigate, useLocation } from "react-router-dom"
-import '../../styling/CSS/EditPost.css'
+import '../../styling/CSS/posts/EditPost.css'
 import Multiselect from "multiselect-react-dropdown"
 
 const EditPost = (props) => {
@@ -59,7 +59,7 @@ const EditPost = (props) => {
                     </div>
 
                     <div className="row">
-                      <div className="createPostInputDiv">
+                      <div className="createPostCategory">
                       <Multiselect
                           isObject={false}
                           onRemove={handleCategoryRemove}

@@ -1,6 +1,6 @@
 
 import { useNavigate } from "react-router-dom"
-import '../../styling/CSS/CreatePost.css'
+import '../../styling/CSS/posts/CreatePost.css'
 import {useContext, useState, useEffect} from 'react'
 import AuthContext from "../../context/AuthContext"
 import Multiselect from "multiselect-react-dropdown"
@@ -100,7 +100,7 @@ const CreatePost = (props) => {
 
                    
                     <div className="row">
-                      <div className="createPostInputDiv">
+                      <div className="createPostDesc">
                       <Multiselect
                           isObject={false}
                           onRemove={handleCategoryRemove}

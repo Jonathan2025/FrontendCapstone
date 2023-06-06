@@ -1,5 +1,5 @@
 import React from 'react'
-import"../../styling/CSS/ShowPost.css"
+import"../../styling/CSS/posts/ShowPost.css"
 
 const MediaContainer = (props) => {
     const uploadFile =  props.uploadFile

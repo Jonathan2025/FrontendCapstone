@@ -1,0 +1,54 @@
+/* Create Post Page Styling */
+.createPostPage{
+    background-image: url('../../../styling/Images/createPostImg.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+}
+
+.centerCreatePost{
+    margin: 0 auto;
+}
+
+
+.createPostForm{
+    background-color: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    padding: 50px 40px 50px 40px !important;
+    border-radius: 5px;
+}
+
+.createPostInputDiv{
+   
+    border-radius: 10px; 
+    color:white;
+}
+.createPostDesc{
+    color: black
+}
+.createPostHeader{
+    color: white;
+    position: relative;
+    font-weight: bold;
+    font-family: 'Netflix Sans';
+}
+
+.createPostBtn{
+    font-weight: bold;
+    font-family: 'Netflix Sans';
+    padding: 0 40% 0 40%;
+    background-color: #D2122E !important;
+    border-radius: 5px;
+    
+}
+
+/* getting the netflix sans font */
+@font-face {
+    font-family: 'Netflix Sans';
+    src: url('../../netflix-sans-font/NetflixSans-Regular.otf') format('truetype');
+  }

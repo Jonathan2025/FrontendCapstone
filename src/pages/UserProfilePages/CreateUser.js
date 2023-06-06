@@ -3,15 +3,12 @@ import { useNavigate } from "react-router-dom"
 import {useContext} from 'react'
 import AuthContext from "../../context/AuthContext"
 import Select from 'react-select'
-
+import "../../styling/CSS/userProfiles/CreateUser.css"
 
 const CreateUserProfile = (props) => {
     const navigate = useNavigate()
     let {user} = useContext(AuthContext) // lets get the user who is logged in 
-    // when a user is logged in, obviously it will be the one creating a profile
     
-    console.log("creating", props)
-
     let nameOfFilesUploaded = []
     // get the names of all the files already uploaded - want to make sure we dont have any duplicates
     props.userProfiles.forEach((userProfile, index)=> {
@@ -33,12 +30,6 @@ const CreateUserProfile = (props) => {
         state: "",
         zip_code: "",
     })
-
-    // handleChange function for form
-    // const handleChange = (event) => {
-    //     setNewForm({ ...newForm, [event.target.name]: event.target.value });
-    // }
-
 
     // handle change function for the form, we need to add some checks to our picture upload
     const handleChange = (event) => {
@@ -168,52 +159,51 @@ const CreateUserProfile = (props) => {
         { value: 'WI', label: 'Wisconsin' },
         { value: 'WY', label: 'Wyoming' },
       ]
-
+    
+      
 
     return (
 
         <div className="createUserProfilePage row"> 
-             <div className="col s12 m6 l6 center-align">
+             <div className="centerCreateUser  col s12 m6 l6">
                 {/* Here we can put something on the left side if we wanted to */}
-            </div>
+            
 
-            <div className="col s12 m6 l6">
+            {/* <div className="col s12 m6 l6"> */}
                 <form className = "createUserProfileForm" onSubmit = {handleSubmit}>
-                    <h1 className="createFormTitle">Create your User Profile! </h1>
+                    <h1 className="createUserProfileTitle">Create a Profile! </h1>
 
-                    <div className = "row" >
-                        <div className = "createdUserInputDiv input-field col s12">
+                    <div className="row">
+                        <div className="createUserInputDiv input-field col s12 m6">
                             <input
-                                className="createFormlabel"
+                                className="createUserFormlabel"
                                 type="text"
                                 value={newForm.first_name}
                                 name="first_name"
                                 placeholder="First Name"
                                 onChange={handleChange}
                                 required
-                            /><br/>
+                            />
+                         
                         </div>
-                    </div>
-
-                    <div className = "row" >
-                        <div className = "createdUserInputDiv input-field col s12">
+                        <div className="createUserInputDiv input-field col s12 m6">
                             <input
-                                className="createFormlabel"
+                                className="createUserFormlabel"
                                 type="text"
                                 value={newForm.last_name}
                                 name="last_name"
                                 placeholder="Last Name"
                                 onChange={handleChange}
                                 required
-                            /><br/>
-                        </div>
+                                />
+                                
+                            </div>
                     </div>
-
-
+                    
                     <div className = "row" >
-                        <div className = "createdUserInputDiv input-field col s12">
+                        <div className = "createUserInputDiv input-field col s12 m6">
                              <input
-                                className="createFormlabel"
+                                className="createUserFormlabel"
                                 type="text"
                                 value={user.username}
                                 name="username"
@@ -222,31 +212,38 @@ const CreateUserProfile = (props) => {
                                 required
                             /><br />
                         </div>
-                    </div>
-                    
-                <div className="row">
-                    <div className="createPostInputDiv input-field col s12">
-                        <input
-                          className="createFormlabel"
-                          type="file"
-                          name="picture"
-                          placeholder="Picture Upload"
-                          accept=".jpg, .jpeg, .png"
-                          onChange={handleChange}
-                          required
-                          />
-                      </div>
+                
+                        <div className="createUserInputDiv input-field col s12 m6">
+                            <input
+                            className="createUserFormlabel"
+                            type="file"
+                            name="picture"
+                            placeholder="Picture Upload"
+                            accept=".jpg, .jpeg, .png"
+                            onChange={handleChange}
+                            required
+                            />
+                        </div>
                     </div>
 
-
-
-
-
-
-                    <div className = "row" >
-                        <div className = "createdUserInputDiv input-field col s12">
+                    <div className="row">
+                        <div className="createUserSelectInputDiv input-field col s12 m6">
+                            <Select
+                            className="basic-single"
+                            value={newForm.martialArt}
+                            name="martialArt"
+                            placeholder="Martial Art"
+                            onChange={handleMartialArtSelect} // Use handleMartialArtSelect for onChange
+                            options={martialArtOptions}
+                            labelField="label"
+                            valueField="value"
+                            required
+                            />
+                        </div>
+                 
+                        <div className = "createUserInputDiv input-field col s12 m6">
                              <input
-                                className="createFormlabel"
+                                className="createUserFormlabel"
                                 type="text"
                                 value={newForm.beltLevel}
                                 name="beltLevel"
@@ -257,118 +254,86 @@ const CreateUserProfile = (props) => {
                         </div>
                     </div>
 
-                    {/* <div className = "row" >
-                        <div className = "createdUserInputDiv input-field col s12">
-                            <input
-                                className="createFormlabel"
+                    <div className="row">
+                        <div className="createUserInputDiv input-field col s12">
+                            <textarea
+                                className="createUserFormlabel materialize-textarea"
                                 type="text"
                                 value={newForm.userDesc}
                                 name="userDesc"
                                 placeholder="User Description"
                                 onChange={handleChange}
                                 required
-                            /><br/>
+                                ></textarea>
                         </div>
-                    </div> */}
-
-                    <div className="row">
-                    <div className="createUserInputDiv input-field col s12">
-                      <textarea
-                          className="createFormlabel materialize-textarea"
-                          type="text"
-                          value={newForm.userDesc}
-                          name="userDesc"
-                          placeholder="User Description"
-                          onChange={handleChange}
-                          required
-                        ></textarea>
-                      </div>
                     </div>
 
 
        
-                <div className="row">
-                    <div className="input-field col s12">
-                        <Select
-                        className="basic-single"
-                        value={newForm.martialArt}
-                        name="martialArt"
-                        placeholder="Martial Art"
-                        onChange={handleMartialArtSelect} // Use handleMartialArtSelect for onChange
-                        options={martialArtOptions}
-                        labelField="label"
-                        valueField="value"
-                        required
-                        />
-                    </div>
-                </div>
+                
 
 
-                <div className = "row" >
-                    <div className = "createdUserInputDiv input-field col s12">
-                        <input
-                            className="createFormlabel"
-                            type="text"
-                            value={newForm.address}
-                            name="address"
-                            placeholder="Address"
-                            onChange={handleChange}
-                            required
+                    <div className = "row" >
+                        <div className = "createUserInputDiv input-field col s12 m6">
+                            <input
+                                className="createUserFormlabel"
+                                type="text"
+                                value={newForm.address}
+                                name="address"
+                                placeholder="Address"
+                                onChange={handleChange}
+                                required
+                                /><br/>
+                        </div>
+                  
+                        <div className = "createUserInputDiv input-field col s12 m6">
+                            <input
+                                className="createUserFormlabel"
+                                type="text"
+                                value={newForm.city}
+                                name="city"
+                                placeholder="City"
+                                onChange={handleChange}
+                                required
                             /><br/>
                         </div>
                     </div>
 
-                <div className = "row" >
-                    <div className = "createdUserInputDiv input-field col s12">
-                        <input
-                            className="createFormlabel"
-                            type="text"
-                            value={newForm.city}
-                            name="city"
-                            placeholder="City"
-                            onChange={handleChange}
+                    <div className = "row" >
+                        <div className = "createUserSelectInputDiv input-field col s12 m6">
+                            <Select
+                            className="basic-single"
+                            value={newForm.state}
+                            name="state"
+                            placeholder="State"
+                            onChange={handleStateSelect}
+                            options={stateOptions}
+                            labelField="label"
+                            valueField="value"
                             required
-                        /><br/>
-                    </div>
-                </div>
-
-                <div className = "row" >
-                    <div className = "createdUserInputDiv input-field col s12">
-                        <Select
-                        className="basic-single"
-                        value={newForm.state}
-                        name="state"
-                        placeholder="State"
-                        onChange={handleStateSelect}
-                        options={stateOptions}
-                        labelField="label"
-                        valueField="value"
-                        required
-                        />
+                            />
+                        </div>
+                  
+                        <div className = "createUserInputDiv input-field col s12 m6">
+                            <input
+                                className="createUserFormlabel"
+                                type="Number"
+                                value={newForm.zip_code}
+                                name="zip_code"
+                                placeholder="Zip Code"
+                                onChange={handleChange}
+                                required
+                            /><br/>
                         </div>
                     </div>
-                
-
-                <div className = "row" >
-                    <div className = "createdUserInputDiv input-field col s12">
-                        <input
-                            className="createFormlabel"
-                            type="Number"
-                            value={newForm.zip_code}
-                            name="zip_code"
-                            placeholder="Zip Code"
-                            onChange={handleChange}
-                            required
-                        /><br/>
-                    </div>
-                </div>
                   
-                    <input className="createBtn" type="submit" value="Create your User Profile" />
-
+                    {/* <input className="createBtn" type="submit" value="Create your User Profile" /> */}
+                    <button className="createUserBtn btn red waves-effect waves-light btn-large" type="submit" name="action">Create</button>
                 </form>
 
 
 
+            {/* </div> */}
             </div>
         </div>
     )

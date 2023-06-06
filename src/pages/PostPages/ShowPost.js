@@ -3,7 +3,7 @@ import React, {useContext} from 'react'
 import AuthContext from "../../context/AuthContext"
 import CommentsContainer from "../../components/Comments/CommentsContainer"
 import MediaContainer from "../../components/Media/MediaContainer"
-import"../../styling/CSS/ShowPost.css"
+import"../../styling/CSS/posts/ShowPost.css"
 
 const ShowPost = (props) => {
     let {user} = useContext(AuthContext) // lets get the user who is logged in 

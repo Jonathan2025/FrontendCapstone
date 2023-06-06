@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-import"../../styling/CSS/ShowPost.css" 
+import"../../styling/CSS/posts/ShowPost.css" 
 
 // Here is the commentForm that takes parameters btnLabel and the handlers
 const CommentForm = ({
