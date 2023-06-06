@@ -75,23 +75,6 @@ const Main = (props) => {
           })
       }
 
-    // UPDATE POST - request to edit a post 
-    //Following the similar approach as Create Post we need to separate the other fields and file and upload separately
-    
-    // const updatePost = async (post, id) => {
-    //     await fetch(POST_URL + id + '/update', {
-    //         method: 'PUT',
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //             'Authorization': `Bearer ${accessToken}`
-    //         },
-    //         body: JSON.stringify(post),
-    //     })
-    //     //update list of posts
-    //     getPosts()
-    // }
-
-
     const updatePost = async (post, id) => {
         const requestData = {
           title: post.title,

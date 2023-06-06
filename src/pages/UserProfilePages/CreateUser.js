@@ -10,6 +10,16 @@ const CreateUserProfile = (props) => {
     let {user} = useContext(AuthContext) // lets get the user who is logged in 
     // when a user is logged in, obviously it will be the one creating a profile
     
+    console.log("creating", props)
+
+    let nameOfFilesUploaded = []
+    // get the names of all the files already uploaded - want to make sure we dont have any duplicates
+    props.userProfiles.forEach((userProfile, index)=> {
+      const fileName = userProfile.picture.split('/').pop()
+      nameOfFilesUploaded.push(fileName)
+    })
+
+
     // state to hold formData
     const [newForm, setNewForm] = useState({
         username: user.username,
@@ -25,19 +35,49 @@ const CreateUserProfile = (props) => {
     })
 
     // handleChange function for form
+    // const handleChange = (event) => {
+    //     setNewForm({ ...newForm, [event.target.name]: event.target.value });
+    // }
+
+
+    // handle change function for the form, we need to add some checks to our picture upload
     const handleChange = (event) => {
-        setNewForm({ ...newForm, [event.target.name]: event.target.value });
-    }
+        console.log("hey there", newForm)
+        if (event.target.name === 'picture') {
+          const selectedFile = event.target.files[0]
+          const fileSizeLimit = 10 * 1024 * 1024; // 10 MB in bytes
+         
+          // File shouldnt be named as a file already uploaded, cant be more than 10 mb and shouldnt have any spaces. This is to avoid problems uploading files to azure in the backend
+          if ((selectedFile.size > fileSizeLimit) || (selectedFile.name && selectedFile.name.includes(' ')) || (nameOfFilesUploaded.includes(selectedFile.name))){
+            if (selectedFile.size > fileSizeLimit) {
+              console.log('File size exceeds the limit.')
+            } else if (selectedFile.name && selectedFile.name.includes(' ')) {
+              alert('Please make sure the file name has no spaces.')
+            } else if (nameOfFilesUploaded.includes(selectedFile.name)) {
+              alert('Please rename the file as it matches a file already uploaded')
+            }
+            event.target.value = null // Reset the file upload input
+          } else {
+            // File meets the requirements
+            console.log('File meets the requirements.')
+            setNewForm({ ...newForm, [event.target.name]: selectedFile })
+          }
+        } else {
+          setNewForm({ ...newForm, [event.target.name]: event.target.value });
+        }
+      }
+
 
 
     const handleMartialArtSelect = (selectedMartialArt) => {
-        setNewForm({ ...newForm, martialArt: selectedMartialArt });
-      };
+        setNewForm({ ...newForm, martialArt: selectedMartialArt })
+      }
+
     const handleStateSelect = (selectedState) => {
         console.log("this is going to be the selected state", selectedState.value)
         console.log("heres the form", newForm)
         setNewForm({ ...newForm, state: selectedState});
-      };
+      }
       
    
 
@@ -183,6 +223,25 @@ const CreateUserProfile = (props) => {
                             /><br />
                         </div>
                     </div>
+                    
+                <div className="row">
+                    <div className="createPostInputDiv input-field col s12">
+                        <input
+                          className="createFormlabel"
+                          type="file"
+                          name="picture"
+                          placeholder="Picture Upload"
+                          accept=".jpg, .jpeg, .png"
+                          onChange={handleChange}
+                          required
+                          />
+                      </div>
+                    </div>
+
+
+
+
+
 
                     <div className = "row" >
                         <div className = "createdUserInputDiv input-field col s12">
@@ -198,7 +257,7 @@ const CreateUserProfile = (props) => {
                         </div>
                     </div>
 
-                    <div className = "row" >
+                    {/* <div className = "row" >
                         <div className = "createdUserInputDiv input-field col s12">
                             <input
                                 className="createFormlabel"
@@ -210,7 +269,22 @@ const CreateUserProfile = (props) => {
                                 required
                             /><br/>
                         </div>
+                    </div> */}
+
+                    <div className="row">
+                    <div className="createUserInputDiv input-field col s12">
+                      <textarea
+                          className="createFormlabel materialize-textarea"
+                          type="text"
+                          value={newForm.userDesc}
+                          name="userDesc"
+                          placeholder="User Description"
+                          onChange={handleChange}
+                          required
+                        ></textarea>
+                      </div>
                     </div>
+
 
        
                 <div className="row">

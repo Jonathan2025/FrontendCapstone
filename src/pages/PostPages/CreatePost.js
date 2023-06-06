@@ -98,42 +98,11 @@ const CreatePost = (props) => {
                       </div>
                     </div>
 
-                    {/* <div className="row">
-                    <div className="input-field col s12 createPostInputDiv">
-                        <select
-                          // className="createFormlabel"
-                          // type="text"
-                          value={newForm.category}
-                          name="category"
-                          placeholder="Category"
-                          onChange={handleChange}
-                          multiple
-                          required
-                        >
-                          <option value="" disabled selected>Select a category</option>
-                          <option value="Self Defense">Self Defense</option>
-                          <option value="Basics">Basics</option>
-                          <option value="Training">Training</option>
-                          <option value="Tutorial">Tutorial</option>
-                          <option value="Beginner">Beginner</option>
-                          <option value="Intermediate">Intermediate</option>
-                          <option value="Advanced">Advanced</option>
-                          <option value="Jonathan's Originals">Jonathan's Originals</option>
-                          <option value="Sparring">Sparring</option>
-                          <option value="Competition">Competition</option>
-                          <option value="Comedy">Comedy</option>
-                          <option value="Blockbuster">Blockbuster</option>
-                          <option value="Thriller">Thriller</option>
-                        </select>
-                      </div>
-                    </div> */}
                    
                     <div className="row">
                       <div className="createPostInputDiv">
                       <Multiselect
                           isObject={false}
-                          // onRemove={(event) => {console.log(event)}}
-                          // onSelect={(event) => {console.log(event)}}
                           onRemove={handleCategoryRemove}
                           onSelect={handleCategorySelect}
                           options={category}
@@ -142,10 +111,6 @@ const CreatePost = (props) => {
                         />
                       </div>
                     </div>
-
-
-
-            
 
                     <div className="row">
                     <div className="createPostInputDiv input-field col s12">
