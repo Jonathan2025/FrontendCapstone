@@ -20,8 +20,6 @@ main{
 }
 
 
-
-
 .navBarSignInBtn{
     font-family: 'Netflix Sans';
     font-weight: bold;
@@ -40,10 +38,6 @@ main{
 .navBarDropdown{
     padding: 20px;
 }
-
-
-
-
 
 /* getting the netflix sans font */
 @font-face {
