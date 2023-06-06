@@ -136,25 +136,46 @@ const Main = (props) => {
         const data = await response.json()
         setUserprofiles(data)
     }
+
+
+
     const createUserProfile = async (userProfile) =>{
+        console.log("this is the ")
         try{
+            const requestData = {
+                username: userProfile.username,
+                first_name: userProfile.first_name,
+                last_name: userProfile.last_name,
+                beltLevel: userProfile.beltLevel,
+                userDesc: userProfile.userDesc,
+                martialArt: userProfile.martialArt,
+                address: userProfile.address,
+                city: userProfile.city,
+                state: userProfile.state,
+                zip_code: userProfile.zip_code
+            }
+
+            const formData = new FormData();
+            formData.append('data', JSON.stringify(requestData))
+            formData.append('picture', userProfile.picture);
+
             const response = await fetch(userProfileURL + 'create', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json',
                     'Authorization': `Bearer ${accessToken}`
                 },
-                body: JSON.stringify(userProfile),
+                body: formData,
             })
-            
-            getUserProfiles()
+            .then((response) => response.json())
+            .then((data) => {
+                // Update list of userProfiles
+                getUserProfiles()
+            })
         } catch (error){
             console.log("There was an error creating the user profile", error)
         }
-       
     }
 
-   
 
 
 
