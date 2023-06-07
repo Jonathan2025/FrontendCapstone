@@ -1,6 +1,6 @@
 import { useState } from "react"
-import { useParams, useNavigate, useLocation } from "react-router-dom"
-import Select from 'react-select'
+import { useNavigate, useLocation } from "react-router-dom"
+// import Select from 'react-select'
 import "../../styling/CSS/userProfiles/EditUser.css"
 
 
@@ -21,13 +21,7 @@ const EditUserProfile = (props) => {
         setEditForm({ ...editForm, [event.target.name]: event.target.value });
     }
 
-    const handleMartialArtSelect = (selectedMartialArt) => {
-        setEditForm({ ...editForm, martialArt: selectedMartialArt })
-      }
-
-    const handleStateSelect = (selectedState) => {
-        setEditForm({ ...editForm, state: selectedState});
-      }
+  
 
     const handleSubmit = (event) => {
         event.preventDefault() 
@@ -36,75 +30,7 @@ const EditUserProfile = (props) => {
         // redirect people back to show page AFTER the user edits the information
         navigate(`/api/userProfiles/${userProfile.id}`);
     }
-    
-    const martialArtOptions = [
-        { value: 'Just Learning', label: 'Just Learning' },
-        { value: 'Taekwondo', label: 'Taekwondo' },
-        { value: 'Boxing', label: 'Boxing' },
-        { value: 'MMA', label: 'MMA' },
-        { value: 'Karate', label: 'Karate' },
-        { value: 'Jiu-Jitsu', label: 'Jiu-Jitsu' },
-        { value: 'Judo', label: 'Judo' },
-        { value: 'Kickboxing', label: 'Kickboxing' },
-        { value: 'Vovinam', label: 'Vovinam' },
-        { value: 'Muay Thai', label: 'Muay Thai' },
-        { value: 'Boxing', label: 'Boxing' },
-        { value: 'Tai Chi', label: 'Tai Chi' },
-        { value: 'Other', label: 'Other' },
-      ]
-
-      const stateOptions = [
-        { value: 'AL', label: 'Alabama' },
-        { value: 'AK', label: 'Alaska' },
-        { value: 'AZ', label: 'Arizona' },
-        { value: 'AR', label: 'Arkansas' },
-        { value: 'CA', label: 'California' },
-        { value: 'CO', label: 'Colorado' },
-        { value: 'CT', label: 'Connecticut' },
-        { value: 'DE', label: 'Delaware' },
-        { value: 'FL', label: 'Florida' },
-        { value: 'GA', label: 'Georgia' },
-        { value: 'HI', label: 'Hawaii' },
-        { value: 'ID', label: 'Idaho' },
-        { value: 'IL', label: 'Illinois' },
-        { value: 'IN', label: 'Indiana' },
-        { value: 'IA', label: 'Iowa' },
-        { value: 'KS', label: 'Kansas' },
-        { value: 'KY', label: 'Kentucky' },
-        { value: 'LA', label: 'Louisiana' },
-        { value: 'ME', label: 'Maine' },
-        { value: 'MD', label: 'Maryland' },
-        { value: 'MA', label: 'Massachusetts' },
-        { value: 'MI', label: 'Michigan' },
-        { value: 'MN', label: 'Minnesota' },
-        { value: 'MS', label: 'Mississippi' },
-        { value: 'MO', label: 'Missouri' },
-        { value: 'MT', label: 'Montana' },
-        { value: 'NE', label: 'Nebraska' },
-        { value: 'NV', label: 'Nevada' },
-        { value: 'NH', label: 'New Hampshire' },
-        { value: 'NJ', label: 'New Jersey' },
-        { value: 'NM', label: 'New Mexico' },
-        { value: 'NY', label: 'New York' },
-        { value: 'NC', label: 'North Carolina' },
-        { value: 'ND', label: 'North Dakota' },
-        { value: 'OH', label: 'Ohio' },
-        { value: 'OK', label: 'Oklahoma' },
-        { value: 'OR', label: 'Oregon' },
-        { value: 'PA', label: 'Pennsylvania' },
-        { value: 'RI', label: 'Rhode Island' },
-        { value: 'SC', label: 'South Carolina' },
-        { value: 'SD', label: 'South Dakota' },
-        { value: 'TN', label: 'Tennessee' },
-        { value: 'TX', label: 'Texas' },
-        { value: 'UT', label: 'Utah' },
-        { value: 'VT', label: 'Vermont' },
-        { value: 'VA', label: 'Virginia' },
-        { value: 'WA', label: 'Washington' },
-        { value: 'WV', label: 'West Virginia' },
-        { value: 'WI', label: 'Wisconsin' },
-        { value: 'WY', label: 'Wyoming' },
-      ]
+  
 
 
     return (
@@ -139,8 +65,6 @@ const EditUserProfile = (props) => {
                     </div>
                 </div>
 
-
-
                 <div className="row">
                     <div className="editUserInputDiv input-field col s12 m6">
                         <input
@@ -155,21 +79,30 @@ const EditUserProfile = (props) => {
                     </div>
                 </div>
 
-
                 <div className="row">
-                    <div className="editUserSelectInputDiv input-field col s12 m6">
-                        <Select
-                            className="basic-single"
-                            defaultValue={editForm.martialArt}
+                    <div class="input-field col s12 m6">
+                        <select className="browser-default select-dropdown"
+                            type="text"
+                            value={editForm.martialArt}
                             name="martialArt"
-                            placeholder={editForm.martialArt}
-                            onChange={handleMartialArtSelect} // Use handleMartialArtSelect for onChange
-                            options={martialArtOptions}
-                            labelField="label"
-                            valueField="value"
+                            onChange={handleChange}
                             required
-                        />
-
+                            >
+                                <option value="" disabled selected>Martial Art</option>
+                                <option value="Just Learning">Just Learning</option>
+                                <option value="Taekwondo">Taekwondo</option>
+                                <option value="Boxing">Boxing</option>
+                                <option value="MMA">MMA</option>
+                                <option value="Karate">Karate</option>
+                                <option value="Jiu-Jitsu">Jiu-Jitsu</option>
+                                <option value="Judo">Judo</option>
+                                <option value="Kickboxing">Kickboxing</option>
+                                <option value="Vovinam">Vovinam</option>
+                                <option value="Muay Thai">Muay Thai</option>
+                                <option value="Boxing">Boxing</option>
+                                <option value="Tai Chi">Tai Chi</option>
+                                <option value="Other">Other</option>
+                        </select>
                     </div>
 
                     <div className="editUserInputDiv input-field col s12 m6">
@@ -227,20 +160,67 @@ const EditUserProfile = (props) => {
                         </div>
                     </div>
 
-
                     <div className = "row" >
-                        <div className = "editSelectUserInputDiv input-field col s12 m6">
-                            <Select
-                            className="basic-single"
-                            value={editForm.state}
-                            name="state"
-                            placeholder="State"
-                            onChange={handleStateSelect}
-                            options={stateOptions}
-                            labelField="label"
-                            valueField="value"
-                            required
-                            />
+                        <div class="input-field col s12 m6">
+                            <select className="browser-default select-dropdown"
+                                type="text"
+                                value={editForm.state}
+                                name="state"
+                                onChange={handleChange}
+                                required
+                                >
+                                <option value="" disabled selected>State</option>
+                                <option value="AL">Alabama</option>
+                                <option value="AK">Alaska</option>
+                                <option value="AZ">Arizona</option>
+                                <option value="AR">Arkansas</option>
+                                <option value="CA">California</option>
+                                <option value="CO">Colorado</option>
+                                <option value="CT">Connecticut</option>
+                                <option value="DE">Delaware</option>
+                                <option value="FL">Florida</option>
+                                <option value="GA">Georgia</option>
+                                <option value="HI">Hawaii</option>
+                                <option value="ID">Idaho</option>
+                                <option value="IL">Illinois</option>
+                                <option value="IN">Indiana</option>
+                                <option value="IA">Iowa</option>
+                                <option value="KS">Kansas</option>
+                                <option value="KY">Kentucky</option>
+                                <option value="LA">Louisiana</option>
+                                <option value="ME">Maine</option>
+                                <option value="MD">Maryland</option>
+                                <option value="MA">Massachusetts</option>
+                                <option value="MI">Michigan</option>
+                                <option value="MN">Minnesota</option>
+                                <option value="MS">Mississippi</option>
+                                <option value="MO">Missouri</option>
+                                <option value="MT">Montana</option>
+                                <option value="NE">Nebraska</option>
+                                <option value="NV">Nevada</option>
+                                <option value="NH">New Hampshire</option>
+                                <option value="NJ">New Jersey</option>
+                                <option value="NM">New Mexico</option>
+                                <option value="NY">New York</option>
+                                <option value="NC">North Carolina</option>
+                                <option value="ND">North Dakota</option>
+                                <option value="OH">Ohio</option>
+                                <option value="OK">Oklahoma</option>
+                                <option value="OR">Oregon</option>
+                                <option value="PA">Pennsylvania</option>
+                                <option value="RI">Rhode Island</option>
+                                <option value="SC">South Carolina</option>
+                                <option value="SD">South Dakota</option>
+                                <option value="TN">Tennessee</option>
+                                <option value="TX">Texas</option>
+                                <option value="UT">Utah</option>
+                                <option value="VT">Vermont</option>
+                                <option value="VA">Virginia</option>
+                                <option value="WA">Washington</option>
+                                <option value="WV">West Virginia</option>
+                                <option value="WI">Wisconsin</option>
+                                <option value="WY">Wyoming</option>
+                            </select>
                         </div>
                   
                         <div className = "editUserInputDiv input-field col s12 m6">

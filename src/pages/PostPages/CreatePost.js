@@ -19,6 +19,7 @@ const CreatePost = (props) => {
     const [newForm, setNewForm] = useState({
         title: "",
         category: [],
+
         postDesc: "",
         upload: "",
         username: user.username
@@ -98,8 +99,8 @@ const CreatePost = (props) => {
                       </div>
                     </div>
 
-                   
                     <div className="row">
+               
                       <div className="createPostDesc">
                       <Multiselect
                           isObject={false}
