@@ -9,7 +9,7 @@ const ShowUserProfile = (props) => {
     const id = params.id
     const userProfiles = props.userProfiles
     const userProfile = userProfiles.find((u) => u.id == id)
-
+    console.log("this is the userprofile that we get back", userProfile)
 
     //linking edit btn to edit route
     const editForm = (e) => {
@@ -35,6 +35,7 @@ const ShowUserProfile = (props) => {
             <p>{userProfile.state}</p>
             <p>{userProfile.zip_code}</p>
             <p>{userProfile.username}</p>
+            
 
 
             <div className="editDltButtons">

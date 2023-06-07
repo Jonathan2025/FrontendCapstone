@@ -15,7 +15,7 @@ const CreateUserProfile = (props) => {
       const fileName = userProfile.picture.split('/').pop()
       nameOfFilesUploaded.push(fileName)
     })
-
+    
 
     // state to hold formData
     const [newForm, setNewForm] = useState({
@@ -166,10 +166,6 @@ const CreateUserProfile = (props) => {
 
         <div className="createUserProfilePage row"> 
              <div className="centerCreateUser  col s12 m6 l6">
-                {/* Here we can put something on the left side if we wanted to */}
-            
-
-            {/* <div className="col s12 m6 l6"> */}
                 <form className = "createUserProfileForm" onSubmit = {handleSubmit}>
                     <h1 className="createUserProfileTitle">Create a Profile! </h1>
 
@@ -327,7 +323,7 @@ const CreateUserProfile = (props) => {
                         </div>
                     </div>
                   
-                    {/* <input className="createBtn" type="submit" value="Create your User Profile" /> */}
+                 
                     <button className="createUserBtn btn red waves-effect waves-light btn-large" type="submit" name="action">Create</button>
                 </form>
 

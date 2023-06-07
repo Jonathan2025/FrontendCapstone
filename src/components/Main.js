@@ -181,15 +181,41 @@ const Main = (props) => {
 
     //Update Profiles - request to update a user profile
     const updateUserProfile = async (userProfile, id) => {
-        await fetch(userProfileURL + id + '/update', {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(userProfile),
-        })
-        getUserProfiles()
+       try{
+            const requestData = {
+                username: userProfile.username,
+                first_name: userProfile.first_name,
+                last_name: userProfile.last_name,
+                beltLevel: userProfile.beltLevel,
+                userDesc: userProfile.userDesc,
+                martialArt: userProfile.martialArt,
+                address: userProfile.address,
+                city: userProfile.city,
+                state: userProfile.state,
+                zip_code: userProfile.zip_code
+            }
+            const formData = new FormData();
+            formData.append('data', JSON.stringify(requestData))
+            formData.append('picture', userProfile.picture)
+
+            const response = await fetch(userProfileURL + id + '/update', {
+                method: 'PUT',
+                headers: {
+                    'Authorization': `Bearer ${accessToken}`
+                },
+                body: formData,
+            })
+            .then((response) => response.json())
+            .then((data) => {
+                // Update list of userProfiles
+                getUserProfiles()
+            })
+            
+        } catch (error){
+            console.log("There was an error creating the user profile", error)
+        }
     }
+
 
     // DELETE user profile - request to delete a user profile
     const deleteUserprofile = async (id) => {
