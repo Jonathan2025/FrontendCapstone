@@ -19,7 +19,6 @@ const CreatePost = (props) => {
     const [newForm, setNewForm] = useState({
         title: "",
         category: [],
-
         postDesc: "",
         upload: "",
         username: user.username

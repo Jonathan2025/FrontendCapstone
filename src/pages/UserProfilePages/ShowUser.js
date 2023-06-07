@@ -1,6 +1,8 @@
 import { useParams, useNavigate } from "react-router-dom"
 import React, {useContext} from 'react'
 import AuthContext from "../../context/AuthContext"
+import MediaContainer from "../../components/Media/MediaContainer"
+import "../../styling/CSS/userProfiles/ShowUser.css"
 const ShowUserProfile = (props) => {
     let {user} = useContext(AuthContext)
     console.log(user)
@@ -26,15 +28,28 @@ const ShowUserProfile = (props) => {
 
     return (
         <div>
-            <h1>{userProfile.first_name + ' ' + userProfile.last_name}</h1>
-            <p>{userProfile.beltLevel}</p>
-            <p>{userProfile.userDesc}</p>
-            <p>{userProfile.martialArt}</p>
-            <p>{userProfile.address}</p>
-            <p>{userProfile.city}</p>
-            <p>{userProfile.state}</p>
-            <p>{userProfile.zip_code}</p>
-            <p>{userProfile.username}</p>
+            <div className="row">
+                <div className="col s12 m6">
+                <h4>{userProfile.first_name + ' ' + userProfile.last_name}</h4>
+                    <p>{userProfile.beltLevel}</p>
+                    <p>{userProfile.userDesc}</p>
+                    <p>{userProfile.martialArt}</p>
+                    <p>{userProfile.address}</p>
+                    <p>{userProfile.city}</p>
+                    <p>{userProfile.state}</p>
+                    <p>{userProfile.zip_code}</p>
+                    <p>{userProfile.username}</p>
+                </div>
+                <div className="col s12 m6">
+                    <MediaContainer uploadFile={userProfile.picture}/>
+                </div>
+
+
+            </div>
+
+
+            
+            
             
 
 
