@@ -1,5 +1,5 @@
 import { useParams, useNavigate } from "react-router-dom"
-import React, {useContext} from 'react'
+import React, {useContext, useEffect} from 'react'
 import AuthContext from "../../context/AuthContext"
 import MediaContainer from "../../components/Media/MediaContainer"
 import "../../styling/CSS/userProfiles/ShowUser.css"
@@ -7,14 +7,17 @@ import OpenLayerMap from "../../components/Map/Map"
 
 
 const ShowUserProfile = (props) => {
+   
+
     let {user} = useContext(AuthContext)
-    console.log(user)
     const params = useParams()
     const navigate = useNavigate()
     const id = params.id
     const userProfiles = props.userProfiles
     const userProfile = userProfiles.find((u) => u.id == id)
     console.log("this is the userprofile that we get back", userProfile)
+
+ 
 
     //linking edit btn to edit route
     const editForm = (e) => {
@@ -30,6 +33,9 @@ const ShowUserProfile = (props) => {
 
 
     return (
+        <div>
+            {/* we need to make sure that the userProfile is loaded before we can access its prperties */}
+        {userProfile ? (
         <div className="showProfilePage">
 
             <div className="row ">
@@ -77,6 +83,16 @@ const ShowUserProfile = (props) => {
                    ): null}
                </div>
             
+
+        </div>
+
+
+           ):(
+            // otherwise show a loading screen
+            <p>Loading...</p>
+
+
+           )}
 
         </div>
     )

@@ -130,7 +130,7 @@ const Main = (props) => {
     const [userProfiles, setUserprofiles] = useState([])
     const userProfileURL = process.env.REACT_APP_USERPROFILES_BACKEND_URL
 
-     //Making an api call to the POSTs backend URL
+    //  Making an api call to the POSTs backend URL
      const getUserProfiles = async () =>{
         const response = await fetch(userProfileURL)
         const data = await response.json()
@@ -139,8 +139,8 @@ const Main = (props) => {
 
 
 
+    // API call to create a user profile
     const createUserProfile = async (userProfile) =>{
-        console.log("this is the ")
         try{
             const requestData = {
                 username: userProfile.username,
@@ -267,20 +267,20 @@ const Main = (props) => {
                 <Routes>
                 
                 
-                    <Route path="/api/home" element={<RequireAuth><HomePage/></RequireAuth>} />
+                    <Route path="/api/home" element={<HomePage/>} />
                     <Route path="/api/login" element={<LoginPage/>} />
                     <Route path="/api/register" element={<RegisterPage registerUser={registerUser} />} />
                     
                 
                     <Route path="/api/posts" element={<IndexPost posts={posts} />} />
-                    <Route path="/api/posts/:id" element={<ShowPost posts={posts} deletePost={deletePost}/>} />
+                    <Route path="/api/posts/:id" element={<RequireAuth><ShowPost posts={posts} deletePost={deletePost}/></RequireAuth>} />
                     <Route path="/api/posts/:id/update" element={<RequireAuth><EditPost posts={posts} updatePost={updatePost} /></RequireAuth>} />
                     <Route path="/api/posts/create" element={<RequireAuth><CreatePost posts={posts} createPost={createPost}/></RequireAuth>} />
 
                     <Route path="/api/userProfiles" element={<IndexUserProfile userProfiles={userProfiles} />} />
-                    <Route path="/api/userProfiles/:id" element={<ShowUserProfile userProfiles={userProfiles} deleteUserProfile={deleteUserprofile}/>} />
-                    <Route path="/api/userProfiles/create" element={<CreateUserProfile userProfiles={userProfiles} createUserProfile={createUserProfile}/>} />
-                    <Route path="/api/userProfiles/:id/update" element={<EditUserProfile userProfiles={userProfiles} updateUserProfile={updateUserProfile} />} />
+                    <Route path="/api/userProfiles/:id" element={<RequireAuth><ShowUserProfile userProfiles={userProfiles} deleteUserProfile={deleteUserprofile}/></RequireAuth>} />
+                    <Route path="/api/userProfiles/create" element={<RequireAuth><CreateUserProfile userProfiles={userProfiles} createUserProfile={createUserProfile}/></RequireAuth>} />
+                    <Route path="/api/userProfiles/:id/update" element={<RequireAuth><EditUserProfile userProfiles={userProfiles} updateUserProfile={updateUserProfile} /></RequireAuth>} />
                 </Routes>
         
         </main>
