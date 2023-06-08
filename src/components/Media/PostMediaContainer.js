@@ -1,7 +1,7 @@
 import React from 'react'
 import"../../styling/CSS/posts/ShowPost.css"
 
-const MediaContainer = (props) => {
+const PostMediaContainer = (props) => {
     const uploadFile =  props.uploadFile
     const decodedMediaUrl = decodeURIComponent(uploadFile) // we need to fix the url a bit and do some cleaning
     const correctedMediaUrl = decodedMediaUrl.replace(/^\/[^/]+/, 'https:/')// we will use regex to fix the url
@@ -34,4 +34,4 @@ const MediaContainer = (props) => {
 
 
 
-export default MediaContainer
+export default PostMediaContainer

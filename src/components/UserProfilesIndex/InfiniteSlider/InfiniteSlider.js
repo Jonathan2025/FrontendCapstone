@@ -3,10 +3,10 @@ import { InfiniteSliderData } from './InfiniteSliderData'
 import "../InfiniteSlider/InfiniteSlider.css"
 const InfiniteSlider = () => {
   return (
+   
+    // The InfiniteSlider will be build from the pictures in the InfiniteSliderData
     <div class="infinitePhotoSlider">
         <div className="infinitePhotoSlide-track">
-            
-
             {InfiniteSliderData.map((slide, index) => {
                 return(
                     <div className="infinitePhotoSlide">
@@ -15,21 +15,9 @@ const InfiniteSlider = () => {
                 )
             })}
             
-
-
-
-
-
-
-
-
         </div>
-
-
-
-
-
     </div>
+
   )
 }
 

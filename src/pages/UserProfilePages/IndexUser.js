@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom'
 import InfiniteSlider from '../../components/UserProfilesIndex/InfiniteSlider/InfiniteSlider'
+import MediaContainer from '../../components/Media/PostMediaContainer'
+import PictureSlider from '../../components/UserProfilesIndex/PictureSlider/PictureSlider'
 const IndexUserProfile = (props) => {
 
     //loaded function
@@ -9,19 +11,9 @@ const IndexUserProfile = (props) => {
           <>
           
           <InfiniteSlider />
+          <PictureSlider userProfiles={props.userProfiles} />
 
-
-          <div className="containerIndex">
-            
-            {props.userProfiles.map((userProfile) => (
-              <div key={userProfile.id}>
-                <Link to={`/api/userProfiles/${userProfile.id}`}>
-                  <h2>{userProfile.first_name}</h2>
-                </Link>
-                <p>{userProfile.userDesc}</p>
-              </div>
-            ))}
-          </div>
+    
           </>
         )
 

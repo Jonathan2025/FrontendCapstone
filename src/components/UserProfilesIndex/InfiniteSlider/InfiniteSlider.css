@@ -16,7 +16,7 @@
 
 .infinitePhotoSlide-track{
     display: flex;
-    width: calc(300px * 24); /* pretty much the 24 phots we have times by the slide width */
+    width: calc(300px * 24); /* pretty much the 24 photos we have times by the slide width */
     animation: scroll 60s linear infinite;
 }
           

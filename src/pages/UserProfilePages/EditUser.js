@@ -101,6 +101,7 @@ const EditUserProfile = (props) => {
                                 <option value="Muay Thai">Muay Thai</option>
                                 <option value="Boxing">Boxing</option>
                                 <option value="Tai Chi">Tai Chi</option>
+                                <option value="Kung Fu">Kung Fu</option>
                                 <option value="Other">Other</option>
                         </select>
                     </div>

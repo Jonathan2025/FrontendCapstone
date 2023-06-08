@@ -32,7 +32,6 @@ const CreateUserProfile = (props) => {
 
     // handle change function for the form, we need to add some checks to our picture upload
     const handleChange = (event) => {
-        console.log("hey there", newForm)
         if (event.target.name === 'picture') {
           const selectedFile = event.target.files[0]
           const fileSizeLimit = 10 * 1024 * 1024; // 10 MB in bytes
@@ -158,6 +157,7 @@ const CreateUserProfile = (props) => {
                                 <option value="Muay Thai">Muay Thai</option>
                                 <option value="Boxing">Boxing</option>
                                 <option value="Tai Chi">Tai Chi</option>
+                                <option value="Kung Fu">Kung Fu</option>
                                 <option value="Other">Other</option>
                             </select>
                         </div>

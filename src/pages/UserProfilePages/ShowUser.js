@@ -1,7 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom"
 import React, {useContext, useEffect} from 'react'
 import AuthContext from "../../context/AuthContext"
-import MediaContainer from "../../components/Media/MediaContainer"
+import MediaContainer from "../../components/Media/PostMediaContainer"
 import "../../styling/CSS/userProfiles/ShowUser.css"
 import OpenLayerMap from "../../components/Map/Map"
 

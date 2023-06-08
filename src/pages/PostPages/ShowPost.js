@@ -2,7 +2,7 @@ import { useParams, useNavigate } from "react-router-dom"
 import React, {useContext} from 'react'
 import AuthContext from "../../context/AuthContext"
 import CommentsContainer from "../../components/Comments/CommentsContainer"
-import MediaContainer from "../../components/Media/MediaContainer"
+import PostMediaContainer from "../../components/Media/PostMediaContainer"
 import"../../styling/CSS/posts/ShowPost.css"
 
 const ShowPost = (props) => {
@@ -36,7 +36,7 @@ const ShowPost = (props) => {
             <div className = "showPostPage row ">
                 <div className="showPostMedia row">
                     {/* Render the media upload component based on the file extension, pass in the upload */}
-                    <MediaContainer className="mediaContainer" uploadFile={post.upload} />
+                    <PostMediaContainer className="mediaContainer" uploadFile={post.upload} />
                 </div>
 
                <div className = "showPostHeader row">
