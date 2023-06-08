@@ -1,11 +1,18 @@
 import { Link } from 'react-router-dom'
-
+import InfiniteSlider from '../../components/UserProfilesIndex/InfiniteSlider/InfiniteSlider'
 const IndexUserProfile = (props) => {
 
     //loaded function
     const loaded = () => {
         return (
+
+          <>
+          
+          <InfiniteSlider />
+
+
           <div className="containerIndex">
+            
             {props.userProfiles.map((userProfile) => (
               <div key={userProfile.id}>
                 <Link to={`/api/userProfiles/${userProfile.id}`}>
@@ -15,7 +22,9 @@ const IndexUserProfile = (props) => {
               </div>
             ))}
           </div>
+          </>
         )
+
       }
 
     const loading = () => {

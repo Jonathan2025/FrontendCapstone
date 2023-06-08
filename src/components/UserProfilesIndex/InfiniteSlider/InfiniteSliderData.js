@@ -1,0 +1,33 @@
+export const InfiniteSliderData = 
+[
+    { image:"https://besttaekwondo.org/wp-content/uploads/sites/885/2022/06/Master-Seo-Photo2.jpg"},
+    { image:"https://balitkd.com/wp-content/uploads/2018/01/Jae-Hun-Kim.fw_.png"},
+    { image:"https://image.cnbcfm.com/api/v1/image/106581300-1592400015079shaolinheadshot.jpg?v=1592400083"},
+    { image:"https://i.dailymail.co.uk/1s/2022/01/23/12/53267511-10432265-image-m-12_1642939568989.jpg"},
+    { image:"https://i.pinimg.com/originals/53/1d/7f/531d7f14401be3e53fd8c6c32b9d6138.jpg"},
+    { image:"https://capstonefilestorage.blob.core.windows.net/capstonecontainer/Profile.jpeg" },
+    { image:"https://qph.cf2.quoracdn.net/main-qimg-0e80cdaa47131250209097d3010e109e-lq"},
+    { image:"https://www.hollywoodreporter.com/wp-content/uploads/2013/02/bruce_lee_a_p.jpg?w=1024"},
+    { image:"https://www.si.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTk4NDU1NjI3ODIxODg1MjY5/conor-mcgregor-4.jpg"},
+    { image:"https://renzogracieacademy.com/wp-content/uploads/2019/09/BJJ-Master-Renzo-Gracie-780x1024.jpg"},
+    { image:"https://capstonefilestorage.blob.core.windows.net/capstonecontainer/Shane.JPG"},
+    { image:"https://m.media-amazon.com/images/M/MV5BOTZiMjM0NDktYWNjNS00ZjNkLWE3OGUtZmY3NDkzODc5ZmNmXkEyXkFqcGdeQXVyMzQ3Nzk5MTU@._V1_.jpg"},
+    { image:"https://upload.wikimedia.org/wikipedia/commons/5/5d/Martin_Kove_%2844524134200%29.jpg"},
+    { image:"https://capstonefilestorage.blob.core.windows.net/capstonecontainer/22DABBC7-50EB-49B6-AA43-52ADCB4EA5E8_1_201_a.jpeg"},
+    { image:"https://besttaekwondo.org/wp-content/uploads/sites/885/2022/06/Master-Seo-Photo2.jpg"},
+    { image:"https://balitkd.com/wp-content/uploads/2018/01/Jae-Hun-Kim.fw_.png"},
+    { image:"https://image.cnbcfm.com/api/v1/image/106581300-1592400015079shaolinheadshot.jpg?v=1592400083"},
+    { image:"https://i.dailymail.co.uk/1s/2022/01/23/12/53267511-10432265-image-m-12_1642939568989.jpg"},
+    { image:"https://i.pinimg.com/originals/53/1d/7f/531d7f14401be3e53fd8c6c32b9d6138.jpg"},
+    { image:"https://capstonefilestorage.blob.core.windows.net/capstonecontainer/Profile.jpeg" },
+    { image:"https://qph.cf2.quoracdn.net/main-qimg-0e80cdaa47131250209097d3010e109e-lq"},
+    { image:"https://www.hollywoodreporter.com/wp-content/uploads/2013/02/bruce_lee_a_p.jpg?w=1024"},
+    { image:"https://www.si.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTk4NDU1NjI3ODIxODg1MjY5/conor-mcgregor-4.jpg"},
+    { image:"https://renzogracieacademy.com/wp-content/uploads/2019/09/BJJ-Master-Renzo-Gracie-780x1024.jpg"},
+    { image:"https://capstonefilestorage.blob.core.windows.net/capstonecontainer/Shane.JPG"},
+    { image:"https://m.media-amazon.com/images/M/MV5BOTZiMjM0NDktYWNjNS00ZjNkLWE3OGUtZmY3NDkzODc5ZmNmXkEyXkFqcGdeQXVyMzQ3Nzk5MTU@._V1_.jpg"},
+    { image:"https://upload.wikimedia.org/wikipedia/commons/5/5d/Martin_Kove_%2844524134200%29.jpg"},
+    { image:"https://capstonefilestorage.blob.core.windows.net/capstonecontainer/22DABBC7-50EB-49B6-AA43-52ADCB4EA5E8_1_201_a.jpeg"},
+  ]
+    
+   

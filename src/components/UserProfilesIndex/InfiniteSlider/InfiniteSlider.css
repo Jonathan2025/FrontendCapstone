@@ -1,0 +1,46 @@
+.infinitePhoto{
+    width:200px;
+    height:250px;
+    transition: transform 1s;
+}
+
+.infinitePhotoSlider{
+    height: 300px;
+    margin:auto;
+    position:relative;
+    width: 90%;
+    display:grid;
+    place-items: center;
+    overflow: hidden;
+}
+
+.infinitePhotoSlide-track{
+    display: flex;
+    width: calc(300px * 24); /* pretty much the 24 phots we have times by the slide width */
+    animation: scroll 60s linear infinite;
+}
+          
+.infinitePhotoSlide{
+    height:300px;
+    width: 300px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    perspective: 100px;
+}
+
+/* Allow the photos to pop out  */
+.infinitePhoto:hover {
+    transform: translateZ(20px);
+}
+
+@keyframes scroll{
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-300px * 12)) /* we want to move the slide track left by HALF of its width */
+    }
+}
+
+
