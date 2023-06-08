@@ -1,4 +1,59 @@
 .profilePic{
-    width: 500px;
-    height: 700px;
+    width: 29rem;
+    height: 35rem;
+    margin-top: 25px;
 }
+
+
+.profilePicDiv{
+    text-align: center;
+}
+
+
+
+.userbio{
+    text-align: center;
+}
+
+
+
+.showProfilePage{
+    background-image: url('https://png.pngtree.com/background/20210711/original/pngtree-paper-cut-kung-fu-budo-chinese-martial-arts-poster-picture-image_1126036.jpg');
+    border-radius: 5%;
+    color: white;
+    background-position: center;
+}
+
+
+
+.userbio{
+    padding: 10px;
+    margin: 0px 7rem 25px 7rem;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.6);
+    text-align: center;
+
+   
+}
+
+
+
+.userProfileInfo{
+    margin-top: 25px;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 2rem !important;
+  
+ }
+
+ .userLocationInfo{
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.6);
+    text-align: center;
+    padding: 2rem !important;
+    margin-left: 7rem !important;
+ }
+
+ .editDltButtonsUserProfile{
+    text-align: center;
+ }
