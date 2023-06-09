@@ -3,7 +3,7 @@
     height: 300px;
 }
 
-.card{
+.userCard{
     border: 1px solid white;
     background: black;
     border-radius: 10px;
@@ -14,15 +14,15 @@
     transition: transform 0.5s;
 }
 
-.card-bottom h3{
+.userCard-bottom h3{
     font-size: 0.5 rem;
 }
 
-.card-bottom{
+.userCard-bottom{
     padding: 10px;
 
 }
-.card-top img{
+.userCard-top img{
     width: 100%;
     height: 300px;
     object-fit: cover;
@@ -42,6 +42,25 @@
 }
 
 /* allow the popup */
-.card:hover {
+.userCard:hover {
     transform: translateZ(20px) scale(1.1);
 }
+
+/* to prevent the card text from being blue from link  */
+.userCard-link{
+    color: white;
+    text-decoration: none;
+}
+
+.martialArtCategory{
+    color:white;
+    display: inline-block;
+    border-bottom: 3px solid red;
+    font-family: 'Netflix Sans';
+}
+
+/* getting the netflix sans font */
+@font-face {
+    font-family: 'Netflix Sans';
+    src: url('../../../styling/netflix-sans-font/NetflixSans-Regular.otf') format('truetype');
+  }

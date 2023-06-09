@@ -43,9 +43,24 @@ main{
   }
 
 
+/* getting the netflix sans font bold */
+@font-face {
+    font-family: 'Netflix Sans Bold';
+    src: url('./styling/netflix-sans-font/NetflixSans-Bold.otf') format('truetype');
+  }
 
 
 
+  body{
+    background-color: black;
+  }
+
+
+/* To style the header on the index user page */
+.indexUserPageHeader{
+    color:white;
+    font-family: 'Netflix Sans Bold';
+}
 
 
 

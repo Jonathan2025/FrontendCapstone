@@ -2,6 +2,7 @@
     width:200px;
     height:250px;
     transition: transform 1s;
+    border-radius: 10px;
 }
 
 .infinitePhotoSlider{
@@ -27,6 +28,7 @@
     align-items: center;
     padding: 10px;
     perspective: 100px;
+    
 }
 
 /* Allow the photos to pop out  */
