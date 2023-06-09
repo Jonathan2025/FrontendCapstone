@@ -16,10 +16,6 @@ const PostMediaContainer = (props) => {
                 // Check the file extension and render the appropriate media tag
                 (correctedMediaUrlLower.endsWith('.png') || correctedMediaUrlLower.endsWith('.jpg') || correctedMediaUrlLower.endsWith('.jpeg')) ? (
                     <img className ="mediaSource profilePic" src={correctedMediaUrl} alt="Post Image" />
-                ) : correctedMediaUrlLower.endsWith('.mov') ? (
-                    <video className ="mediaSource" controls>
-                        <source src={correctedMediaUrl} type="video/quicktime" />
-                    </video>
                 ) : correctedMediaUrlLower.endsWith('.mp4') ? (
                     <video  className ="mediaSource" controls>
                         <source src={correctedMediaUrl} type="video/mp4" />

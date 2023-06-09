@@ -1,5 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import PostMediaContainer from '../../components/Media/PostMediaContainer'
+import PreviewMediaContainer from '../../components/PostsIndex/VideoSlider/PreviewMediaContainer'
 
 const IndexPost = (props) => {
 
@@ -14,6 +16,9 @@ const IndexPost = (props) => {
                 <Link to={`/api/posts/${post.id}`}>
                   <h2>{post.title}</h2>
                 </Link>
+
+                {/* <PostMediaContainer className="mediaContainer" uploadFile={post.upload} /> */}
+                <PreviewMediaContainer uploadFile={post.upload}/>
               </div>
             ))}
           </div>

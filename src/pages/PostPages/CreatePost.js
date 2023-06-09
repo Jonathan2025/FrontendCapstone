@@ -133,7 +133,7 @@ const CreatePost = (props) => {
                           type="file"
                           name="upload"
                           placeholder="File Upload"
-                          accept=".jpg, .jpeg, .png, .mov, .mp4"
+                          accept=".jpg, .jpeg, .png, .mp4"
                           onChange={handleChange}
                           required
                           />
