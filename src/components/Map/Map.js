@@ -1,16 +1,22 @@
-import 'ol/ol.css';
-import Map from 'ol/Map';
-import View from 'ol/View';
-import { Tile as TileLayer } from 'ol/layer';
-import OSM from 'ol/source/OSM';
+import 'ol/ol.css'
+import Map from 'ol/Map'
+import View from 'ol/View'
+import { Tile as TileLayer} from 'ol/layer'
+import OSM from 'ol/source/OSM'
 import { fromLonLat } from 'ol/proj'
-import { useEffect } from 'react';
+import { useEffect } from 'react'
+
+import Feature from 'ol/Feature'
+import Point from 'ol/geom/Point'
+import VectorLayer from 'ol/layer/Vector'
+import VectorSource from 'ol/source/Vector'
+
+import Icon from 'ol/style/Icon'
+import Style from 'ol/style/Style'
+
 
 const OpenLayerMap = (props) => {
-    
-    console.log("Im printing this ", props)
-
-
+  
     const geocodeAddress = async(address, city, state, zip) =>{
         const query = `${address}, ${city}, ${state}, ${zip}`
         console.log("Query", query)
@@ -31,8 +37,6 @@ const OpenLayerMap = (props) => {
         return null
     }
 
-
-
     const initializeMap = async () => {
         try {
           const coordinates = await geocodeAddress(
@@ -43,17 +47,50 @@ const OpenLayerMap = (props) => {
           );
       
           const map = new Map({
-            target: "map",
-            layers: [
+            target: "map", // target will be the map div we created below
+            layers: [ //using openStreetMaps we create a single tile later
               new TileLayer({
                 source: new OSM(),
               }),
             ],
-            view: new View({
+            view: new View({ // from the coordinates we create the view
               center: fromLonLat(coordinates),
               zoom: 18,
             }),
           })
+
+
+          // Here we will add a deafault marker of the location,
+          // 1) we apply a style to the marker with the following attributes like src and size
+          const markerStyle = new Style({
+            image: new Icon({
+              src: 'https://docs.maptiler.com/openlayers/default-marker/marker-icon.png', // We found the default icon to use
+              imgSize: [25, 41],
+              anchor: [0.5, 1],
+            }),
+          })
+
+          // 2) We add a geographical feature on the map using the cordinates
+          const marker = new Feature({
+            geometry: new Point(fromLonLat(coordinates)),
+          })
+
+          // 3) We set the style of the marker to be markerstyle
+          marker.setStyle(markerStyle)
+
+          // 4) in openLayers, vector features are points, lines etc that can be displayed on a map, 
+          // vectorSource is a class responsible for storing and managing vector features
+          const vectorSource = new VectorSource({
+            features: [marker],
+          });
+          
+          // 5) the vector features can be styled and displayed on a map using a VectorLayer
+          const vectorLayer = new VectorLayer({
+            source: vectorSource,
+          });
+          
+          // 6) Now we add this to the map we have built earlier
+          map.addLayer(vectorLayer)
 
         } catch (error) {
             document.getElementById('map').innerHTML = `<p>${error.message}</p>`;
@@ -70,7 +107,7 @@ const OpenLayerMap = (props) => {
   return (
    
       <div style={{ display: 'flex', justifyContent: 'center' }}>
-        <div id="map" style={{ height: '210px', width: '400px' }}></div>
+        <div id="map" style={{ height: '300px', width: '500px' }}></div>
     </div>
    
   )

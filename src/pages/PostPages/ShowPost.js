@@ -13,10 +13,6 @@ const ShowPost = (props) => {
     const posts = props.posts
     const post = posts.find((p) => p.id == id)
     
-    console.log(post)
-    console.log(user)
-
-
     const editForm = (e) => {
         navigate(`/api/posts/${post.id}/update`, {state:{post}}) // now when we access the edit form we want to pass the specific post that is being edited
     }
@@ -27,7 +23,6 @@ const ShowPost = (props) => {
         props.deletePost(post.id);
         navigate("/api/posts");
     }
-
 
     return (
         <div>

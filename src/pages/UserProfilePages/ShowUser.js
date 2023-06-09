@@ -43,33 +43,32 @@ const ShowUserProfile = (props) => {
                     <MediaContainer uploadFile={userProfile.picture}/>
                 </div>
                 <div className="userProfileInfo col s12 m5">
-                    <h4>{userProfile.first_name + ' ' + userProfile.last_name}</h4>
+                    <div className="userProfileHeaderDiv">
+                        <h4 className="showUserFullName">{userProfile.first_name + ' ' + userProfile.last_name}</h4>
+                    </div>
+
+                    
                     <h5>Username: {userProfile.username}</h5>
                     <h5>Rank: {userProfile.beltLevel}</h5>
                     <h5>Martial Art: {userProfile.martialArt}</h5>
+                    <div className="userBioDiv"> 
+                        <h5 className="userBioHeader">Biography:</h5>
+                        <p className="userProfileDesc"> {userProfile.userDesc}</p>
+                    </div>
+
+                    <div className="userInstitutionInfo">
+                        <h4 className="userInstitutionHeader">Main Training Institution</h4>
+                        <h5>{userProfile.address}</h5>
+                        <h5>{userProfile.city + ', ' + userProfile.state + ' ' + userProfile.zip_code}</h5>
+                    </div>
+                    
                 </div>
             </div>
 
-            <div className="userbio row">
-                    <h5>User Biography</h5>
-                    <p className="userProfileDesc"> {userProfile.userDesc}</p>
-            </div>
+          
 
             <div className="row ">
-
-                <div className="userLocationInfo col s12 m5">
-                    <h3>Main Training Institution</h3>
-                    <h5>{userProfile.address}</h5>
-                    <h5>{userProfile.city + ', ' + userProfile.state + ' ' + userProfile.zip_code}</h5>
-                   
-                    <h5>{userProfile.zip_code}</h5>
-                </div>
-
-                <div className=" col s12 m6">
-                    <OpenLayerMap address={userProfile.address} city={userProfile.city} state={userProfile.state} zip={userProfile.zip_code}/>
-                </div>
-
-               
+                <OpenLayerMap address={userProfile.address} city={userProfile.city} state={userProfile.state} zip={userProfile.zip_code}/>
             </div>
 
 

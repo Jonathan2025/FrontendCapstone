@@ -11,12 +11,6 @@
 
 
 
-.userbio{
-    text-align: center;
-}
-
-
-
 .showProfilePage{
     background-image: url('https://png.pngtree.com/background/20210711/original/pngtree-paper-cut-kung-fu-budo-chinese-martial-arts-poster-picture-image_1126036.jpg');
     border-radius: 5%;
@@ -24,19 +18,19 @@
     background-position: center;
 }
 
-
-
-.userbio{
-    padding: 10px;
-    margin: 0px 7rem 25px 7rem;
-    border-radius: 20px;
-    background-color: rgba(0, 0, 0, 0.6);
-    text-align: center;
-
-   
+.showUserFullName{
+    display: inline;
+    border-bottom: 3px solid red;
 }
 
+.userProfileHeaderDiv{
+    text-align: center;
+}
 
+.userInstitutionHeader{
+    display: inline;
+    border-bottom: 2px solid red;
+}
 
 .userProfileInfo{
     margin-top: 25px;
@@ -45,14 +39,11 @@
     padding: 2rem !important;
   
  }
-
- .userLocationInfo{
-    border-radius: 20px;
-    background-color: rgba(0, 0, 0, 0.6);
+.userInstitutionInfo{
     text-align: center;
-    padding: 2rem !important;
-    margin-left: 7rem !important;
- }
+}
+
+
 
  .editDltButtonsUserProfile{
     text-align: center;
