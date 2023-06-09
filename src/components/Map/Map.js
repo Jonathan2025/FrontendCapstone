@@ -82,20 +82,20 @@ const OpenLayerMap = (props) => {
           // vectorSource is a class responsible for storing and managing vector features
           const vectorSource = new VectorSource({
             features: [marker],
-          });
+          })
           
           // 5) the vector features can be styled and displayed on a map using a VectorLayer
           const vectorLayer = new VectorLayer({
             source: vectorSource,
-          });
+          })
           
           // 6) Now we add this to the map we have built earlier
           map.addLayer(vectorLayer)
 
         } catch (error) {
-            document.getElementById('map').innerHTML = `<p>${error.message}</p>`;
+            document.getElementById('map').innerHTML = `<p>${error.message}</p>`
           }
-        };
+        }
 
     useEffect(()=> { 
         initializeMap()
