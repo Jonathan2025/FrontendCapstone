@@ -2,6 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import PostMediaContainer from '../../components/Media/PostMediaContainer'
 import PreviewMediaContainer from '../../components/PostsIndex/VideoSlider/PreviewMediaContainer'
+import VideoSlider from '../../components/PostsIndex/VideoSlider/VideoSlider'
+
 
 const IndexPost = (props) => {
 
@@ -9,19 +11,22 @@ const IndexPost = (props) => {
     const loaded = () => {
         return (
           
-          <div className="containerIndex">
-            <Link to="/api/posts/create">Create</Link>
-            {props.posts.map((post) => (
-              <div key={post.id}>
-                <Link to={`/api/posts/${post.id}`}>
-                  <h2>{post.title}</h2>
-                </Link>
+          // <div className="containerIndex">
+          //   <Link to="/api/posts/create">Create</Link>
+          //   {props.posts.map((post) => (
+          //     <div key={post.id}>
+          //       <Link to={`/api/posts/${post.id}`}>
+          //         <h2>{post.title}</h2>
+          //       </Link>
 
-                {/* <PostMediaContainer className="mediaContainer" uploadFile={post.upload} /> */}
-                <PreviewMediaContainer uploadFile={post.upload}/>
-              </div>
-            ))}
-          </div>
+ 
+          //       <PreviewMediaContainer uploadFile={post.upload}/>
+          //     </div>
+          //   ))}
+          // </div>
+
+
+          <VideoSlider posts={props.posts} /> 
         )
       }
 
