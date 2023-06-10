@@ -42,10 +42,6 @@ const VideoSlider = (props) => {
         ]
     }
 
-
-
-
-
     const categorySet = new Set() // create a set where we can add all the PRESENT categories of the videos for each post
 
     props.posts.forEach((post) => {
@@ -53,8 +49,7 @@ const VideoSlider = (props) => {
         const trimmedString = categoryString.replace(/[\[\]']/g, '') // Remove square brackets and single quotes
         const categoryArray = trimmedString.split(',') // Now split the string by ,. This results in an ibject type, specifically an array 
 
-        console.log(categoryArray) // ['Basics', 'Tutorial']
-        
+        //console.log(categoryArray) // ['Basics', 'Tutorial']
         categoryArray.forEach((category) => {
             categorySet.add(category)
         })
@@ -62,8 +57,6 @@ const VideoSlider = (props) => {
 
     // turn the categorySet to an array 
     const uniqueCategories = Array.from(categorySet)
-    console.log("heres what we get back", uniqueCategories)
-
 
   return (
     <div> 
@@ -82,36 +75,14 @@ const VideoSlider = (props) => {
                                     <div className="postCard-bottom">
                                         <p className="indexPostTitle">{post.title}</p>
                                     </div>
-
                                 </Link>
-                            
-                            
-                            
                             </div>
-                            
-                            
-                        
                         ))
-                    
-                    
                     }
-
-
                 </Slider>
-
             </div>
-
-
-
-
-
         ))}
     </div>
-
-
-
-
-
   )
 }
 

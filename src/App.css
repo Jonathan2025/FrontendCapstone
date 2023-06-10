@@ -9,6 +9,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    /* Making the navbar sticky */
+    position: sticky; 
+    top: 0;
+    z-index: 2;
 }
 
 main{
@@ -65,4 +70,15 @@ main{
 
 
 
+/* .topVideoPreview{
+    height:500px;
+    
+} */
 
+/* 
+justifyContent: 'center', alignItems: 'center' */
+
+
+/* .topSectionComponent{
+    justify-content: 'center'
+} */
