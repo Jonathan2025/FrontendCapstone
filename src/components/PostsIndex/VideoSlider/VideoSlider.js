@@ -69,14 +69,28 @@ const VideoSlider = (props) => {
     <div> 
         {uniqueCategories.map((category) => (
             <div key={category}>    
-                <h4>{category}</h4>
+                <h4 className="postCategory">{category}</h4>
                 <Slider {...settings}>
                     {props.posts
                         .filter((post) => post.category.replace(/[\[\]']/g, '').split(',').includes(category)) // pretty much we take the post.category and clean it to an array. Now if a category is include it will be put under that slider 
-                        .map((post) => (
-                            <div>
-                                <PreviewMediaContainer uploadFile={post.upload}/>
+                        .map((post, index) => (
+                            <div key={index} className="postCard"> 
+                                <Link to={`/api/posts/${post.id}`} className="postCard-link">
+                                    <div className="postCard-top">
+                                        <PreviewMediaContainer className="carousel-item" uploadFile={post.upload}/>
+                                    </div>
+                                    <div className="postCard-bottom">
+                                        <p className="indexPostTitle">{post.title}</p>
+                                    </div>
+
+                                </Link>
+                            
+                            
+                            
                             </div>
+                            
+                            
+                        
                         ))
                     
                     

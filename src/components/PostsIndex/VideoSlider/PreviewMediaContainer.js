@@ -13,7 +13,7 @@ const PreviewMediaContainer = (props) => {
     {uploadFile && (
         // Check the file extension and render the appropriate media tag
         (correctedMediaUrlLower.endsWith('.png') || correctedMediaUrlLower.endsWith('.jpg') || correctedMediaUrlLower.endsWith('.jpeg')) ? (
-            <img className ="mediaSource profilePic" src={correctedMediaUrl} alt="Post Image" />
+            <img className ="indexPostImg" src={correctedMediaUrl} alt="Post Image" />
 
         ) : correctedMediaUrlLower.endsWith('.mp4') ? (
 
