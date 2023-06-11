@@ -1,26 +1,51 @@
-/* .content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
-    text-align: center;
-    color: white;
-  } */
 
+  /* styling of the banner and its content */
+.banner_contents {
+  color:white;
+  position: absolute;
+  padding: 10px;
+  border-radius: 5px;
+  /* Content on the bottom left corner no matter how large screen is */
+  bottom: 20%;
+  left: 5%;
+  z-index: 1;
+  text-align: center;
+ 
+}
 
-  .pausedOverlay {
-    position: relative;
-    width: 100%;
-    height: 100%;
-  }
-  
-  .content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
-    text-align: center;
-    color: white;
-  }
+.banner_play_button, .banner_info_button{
+    cursor: pointer;
+    outline: none;
+    border:none;
+    font-weight: 700;
+    border-radius: 0.2vw;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    margin-right: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.playIcon, .infoIcon{
+  margin-right: 5px;  
+}
+
+.infoIcon{
+  font-size: 20px;
+}
+
+.banner_play_button{
+  cursor: pointer;
+  background-color: white;
+  color: black;
+}
+
+.banner_info_button{
+  color: white;  
+  background-color: rgba(51, 51, 51, 0.7);
+}
+
+.banner_logo{
+  width: 300px;
+  height: auto;
+}
