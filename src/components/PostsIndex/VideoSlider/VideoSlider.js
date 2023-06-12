@@ -46,7 +46,7 @@ const VideoSlider = (props) => {
 
     props.posts.forEach((post) => {
         const categoryString = post.category // the category is actually a string of values so we need to convert it to an array
-        const trimmedString = categoryString.replace(/[\[\]']/g, '') // Remove square brackets and single quotes
+        const trimmedString = categoryString.replace(/[\[\]']/g, '').replace(/"/g, '') // Remove square brackets and single quotes
         const categoryArray = trimmedString.split(',') // Now split the string by ,. This results in an ibject type, specifically an array 
 
         //console.log(categoryArray) // ['Basics', 'Tutorial']

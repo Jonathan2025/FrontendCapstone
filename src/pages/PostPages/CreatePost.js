@@ -24,7 +24,7 @@ const CreatePost = (props) => {
         username: user.username
     })
 
-    const [category, setCategory] = useState(["Self Defense", "Basics", "Training", "Tutorial", "Beginner", "Intermediate","Advanced", "Jonathan's Originals", "Sparring", "Competition", "Comedy", "Blockbuster", "Thriller" ])
+    const [category, setCategory] = useState(["Self Defense", "Basics", "Training", "Tutorial", "Beginner", "Intermediate","Advanced", "Jonathan Originals", "Sparring", "Competition", "Comedy", "Blockbuster", "Thriller" ])
     
     const handleCategorySelect = (selectedCategory) => {
       setNewForm({ ...newForm, category: selectedCategory });
