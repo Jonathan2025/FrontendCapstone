@@ -5,12 +5,12 @@ import NavBar from './NavBar/NavBar'
 import NavBarSignedOut from './NavBar/NavBarSignedOut'
 
 const Header = () => {
-  // here we can use the user and logoutuser from AuthContext
-  let {user, logoutUser} = useContext(AuthContext)
+  
+  let {user} = useContext(AuthContext) // here we can use the user and logoutuser from AuthContext
   return (
     <div className='navBar'>
       {!user ? (
-        // If we don't have a user, then they need to login or register
+        // If we don't have a user they will have the signedout version of the nav bar with limited functionality
         <NavBarSignedOut />
       ) : (
         <NavBar />

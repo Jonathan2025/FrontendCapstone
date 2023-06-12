@@ -37,8 +37,11 @@ main{
 }
 
 .navBarDropdown{
-    padding: 20px;
+    padding: 10px;
 }
+
+
+
 
 /* getting the netflix sans font */
 @font-face {

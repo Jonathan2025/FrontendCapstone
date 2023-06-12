@@ -1,7 +1,3 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import PostMediaContainer from '../../components/Media/PostMediaContainer'
-import PreviewMediaContainer from '../../components/PostsIndex/VideoSlider/PreviewMediaContainer'
 import VideoSlider from '../../components/PostsIndex/VideoSlider/VideoSlider'
 import TopSection from '../../components/PostsIndex/TopSection/TopSection'
 
@@ -14,8 +10,6 @@ const IndexPost = (props) => {
           <>
        
             <TopSection className='topSectionComponent'/>
-       
-            
             <VideoSlider posts={props.posts} /> 
           </>
         )
