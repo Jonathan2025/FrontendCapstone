@@ -49,3 +49,14 @@
   width: 300px;
   height: auto;
 }
+
+
+
+.accordion{
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 350px;
+  max-height: auto;
+  padding: 10px;
+}
+
+

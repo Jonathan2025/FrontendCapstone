@@ -5,10 +5,24 @@ import "./TopSection.css"
 import { FaPlay } from 'react-icons/fa'
 import { FiInfo } from 'react-icons/fi'
 import warriorLogo from '../../../styling/Images/Cinemax_Warrior.webp'
+import { useState } from 'react'
 
 const TopSection = () => {
+  //open full trailer on youtube
+  const playTrailer = () => {
+    window.open(TopSectionData[0].link, '_blank');
+  }
+  
+
+  const [accordionOpen, setAccordionOpen] = useState(false);
+
+  const toggleAccordion = () => {
+    setAccordionOpen(!accordionOpen);
+  }
+
 
   return (
+    <>
   <LazyLoad once className="topVideoContainer">
     <div style={{ position: 'relative' }}>
       <HoverVideoPlayer
@@ -21,6 +35,7 @@ const TopSection = () => {
         // When video isnt playing, an image will be shown (pausedOverLay)
         pausedOverlay={
           <div className="pausedOverlay">
+
             <img
               className='topVideoImage'
               src={TopSectionData[0].image}
@@ -44,16 +59,37 @@ const TopSection = () => {
           <div className="banner_contents">
             <img src={warriorLogo} alt="Warrior Logo" className="banner_logo" />
             <div className="banner_buttons"> 
-              <button className="banner_play_button">
+              <button className="banner_play_button" onClick={playTrailer}>
                 <FaPlay className='playIcon'/> Play
               </button>
-              <button className="banner_info_button">
-                <FiInfo className='infoIcon' /> Info
+             
+              <button className="banner_info_button" onClick={toggleAccordion}>
+                <FiInfo className='infoIcon' /> More Info
               </button>
-            </div>
+
+
+              {/* This will be the accordian that holds the description */}
+              {accordionOpen && (
+                <div className="accordion">
+              
+                  {TopSectionData[0].desc}
+                </div>
+              )}
+
+            </div>  
+            
+           
           </div>
         </div>
       </LazyLoad>
+    
+
+
+
+     
+
+
+    </>
   )
 }
 
