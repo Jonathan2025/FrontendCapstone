@@ -10,7 +10,6 @@
   left: 5%;
   z-index: 1;
   text-align: center;
- 
 }
 
 .banner_play_button, .banner_info_button{
@@ -49,8 +48,6 @@
   width: 300px;
   height: auto;
 }
-
-
 
 .accordion{
   background-color: rgba(0, 0, 0, 0.5);

@@ -71,7 +71,6 @@ const TopSection = () => {
               {/* This will be the accordian that holds the description */}
               {accordionOpen && (
                 <div className="accordion">
-              
                   {TopSectionData[0].desc}
                 </div>
               )}

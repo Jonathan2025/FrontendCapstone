@@ -44,8 +44,7 @@ export const AuthProvider = ({children}) => {
             localStorage.setItem('authTokens', JSON.stringify(data))
             navigate('api/home')
         } else {
-            alert('Something went wrong with your login')
-            console.error('Login failed, its Possible that you dont have an account registered');
+            alert('Password and/or username are incorrect. Please try again')
         }
     }
 

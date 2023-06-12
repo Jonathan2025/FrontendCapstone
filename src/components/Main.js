@@ -242,14 +242,15 @@ const Main = (props) => {
             // if the response is good then we will get the data
             if(response.ok){
                 let data = await response.json()
-                console.log("You have been registered!")
-            // else if there is a problem we want to see the error
+                alert("You have been registered! You can now login")
+            // else - from our testing, the error will most likely be that the username or email is taken 
             } else {
                 console.error('Error', response.status)
-                console.log(response)
+                alert("The attempted username or email is already taken. Please re-register with a different one")
             }
         } catch (error){
             console.log("The error is: ", error)
+            alert("Error:", error)
         }
     }
 
