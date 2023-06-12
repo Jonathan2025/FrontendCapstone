@@ -28,7 +28,7 @@ const Comment = ({comment, userId, username, affectedComment, setAffectedComment
                     <div className="commentImageAndUser">
                     {/* Now this is where the comment will be displayed and we pass in the user who made the comment */}
                     <img
-                        src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png"
+                        src="https://ih1.redbubble.net/image.618427277.3222/flat,800x800,075,f.u2.jpg"
                         alt="user profile" 
                         className="commentUserImg"
                         style={{ width: '4rem', height: 'auto' }}

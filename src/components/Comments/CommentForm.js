@@ -1,5 +1,4 @@
-import React from 'react'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import"../../styling/CSS/posts/ShowPost.css" 
 
 // Here is the commentForm that takes parameters btnLabel and the handlers
@@ -15,6 +14,7 @@ const CommentForm = ({
         e.preventDefault()
         formSubmitHandler(value)
         setValue("")
+        window.location.reload()
     }
 
     return(

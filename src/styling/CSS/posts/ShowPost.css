@@ -21,7 +21,7 @@
 .postUserImg{
     height: auto;
     width: 4rem;
-    border-radius: 50%;
+    border-radius: 5%;
 }
 
 .showPostInformation{
@@ -29,11 +29,13 @@
     margin: 0px 0.5rem 25px 0.5rem;
     border-radius: 20px;
     text-align: left;
-    background-color: 	#E5E4E2;
+    border: 2px solid #007FFF;
+    
 }
 
 .mediaSource{
-    width: 700px;
+    /* width: 700px; */
+    width: auto;
     height: 550px;
     object-fit: fill;
     padding: 5px;
@@ -48,10 +50,11 @@
 }
 
 .showPostPage{
-    background-color: white;
+    background-color: black;
     border-radius: 3%;
     text-align: center;
     width: 75%;
+    color:white;
 }
 
 .showPostMedia{
@@ -74,6 +77,7 @@
     border-radius: 5px;
     background-color: white;
     padding: 5px;
+    color:black;
 }
 
 .commentSubmitBtnDiv{
@@ -108,7 +112,7 @@
   }
 
   .commentUserImg{
-    border-radius: 50%;
+    border-radius: 5%;
   }
 
   .commentBtns > * {

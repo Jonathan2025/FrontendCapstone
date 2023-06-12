@@ -41,17 +41,15 @@ const ShowPost = (props) => {
             <div className ="showPostInformation">
                <div className = "showPostUser row">
                 <img
-                    src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png"
+                    src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png"
                     alt="user profile" 
                     className="postUserImg"
                     />
                 <h4 className="postUser">{post.username}</h4>
                </div>
-
-                
-                <p>Category: {post.category}</p>
-                <p>{post.postDesc}</p>
                 <p>Posted: {new Date(post.created).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</p>
+                <p>{post.postDesc}</p>
+                
                 </div>
 
                 <div className="editDltButtons">
