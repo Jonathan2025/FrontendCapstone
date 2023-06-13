@@ -41,6 +41,39 @@ main{
 }
 
 
+/* styling for the hamburger menu */
+.hamburgerButton{
+    display:none;
+}
+
+/* this is for the mobile nav bar when the screen gets smaller */
+@media (max-width:700px) {
+    .hamburgerButton{
+        display: flex;
+    }
+
+    .navbar-links{
+        display:none;
+        width: 100%;
+    }
+
+    .navbar-links ul{
+        width: 100% ;
+        flex-direction: column ;
+    }
+    
+    .navbar-links li{
+        text-align: center ;
+        flex-direction: column ;
+        width: 100% ;
+        background-color: rgba(0,0,0,0.95);
+        padding: 0rem;
+    }
+
+    .navbar-links.active{
+        display: flex;
+    }
+}
 
 
 /* getting the netflix sans font */
