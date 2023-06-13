@@ -1,10 +1,10 @@
-import {useContext, useEffect} from 'react'
+import {useContext, useEffect, useState} from 'react'
 import AuthContext from '../../context/AuthContext'
 import { Link } from 'react-router-dom'
 import logo from "../../styling/Images/newlogo.png"
 import M from 'materialize-css'
-import { MdLogout, MdCreate, MdOutlineAccountBox } from 'react-icons/md'
-
+import { MdLogout, MdCreate, MdOutlineAccountBox, MdHome, MdUpload, MdVideoLibrary } from 'react-icons/md'
+import {FaUsers} from 'react-icons/fa'
 const NavBar = () => {
     let {user, logoutUser} = useContext(AuthContext)
     
@@ -18,23 +18,15 @@ const NavBar = () => {
           })
         }, [])
       
-      useEffect(() => {
-        const toggleHamburger = document.getElementsByClassName('hamburgerButton')[0]
-        const navBarLinks = document.getElementsByClassName('navbar-links')[0]
-        
-        //Handle click function that will toggle the navbarlinks to active 
-        const handleClick = () => {
-          navBarLinks.classList.toggle('active')
-        }
-    
-        toggleHamburger.addEventListener('click', handleClick) // When the toggle hamburger btn is clicked, handle click fucntion will be executed
-        
-        // Now remove the event listener. this is not directly responsible for closing the nav bar but its generally good practice to 
-        // have a clean up function to clear the event listeners
-        return () => {
-          toggleHamburger.removeEventListener('click', handleClick)
-        }
-      }, [])
+        // Handling of the mobile and regular nav bar links
+      const [isActive, setIsActive] = useState(false)
+
+      const handleClick = () => {
+        setIsActive(!isActive)
+      }
+
+
+
 
   return (
     <>
@@ -55,11 +47,30 @@ const NavBar = () => {
       <nav className="nav-wraper mainNavBar">
               <Link to="/api/home"><img className="logo left" src={logo} alt="Logo"/></Link>
       
-              <a className="hamburgerButton right" href="#!"  data-target="slide-out">
+            
+              <a className={`hamburgerButton right ${isActive ? "active" : ""}`} onClick={handleClick}>
                   <i className="material-icons">menu</i>
               </a>
-
-              <div className='navbar-links right'>
+              
+                  {/* Here will be the side nav bar for smaller screens */}
+                  <div className={`mobileNavbar-links right ${isActive ? "active" : ""}`}>
+                    <ul>
+                    <li><a href="#!"><MdOutlineAccountBox/>{user.username}</a></li>
+                    <li><Link to="/api/home"> <MdHome /> Home</Link></li>
+                    <li><Link to="/api/posts/create"> <MdUpload /> Upload</Link></li>
+                    <li><Link to="/api/posts"> <MdVideoLibrary /> Posts</Link></li>
+                    <li><Link to="/api/userProfiles"> <FaUsers/> Users</Link></li>
+                    <li>
+                      <a href="/api/login" onClick={logoutUser}>
+                        <MdLogout /> Logout
+                      </a>
+                    </li>
+                    <li><Link to="/api/userProfiles/create"><MdCreate /> Create Profile</Link></li>
+                  </ul>
+                  </div>
+        
+              {/* <div className={`navbar-links right ${isActive ? "active" : ""}`}> */}
+              <div className="navbar-links right">
               <ul>
                   <li><Link to="/api/home">Home</Link></li>
                   <li><Link to="/api/posts/create">Upload</Link></li>
@@ -81,20 +92,7 @@ const NavBar = () => {
 
 
 
-          {/* Here will be the side nav bar for smaller screens */}
-          {/* <ul className="sidenav right-align" id="slide-out" >
-            <li><a href="#!"><MdOutlineAccountBox/>{user.username}</a></li>
-            <li><Link to="/api/home">Home</Link></li>
-            <li><Link to="/api/posts/create">Upload</Link></li>
-            <li><Link to="/api/posts">Posts</Link></li>
-            <li><Link to="/api/userProfiles">Users</Link></li>
-            <li>
-              <a href="/api/login" onClick={logoutUser}>
-                <MdLogout /> Logout
-              </a>
-            </li>
-            <li><Link to="/api/userProfiles/create"><MdCreate /> Create Profile</Link></li>
-          </ul> */}
+      
     </>
   )
 }

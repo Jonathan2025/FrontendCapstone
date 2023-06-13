@@ -38,6 +38,7 @@ main{
 
 .navBarDropdown{
     padding: 10px;
+    text-align: center;
 }
 
 
@@ -46,23 +47,33 @@ main{
     display:none;
 }
 
+/* initially we dont want the mobile nav bar to show if the screen is large */
+.mobileNavbar-links{
+    display:none;
+    
+}
+
 /* this is for the mobile nav bar when the screen gets smaller */
 @media (max-width:700px) {
     .hamburgerButton{
         display: flex;
     }
-
-    .navbar-links{
+   
+    .mobileNavbar-links{
         display:none;
         width: 100%;
     }
 
-    .navbar-links ul{
+    .mobileNavbar-links ul{
         width: 100% ;
         flex-direction: column ;
     }
+
+    .navbar-links{
+        display:none;
+    }
     
-    .navbar-links li{
+    .mobileNavbar-links li{
         text-align: center ;
         flex-direction: column ;
         width: 100% ;
@@ -70,7 +81,7 @@ main{
         padding: 0rem;
     }
 
-    .navbar-links.active{
+    .mobileNavbar-links.active{
         display: flex;
     }
 }
