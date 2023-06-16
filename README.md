@@ -1,7 +1,7 @@
 # KICKFLIX
 
 # Link To App
-https://jxfunds.netlify.app/
+https://kickflix.netlify.app/api/home
 
 ## Description
 Want to learn martial arts but dont know where to start? Are you looking to regain your passion and get motivated? Kickflix is the premier martial arts app where users can watch tutorial videos on how to kick, punch, and learn self-defense. Additionally, users can showcase their skills by uploading their own pictures and videos. Want feedback and motivation? With your videos, users can post comments providing you feedback improving your technique and compliment you on a job well done. You can even create your own user profile so users can learn more about you, your story, and learn about the martial arts school that you train with. Everyone has a story and skills to share whether they are just a beginner or a veteran in Martial Arts. So what are you waiting for? Start kicking it today!
