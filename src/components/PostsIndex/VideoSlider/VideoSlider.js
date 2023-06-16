@@ -51,12 +51,14 @@ const VideoSlider = (props) => {
 
         //console.log(categoryArray) // ['Basics', 'Tutorial']
         categoryArray.forEach((category) => {
-            categorySet.add(category)
+          const trimmedCategory = category.trim() // trim off the leading whitespaces 
+            categorySet.add(trimmedCategory)
         })
     })
 
     // turn the categorySet to an array 
     const uniqueCategories = Array.from(categorySet)
+  
 
   return (
     <div> 
@@ -65,7 +67,7 @@ const VideoSlider = (props) => {
                 <h4 className="postCategory">{category}</h4>
                 <Slider {...settings}>
                     {props.posts
-                        .filter((post) => post.category.replace(/[\[\]']/g, '').split(',').includes(category)) // pretty much we take the post.category and clean it to an array. Now if a category is include it will be put under that slider 
+                        .filter((post) => post.category.replace(/[\[\]']/g, '').replace(/"/g, '').includes(category)) // pretty much we take the post.category and clean it to an array. Now if a category is include it will be put under that slider 
                         .map((post, index) => (
                             <div key={index} className="postCard"> 
                                 <Link to={`/api/posts/${post.id}`} className="postCard-link">
