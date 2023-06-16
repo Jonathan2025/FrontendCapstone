@@ -1,6 +1,5 @@
 import HoverVideoPlayer from 'react-hover-video-player'
 import {TopSectionData} from "./TopSectionData"
-import LazyLoad from "react-lazyload"
 import "./TopSection.css"
 import { FaPlay } from 'react-icons/fa'
 import { FiInfo } from 'react-icons/fi'
@@ -23,7 +22,7 @@ const TopSection = () => {
 
   return (
     <>
-  <LazyLoad once className="topVideoContainer">
+  
     <div style={{ position: 'relative' }}>
       <HoverVideoPlayer
         className="topVideoPreview"
@@ -80,14 +79,8 @@ const TopSection = () => {
            
           </div>
         </div>
-      </LazyLoad>
+
     
-
-
-
-     
-
-
     </>
   )
 }
