@@ -1,70 +1,66 @@
-# Getting Started with Create React App
+# KICKFLIX
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Link To App
+https://jxfunds.netlify.app/
 
-## Available Scripts
+## Description
+Want to learn martial arts but dont know where to start? Are you looking to regain your passion and get motivated? Kickflix is the premier martial arts app where users can watch tutorial videos on how to kick, punch, and learn self-defense. Additionally, users can showcase their skills by uploading their own pictures and videos. Want feedback and motivation? With your videos, users can post comments providing you feedback improving your technique and compliment you on a job well done. You can even create your own user profile so users can learn more about you, your story, and learn about the martial arts school that you train with. Everyone has a story and skills to share whether they are just a beginner or a veteran in Martial Arts. So what are you waiting for? Start kicking it today!
 
-In the project directory, you can run:
 
-### `npm start`
+## Photos
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Wireframes
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Technologies Used
+* JavaScript
+* Python 
+* Django 
+* Javascript 
+* React JS
+* CSS
+* HTML
+* Microsoft Azure 
+* PostgreSQL
+* SQL
+* Materialize CSS
+* JWT Web Tokens (Authentication)
+* Heroku (Backend)
+* Netlify(Frontend)
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## User Stories
+* As a user, I want to be able to post my video on a kick, demonstration, or anything to show off to other users
+* As a user, I want to be able to update my video post
+* As a user, I want to be able to be able to view other videos so that I can learn new techniques/ self defense
+* As a user, I want to be able to make a video post and describe who I am and where Im from so that users can all get different perspectives in martial arts
+* As a user, I want to be able to log in and have access to my videos and posts
+* As a user, I want to be able to make comments on videos so that I can share feedback and encouragement
+* As a user, when I view video post, I want to be able to see the location of a user's school/ training location on Open Layers Map, so I can meet more people in the Martial Arts Community
+* (STRETCH GOAL) As a user, I want to view the global curriculum for taekwondo so that I can learn the specific things needed to prepare me for my belt assessments
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### MVP Goals
+* Full CRUD functionality
+* Nav Bar 
+* Backend routes working
+* Ability to upload videos/pictures, with the help of Microsoft Azure
+* Front end that has the basic functionality that allows users to post videos and working CRUD functionality
+* Styling of the Frontend
+* Deployed backend
+* Deployed Frontend
+* Comment Section
 
-### `npm run eject`
+### Stretch Goals
+* Video Post Filtering Functionality
+* Curriculum section where those who are new to taekwondo can see a list of belt levels and the necessary curriculum needed to master to level up
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Website Link
+* Application Link - https://kickflix.netlify.app/api/home
+* Front End GitHub Repository - https://github.com/Jonathan2025/FrontendCapstone
+* Back End Github Repository - https://github.com/Jonathan2025/BackendCapstone
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
