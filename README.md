@@ -20,9 +20,9 @@ Want to learn martial arts but dont know where to start? Are you looking to rega
 
 ## Wireframes
 <div style="display:flex;justify-content:center;">
-  <img style="width:33%;height:200px;" alt="readme1" src="https://github.com/Jonathan2025/FrontendCapstone/assets/118234157/3e2e63af-cb2a-4d63-a31d-1b4cc8a293f6">
-  <img style="width:33%;height:200px;" alt="readme2" src="https://github.com/Jonathan2025/FrontendCapstone/assets/118234157/436f9412-b904-4d36-b8b5-8a58ae72d28c">
-  <img style="width:33%;height:200px;" alt="readme3" src="https://github.com/Jonathan2025/FrontendCapstone/assets/118234157/2f3d6ca5-c94b-4ddd-97b8-ff4c7cdb5c00">
+  <img style="width:33%;height:300px;" alt="readme1" src="https://github.com/Jonathan2025/FrontendCapstone/assets/118234157/3e2e63af-cb2a-4d63-a31d-1b4cc8a293f6">
+  <img style="width:33%;height:300px;" alt="readme2" src="https://github.com/Jonathan2025/FrontendCapstone/assets/118234157/436f9412-b904-4d36-b8b5-8a58ae72d28c">
+  <img style="width:33%;height:300px;" alt="readme3" src="https://github.com/Jonathan2025/FrontendCapstone/assets/118234157/2f3d6ca5-c94b-4ddd-97b8-ff4c7cdb5c00">
 </div>
 
 ## Technologies Used
