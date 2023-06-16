@@ -11,7 +11,7 @@ const Section2 = () => {
 
 
     <div className="col s12 m6 l6">
-        <img className='homeSectionsPhotos' src={devicesPhoto} />
+        <img className='homeSectionsPhotos' src={devicesPhoto} style={{ width: '30rem', height: 'auto' }} />
       </div>
     </div>
   )

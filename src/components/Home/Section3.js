@@ -11,7 +11,7 @@ const Section3 = () => {
 
 
     <div className="col s12 m6 l6">
-        <img className='homeSectionsPhotos' src="https://dl-file.cyberlink.com/web/upload-file/learning-center/enu/2023/1/Thumbnail_20230118164114461.jpg"/>
+        <img className='homeSectionsPhotos' src="https://dl-file.cyberlink.com/web/upload-file/learning-center/enu/2023/1/Thumbnail_20230118164114461.jpg" style={{ width: '30rem', height: 'auto' }}/>
       </div>
     </div>
   )

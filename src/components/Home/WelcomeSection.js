@@ -9,7 +9,7 @@ const WelcomeSection = () => {
             <h2 className="homeSectionParagraph">Welcome to KickFlix!</h2>
         </div>
         <div className="row">
-            <h4 className="homeSectionParagraph">The Martial Arts hub for beginners and advanced practicioners!</h4>
+            <h5 className="homeSectionParagraph">The martial arts app for everyone to learn, get motivated, and showcase their skills!</h5>
         </div>
         </div>
     </div>
