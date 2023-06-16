@@ -15,10 +15,7 @@ const ShowUserProfile = (props) => {
     const id = params.id
     const userProfiles = props.userProfiles
     const userProfile = userProfiles.find((u) => u.id == id)
-    console.log("this is the userprofile that we get back", userProfile)
-
- 
-
+   
     //linking edit btn to edit route
     const editForm = (e) => {
         navigate(`/api/userProfiles/${userProfile.id}/update`, {state:{userProfile}}) // now when we access the edit form we want to pass the specific userprofile that is being edited
@@ -27,8 +24,8 @@ const ShowUserProfile = (props) => {
     //handling for delete
     const removeUserProfile = (e) => {
         e.preventDefault()
-        props.deleteUserProfile(userProfile.id);
-        navigate("/api/userProfiles");
+        props.deleteUserProfile(userProfile.id)
+        navigate("/api/userProfiles")
     }
 
 

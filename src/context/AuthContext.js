@@ -48,8 +48,6 @@ export const AuthProvider = ({children}) => {
         }
     }
 
-
-
     // Now lets build a logout function
     let logoutUser = () => {
         setAuthTokens(null) // set the states back to null and then remove from localstorage the authtokens
@@ -57,8 +55,6 @@ export const AuthProvider = ({children}) => {
         localStorage.removeItem('authTokens')
         navigate('api/login')
     }
-
-
 
     // Update Token 
     let updateToken = async () => {
@@ -72,8 +68,9 @@ export const AuthProvider = ({children}) => {
                 body: JSON.stringify({
                     // IF authTokens is not there we dont want to get a refresh token we want to just want to log the user out 
                     'refresh':authTokens?.refresh, 
+                    
                 })
-            })
+            })  
 
             // if the response is good then we will update the AuthTokens, setUser and the localstorage
             if(response.ok){
@@ -112,16 +109,11 @@ export const AuthProvider = ({children}) => {
         return ()=> clearInterval(interval) // similar in what we did in unit one, we need to clear the interval else it will keep running infinitely
     }, [authTokens, loading])
     
-
-    
-
-
     const contextData = {
         user:user,
         loginUser:loginUser,
         logoutUser:logoutUser,
         authTokens: authTokens,
-
     }
 
     return (

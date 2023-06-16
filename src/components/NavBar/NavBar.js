@@ -5,6 +5,7 @@ import logo from "../../styling/Images/newlogo.png"
 import M from 'materialize-css'
 import { MdLogout, MdCreate, MdOutlineAccountBox, MdHome, MdUpload, MdVideoLibrary } from 'react-icons/md'
 import {FaUsers} from 'react-icons/fa'
+
 const NavBar = () => {
     let {user, logoutUser} = useContext(AuthContext)
     
@@ -24,8 +25,6 @@ const NavBar = () => {
       const handleClick = () => {
         setIsActive(!isActive)
       }
-
-
 
 
   return (
@@ -69,7 +68,7 @@ const NavBar = () => {
                   </ul>
                   </div>
         
-              {/* <div className={`navbar-links right ${isActive ? "active" : ""}`}> */}
+              {/* These are the regular nav bar links that will show on regular and large screens */}
               <div className="navbar-links right">
               <ul>
                   <li><Link to="/api/home">Home</Link></li>

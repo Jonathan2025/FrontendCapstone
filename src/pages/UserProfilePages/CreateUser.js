@@ -34,7 +34,7 @@ const CreateUserProfile = (props) => {
     const handleChange = (event) => {
         if (event.target.name === 'picture') {
           const selectedFile = event.target.files[0]
-          const fileSizeLimit = 10 * 1024 * 1024; // 10 MB in bytes
+          const fileSizeLimit = 10 * 1024 * 1024 // Generally Photos wont be that large so we set a 10mb size limit
          
           // File shouldnt be named as a file already uploaded, cant be more than 10 mb and shouldnt have any spaces. This is to avoid problems uploading files to azure in the backend
           if ((selectedFile.size > fileSizeLimit) || (selectedFile.name && selectedFile.name.includes(' ')) || (nameOfFilesUploaded.includes(selectedFile.name))){
@@ -52,14 +52,14 @@ const CreateUserProfile = (props) => {
             setNewForm({ ...newForm, [event.target.name]: selectedFile })
           }
         } else {
-          setNewForm({ ...newForm, [event.target.name]: event.target.value });
+          setNewForm({ ...newForm, [event.target.name]: event.target.value })
         }
       }
 
     // handle submit function for form
     const handleSubmit = (event) => {
         event.preventDefault();
-        props.createUserProfile(newForm);
+        props.createUserProfile(newForm)
         setNewForm({
             username: user.username,
             first_name: "",
@@ -187,11 +187,6 @@ const CreateUserProfile = (props) => {
                                 ></textarea>
                         </div>
                     </div>
-
-
-       
-                
-
 
                     <div className = "row" >
                         <div className = "createUserInputDiv input-field col s12 m6">

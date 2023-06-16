@@ -9,26 +9,20 @@ const EditUserProfile = (props) => {
     const location = useLocation()
     const userProfile = location.state.userProfile
     const navigate = useNavigate()
-
     const [editForm, setEditForm] = useState(userProfile)
-
-    console.log(userProfile)
-    console.log("this is edit form", editForm)
 
     const handleChange = (event) => {
         event.preventDefault()
         // whatever gets changed, we change it to event.target.value
-        setEditForm({ ...editForm, [event.target.name]: event.target.value });
+        setEditForm({ ...editForm, [event.target.name]: event.target.value })
     }
-
-  
 
     const handleSubmit = (event) => {
         event.preventDefault() 
         // updatePost takes 2 arguments: an object representing the edited form data and the id of the post being edited
         props.updateUserProfile(editForm, userProfile.id)
         // redirect people back to show page AFTER the user edits the information
-        navigate(`/api/userProfiles/${userProfile.id}`);
+        navigate(`/api/userProfiles/${userProfile.id}`)
     }
   
 

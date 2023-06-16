@@ -36,6 +36,7 @@ const Main = (props) => {
             })
             const data = await response.json()
             setPosts(data)
+            console.log(" did we get the post data?", data)
            
         } catch (error){
             console.log("There was an error getting the post data", error)
@@ -65,7 +66,12 @@ const Main = (props) => {
             },
           body: formData,
         })
-          .then((response) => response.json())
+          .then((response) => {
+            console.log("this is the response we get from creating post", response)
+            
+            
+            return response.json()
+          })
           .then((data) => {
             // Update list of posts
             getPosts()
@@ -76,6 +82,7 @@ const Main = (props) => {
       }
 
     const updatePost = async (post, id) => {
+        console.log("you have reached updatepost")
         const requestData = {
           title: post.title,
           category: post.category,
@@ -100,7 +107,7 @@ const Main = (props) => {
             getPosts()
           })
           .catch((error) => {
-            console.error('Error:', error)
+            console.error('This is the error in update post', error)
           })
       }
 
@@ -219,8 +226,12 @@ const Main = (props) => {
 
     // DELETE user profile - request to delete a user profile
     const deleteUserprofile = async (id) => {
+        console.log("this is the delete user")
         await fetch(userProfileURL + id + '/delete', {
             method: 'DELETE',
+            headers: {
+                'Authorization': `Bearer ${accessToken}`
+            },
         })
         //update list of posts
         getUserProfiles()

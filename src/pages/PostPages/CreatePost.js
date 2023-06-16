@@ -38,12 +38,12 @@ const CreatePost = (props) => {
     }
     
     const handleChange = (event) => {
-      console.log("hey there", newForm)
+      
       if (event.target.name === 'upload') {
         const selectedFile = event.target.files[0]
-        const fileSizeLimit = 100 * 1024 * 1024; // 100 MB in bytes
+        const fileSizeLimit = 15 * 1024 * 1024; // 15 MB Size Limit
        
-        // File shouldnt be named as a file already uploaded, cant be more than 100 mb and shouldnt have any spaces
+        // File shouldnt be named as a file already uploaded, cant be more than 15 mb and shouldnt have any spaces
         // This is to avoid problems uploading files to azure in the backend
         if ((selectedFile.size > fileSizeLimit) || (selectedFile.name && selectedFile.name.includes(' ')) || (nameOfFilesUploaded.includes(selectedFile.name))){
           if (selectedFile.size > fileSizeLimit) {
@@ -135,7 +135,7 @@ const CreatePost = (props) => {
                           placeholder="File Upload"
                           accept=".jpg, .jpeg, .png, .mp4"
                           onChange={handleChange}
-                          required
+                          // required
                           />
                       </div>
                     </div>

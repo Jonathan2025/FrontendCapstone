@@ -8,7 +8,6 @@ const IndexPost = (props) => {
     const loaded = () => {
         return (
           <>
-       
             <TopSection className='topSectionComponent'/>
             <VideoSlider posts={props.posts} /> 
           </>

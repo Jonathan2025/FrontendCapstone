@@ -1,7 +1,7 @@
 import InfiniteSlider from '../../components/UserProfilesIndex/InfiniteSlider/InfiniteSlider'
 import PictureSlider from '../../components/UserProfilesIndex/PictureSlider/PictureSlider'
 const IndexUserProfile = (props) => {
-
+  
     //loaded function
     const loaded = () => {
         return (
@@ -9,8 +9,6 @@ const IndexUserProfile = (props) => {
           <h3 className ="indexUserPageHeader">Meet Our Users</h3>
           <InfiniteSlider />
           <PictureSlider userProfiles={props.userProfiles} />
-
-    
           </>
         )
 
