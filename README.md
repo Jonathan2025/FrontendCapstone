@@ -6,6 +6,10 @@ https://kickflix.netlify.app/api/home
 ## Description
 Want to learn martial arts but dont know where to start? Are you looking to regain your passion and get motivated? Kickflix is the premier martial arts app where users can watch tutorial videos on how to kick, punch, and learn self-defense. Additionally, users can showcase their skills by uploading their own pictures and videos. Want feedback and motivation? With your videos, users can post comments providing you feedback improving your technique and compliment you on a job well done. You can even create your own user profile so users can learn more about you, your story, and learn about the martial arts school that you train with. Everyone has a story and skills to share whether they are just a beginner or a veteran in Martial Arts. So what are you waiting for? Start kicking it today!
 
+## Motivation Behind This Project
+There are a lot of people out there that want to try martial arts but are too afraid to because they are worried they may not be good enough. Or maybe they haven’t been active for a while because they lost motivation due to a busy life. Or they stopped because they felt like they were not learning anymore. I had all of those feelings at many times during my life. But this app changes that because it helps you realize you are not alone and there are many people out there just like you. By creating an app that allow  users to showcase their skills and/or to learn from others, it brings people closer together and motivates them to stay active and reignite their passion for martial arts. Additionally, this app helps practitioners improve upon their technique and continue to learn something new from other users. There are people out there that don’t have the skills you do but that doesn’t mean you are better than them, that just means you have the chance to showcase your skills and help them improve. On the other hand, there are people out there that are more skillful than you but that doesn’t mean you are worst than them, that just means you have the opportunity to learn from them and improve.
+For me personally, I practiced martials arts for a while and wanted to share what I mastered with others while also learning new kicks from others. Martial arts is not just some sport or activity, it’s a lifestyle and it's your time to live it!
+
 
 ## Photos
 <div style="display:flex;justify-content:center;">
@@ -65,11 +69,13 @@ Want to learn martial arts but dont know where to start? Are you looking to rega
 * Comment Section
 
 ### Stretch Goals
-* Video Post Filtering Functionality
-* Curriculum section where those who are new to taekwondo can see a list of belt levels and the necessary curriculum needed to master to level up
+* Video Post Filtering Functionality by Category
+* Likes feature on videos 
+* Curriculum section for different martial arts where those can see the necessary skills needed to level up and track their progress
 
 
-## Website Link
+
+## Website Links
 * Application Link - https://kickflix.netlify.app/api/home
 * Front End GitHub Repository - https://github.com/Jonathan2025/FrontendCapstone
 * Back End Github Repository - https://github.com/Jonathan2025/BackendCapstone
