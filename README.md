@@ -29,6 +29,8 @@ For me personally, I practiced martials arts for a while and wanted to share wha
   <img style="width:33%;height:300px;" alt="readme3" src="https://github.com/Jonathan2025/FrontendCapstone/assets/118234157/2f3d6ca5-c94b-4ddd-97b8-ff4c7cdb5c00">
 </div>
 
+
+
 ## Technologies Used
 * JavaScript
 * Python 
@@ -46,6 +48,7 @@ For me personally, I practiced martials arts for a while and wanted to share wha
 * Netlify(Frontend)
 
 
+
 ## User Stories
 * As a user, I want to be able to post my video on a kick, demonstration, or anything to show off to other users
 * As a user, I want to be able to update my video post
@@ -55,6 +58,8 @@ For me personally, I practiced martials arts for a while and wanted to share wha
 * As a user, I want to be able to make comments on videos so that I can share feedback and encouragement
 * As a user, when I view video post, I want to be able to see the location of a user's school/ training location on Open Layers Map, so I can meet more people in the Martial Arts Community
 * (STRETCH GOAL) As a user, I want to view the global curriculum for taekwondo so that I can learn the specific things needed to prepare me for my belt assessments
+
+
 
 
 ### MVP Goals
@@ -68,6 +73,8 @@ For me personally, I practiced martials arts for a while and wanted to share wha
 * Deployed Frontend
 * Comment Section
 
+
+
 ### Stretch Goals
 * Video Post Filtering Functionality by Category
 * Likes feature on videos 
@@ -80,5 +87,9 @@ For me personally, I practiced martials arts for a while and wanted to share wha
 * Front End GitHub Repository - https://github.com/Jonathan2025/FrontendCapstone
 * Back End Github Repository - https://github.com/Jonathan2025/BackendCapstone
 
+
+
+## Citations
+Taking some time to format my citations nicely !
 
 
