@@ -90,6 +90,5 @@ For me personally, I practiced martials arts for a while and wanted to share wha
 
 
 ## Citations
-Taking some time to format my citations nicely !
-
+[Capstone Citations.docx](https://github.com/Jonathan2025/FrontendCapstone/files/11781904/Capstone.Citations.docx)
 
