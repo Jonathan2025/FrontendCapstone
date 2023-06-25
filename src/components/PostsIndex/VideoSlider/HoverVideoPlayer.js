@@ -7,7 +7,7 @@ const HoverVideo = (props) => {
         <HoverVideoPlayer
             className = "videoPreview"
             videoSrc={props.videoUrl}
-            playbackRangeStart={2} // starts the video at 2.5 seconds
+            playbackRangeStart={2} // starts the video at 2 seconds
             playbackRangeEnd={5} // end the video at 5 seconds
             style={{ width: '100%', maxWidth: '100%' }}
         />
